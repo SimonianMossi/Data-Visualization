@@ -1,0 +1,56 @@
+*{
+    box-sizing: border-box;
+}
+
+.content{
+    
+    font-family: sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+h1{
+    margin: 10px;
+    text-align: center;
+}
+
+h2{
+    text-align: center;
+}
+.scrollytellingBox{
+    /*border: solid black;*/
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 800px;
+    height: 600px;
+    margin: 10px;
+    box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.3);
+    transform: translateX(400%);
+    transition: transform 0.4s ease;
+}
+
+.scrollytellingBox:nth-of-type(even){
+    transform: translateX(-400%);
+}
+
+
+.scrollytellingBox.show{
+    transform: translateX(0%);
+}
+
+.scrollytellingBox h2{
+    font-size: 25px;
+    color: black;
+}
+
+.scrollytellingFlexContainer {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+  }
