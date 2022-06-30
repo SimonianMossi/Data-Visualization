@@ -1,0 +1,8 @@
+/**
+ * $Id: styles.css 72691 2011-07-23 01:45:38Z luis.colon $
+ * /css/0.1/screen/build/interactive/sunday-review/styles.css
+ * (c)2006 - 2011 The New York Times Company
+ */
+
+@import url(/css/0.1/screen/build/interactive/styles.css);
+@import url(/css/0.1/screen/section/opinion/common.css);

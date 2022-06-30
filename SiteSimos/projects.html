@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>SVG</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="nav-wrapper">
+              <div class="left-side">
+                    <div class="nav-link-wrapper active-nav-link">
+                        <a href="index.html">Home</a>
+                    </div>
+        
+                    <div class="nav-link-wrapper">
+                        <a href="about.html">About Simonian</a>
+                    </div>
+
+                    <div class="nav-link-wrapper">
+                        <a href="projects.html">My SVG Projects</a>
+                    </div>
+
+                    <div class="nav-link-wrapper">
+                        <a href="datavis.html">Favorite Data Visualization</a>
+                    </div>
+
+                    <div class="nav-link-wrapper">
+                        <a href="credits.html">Credits</a>
+                    </div>
+
+              </div>
+        
+              <div class="right-side">
+                    <div class="brand">
+                        SIMONIAN
+                    </div>
+              </div>
+            </div>
+
+            <div class="content-wrapper">
+                <div class="portfolio-items-wrapper">
+
+                    <div class="portfolio-item-wrapper">
+                        <svg width="300" height="300">
+
+
+                            <circle id="orange-circle" r="150" cx="150" cy="150" fill="orange" />
+                            <circle id="left-eye-white" r="40" cx="70" cy="100" fill="white" />
+                            <circle id="right-eye-white" r="40" cx="230" cy="100" fill="white" />
+                            <circle id="left-eye-black" r="10" cx="70" cy="100" fill="black" />
+                            <circle id="right-eye-black" r="10" cx="230" cy="100" fill="black" />
+                            
+                            <circle id="mouth" cx="150" cy="200" r="50" fill="black" />
+                            <rect id="cut-off" x="100" y="150" width="120" height="60" fill="orange" />
+                            
+                            
+                            <animate 
+                                     xlink:href="#left-eye-black"
+                                     attributeName="cx" 
+                                     from="40"
+                                     to="100" 
+                                     dur="2s"
+                                     begin="0s"
+                                     repeatCount="indefinite"
+                                     fill="freeze" 
+                                     id="rect-anim"/>
+                
+                            <animate 
+                                     xlink:href="#right-eye-black"
+                                     attributeName="cx" 
+                                     from="200"
+                                     to="260" 
+                                     dur="2s"
+                                     begin="0s"
+                                     repeatCount="indefinite"
+                                     fill="freeze" 
+                                     id="rect-anim"/>
+                            
+                            <animate 
+                                     xlink:href="#cut-off"
+                                     attributeName="y" 
+                                     from="150"
+                                     to="200" 
+                                     dur="0.5s"
+                                     begin="click"
+                                     fill="freeze" 
+                                     id="cut-off"/>
+                        </svg>
+
+                        <p>Click on the center of my face to make me sad...</p>
+                        <p>(Well, not exactly on the center, a tiny bit bellow... Just try clicking near the center and you eventually will make me sad...)</p>
+
+                    </div>
+
+
+                    <div class="portfolio-item-wrapper">
+                        <svg width="300" height="300">
+
+                          <path id="motionPath" fill="none" storke="#000000" stroke-miterlimit="10"
+                            d="
+                              M 150, 150
+                              m -95, 0
+                              a 95,95 0 1,0 190,0
+                              a 95,95 0 1,0 -190,0
+                          "/>
+                            
+                          <g id="earth">
+                            <circle id="circle" r="20" cx="0" cy="0" fill="blue" />
+                            <polygon points="0,0 12,7 0,18 -5,11 " fill="green" />
+                            <polygon points="-10,0 2,-7 -10,-18 -15,-10 " fill="green" />
+                            <polygon points="20,0 0,-7 5,-10 " fill="green" />
+                          </g>
+
+                          <circle id="sun" r="50" cx="150" cy="150" fill="yellow"/>
+
+                            <circle id="crate" r="15" cx="130" cy="130" fill="yellow" />
+                            <circle id="crate-2" r="8" cx="170" cy="130" fill="yellow" />
+                            <circle id="crate-3" r="11" cx="150" cy="175" fill="yellow" />
+
+
+                          <animate 
+                                xlink:href="#sun"
+                                attributeName="fill" 
+                                attributeType="XML"  
+                                begin="click"
+                                dur="3s" 
+                                values="yellow;orange;red;purple;gray"
+                                fill="freeze" 
+                                calcMode="linear" 
+                                id="sun-anim" />
+
+                                <animate 
+                                xlink:href="#crate-2"
+                                attributeName="fill" 
+                                attributeType="XML"  
+                                begin="sun-anim.begin + 0.1s"
+                                dur="3s" 
+                                values="yellow;orange;red;purple;gray;#585858"
+                                fill="freeze" 
+                                calcMode="linear" />
+
+                                <animate 
+                                xlink:href="#crate-3"
+                                attributeName="fill" 
+                                attributeType="XML"  
+                                begin="sun-anim.begin + 0.1s"
+                                dur="3s" 
+                                values="yellow;orange;red;purple;gray;#585858"
+                                fill="freeze" 
+                                calcMode="linear" />
+
+                            <animate 
+                                xlink:href="#crate"
+                                attributeName="fill" 
+                                attributeType="XML"  
+                                begin="sun-anim.begin + 0.1s"
+                                dur="3s" 
+                                values="yellow;orange;red;purple;gray;#585858"
+                                fill="freeze" 
+                                calcMode="linear" />
+                            
+                             
+                            <animateMotion 
+                                     xlink:href="#earth"
+                                     dur="5s"
+                                     begin="0s"
+                                     fill="freeze"
+                                     repeatCount="indefinite">
+                              <mpath xlink:href="#motionPath" />
+                            </animateMotion>
+                          </svg>
+
+                          <p>Click the sun to turn the day into night!</p>
+                    </div>
+
+
+
+                    <div class="portfolio-item-wrapper">
+                        <svg width="300" height="300">
+
+                            <circle id="palm" r="25" cx="100" cy="150" fill="white"/>
+                            <polygon id="sleeve" points="75,150 125,150 125,100 75,100" fill="white" />
+
+                            <circle r="25" cx="200" cy="100" fill="red"></circle>
+                            <circle r="25" cx="100" cy="100" fill="red"></circle>
+
+                            <g id="pasenger">
+                                <polygon points="100,75 100,125 200,125 200,75 " fill="red" />
+                                <circle r="30" cx="150" cy="100" fill="#783100">
+                            </g> 
+
+
+                            <rect id="taxi" width="200" height="150" x="25" y="200" fill="orange">
+
+                            
+                            <animate 
+                                     xlink:href="#pasenger"
+                                     attributeName="cx"
+                                     from="0"
+                                     to="0" 
+                                     dur="0.1s"
+                                     begin="click"
+                                     fill="freeze" 
+                                     id="pasenger-anim"/>
+                                    
+                            <animate 
+                                     xlink:href="#palm"
+                                     attributeName="fill" 
+                                     attributeType="XML"  
+                                     begin="pasenger-anim.begin + 0.1s"
+                                     dur="0.1s" 
+                                     values="white;#ff9f5d"
+                                     fill="freeze" 
+                                     calcMode="linear"
+                                     id="pasenger-anim" />
+
+                            <animate 
+                                     xlink:href="#sleeve"
+                                     attributeName="fill" 
+                                     attributeType="XML"  
+                                     begin="pasenger-anim.begin + 0.1s"
+                                     dur="0.1s" 
+                                     values="white;red"
+                                     fill="freeze" 
+                                     calcMode="linear" />
+                            
+                            <animate 
+                                     xlink:href="#taxi"
+                                     attributeName="x" 
+                                     from="-200"
+                                     to="300" 
+                                     dur="5s"
+                                     begin="0s"
+                                     repeatCount="indefinite"
+                                     end="pasenger-anim.end + 1s"
+                                     fill="freeze" 
+                                     id="rect-anim"/>
+                            
+                          </svg>
+
+                          <p>Click on the passenger's head to call a Taxi.</p>
+                          <p>(Just to clarify, the passenger 's head is the brown circle')</p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>

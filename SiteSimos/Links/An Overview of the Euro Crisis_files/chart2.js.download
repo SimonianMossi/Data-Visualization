@@ -1,0 +1,212 @@
+var nytg = nytg || {};
+jQuery.noConflict();
+var $j = jQuery;
+
+nytg.donate = function(){
+	return{
+	  arrows  : [],
+	  circles : [],
+	  labels  : [],	
+	  styles  : {
+	    labels: { 'font-family': 'arial', 'font-size': 13, 'color': '#000000', 'font-weight': 'bold', 'cursor': 'default'},
+	    circleHoverOut: { 'stroke-width': 0.000001 },
+	    circleHover: { 'stroke-width': 1, 'stroke-color': '#000000' },
+	    arrowHover: { 'stroke-width': 1, 'stroke-color': '#000000' },
+	    arrowHoverOut: { 'stroke-width': 0.000001 },
+	    eurozone: { 'stroke-width': 1, 'stroke-color': '#004276', 'opacity': .5 }
+	  }, 
+	  isPopupVisible: false,
+	  isMonitoring: false,	  
+		init: function(data){
+			this.data 	= data;
+			this.loadHover();			
+			this.setupCanvas();
+			this.bindEvents();
+			this.drawArrows();
+			this.drawCircles();			
+			this.drawText();
+			$j('.nytg-navItem[data-slug="scene1"] a').click();
+		},
+		setupCanvas: function(){
+			this.canvas = new Raphael('nytg-chart', 700, 700);
+		},		
+		bindEvents: function(){
+      $j('#nytg-container .nytg-navItems a').live('click', $j.proxy(this.loadStateBridge,this));
+      $j('#nytg-container').mousemove($j.proxy(this.hover, this));
+		},
+		loadHover: function(){
+		  $j('#nytg-container').append('<div id="nytg-hoverBox"></div>');
+		  this.hoverBox = $j('#nytg-hoverBox');
+		},
+		hover: function(e){
+		  if(this.isPopupVisible === true){
+		    this.updateHoverPosition(e);
+		  }
+		},
+		updateHoverPosition: function(e){
+		  var offset  = $j('#nytg-container').offset();
+		  var x       = e.pageX - offset.left + 10;
+		  var y       = e.pageY - offset.top - this.hoverBox.height() - 40;
+		  this.hoverBox.css({ left: x+'px', top: y+'px' });
+		},
+		loadStateBridge: function(e){
+		  e.preventDefault();
+		  var target  = $j(e.target);
+		  var slug    = target.parents('.nytg-navItem').data('slug');
+		  this.loadState(slug);
+		},
+		loadState: function(slug){
+			$j('#nytg-container .nytg-navItemSelected').removeClass('nytg-navItemSelected');
+			$j('#nytg-container .nytg-navItem[data-slug="'+slug+'"]').addClass('nytg-navItemSelected');
+			$j('#nytg-container .nytg-selectedChapter').removeClass('nytg-selectedChapter');
+			$j('#nytg-container .nytg-chapter[data-slug="'+slug+'"]').addClass('nytg-selectedChapter');
+			this.loadChanges(slug);
+		},
+		showToolTip: function(){
+		  this.hoverBox.show();
+		},
+		hideToolTip: function(){
+		  if(this.isPopupVisible === false){
+		    this.hoverBox.hide();
+		  }
+		},		
+		loadChanges: function(slug){
+		  var me = this;
+			_.each(this.data.visibility, function(item){
+        var toChange      = null;
+        var textToChange  = null;        
+			  if(me.circles[item.objectid]){
+			    toChange      = me.circles[item.objectid].element;
+			    textToChange  = me.labels[item.objectid];
+			  }else if(me.arrows[item.objectid]){
+			    var toChange = me.arrows[item.objectid].element;
+			  }
+
+        if(toChange != null){
+          if(_.isString(item[slug][0])){
+            toChange.show();
+            toChange.animate({ opacity: parseInt(item[slug][0],10) / 100 }, 500);
+            if(textToChange != null){
+              textToChange.show();            
+              textToChange.animate({ opacity: 1 }, 500);
+            }
+          }else{
+            if(textToChange != null){
+              textToChange.animate({ opacity: 0 }, 500, function(){ this.hide(); });
+            }
+            toChange.animate({ opacity: 0 }, 500, function(){ this.hide(); });
+          }
+        }
+			});
+		},
+		makeHoverBoxVisible: function(){
+		  if(this.isPopupVisible === false){
+		    this.isPopupVisible = true;
+		    this.showToolTip();
+		  }
+		},
+		makeHoverBoxHidden: function(){
+		  if(this.isPopupVisible === true){
+		    this.isPopupVisible = false;
+		    this.hideToolTip();
+		  }		  
+		},
+		populateHoverBoxFromCircle: function(slug){
+		  var markup  = [];
+		  var circle  = this.circles[slug];
+		  markup.push('<h3>'+circle.name+'</h3>');
+	    markup.push('<p class="nytg-debtNumber">'+circle.debtpct+'%<div class="nytg-debtCaption">Gross gov&rsquo;t debt<br/>as a pct. of G.D.P.</div></p>');		  
+      var debts   = _.select(this.data.lists, function(debt){
+        return (debt.posdirection[0].indexOf(slug+'_') > -1)
+      });
+
+      if(debts.length > 0){
+        markup.push('<div class="nytg-clear nytg-owesHeader">'+debts[0].debtor2+' borrowers owe <span class="nytg-billions">(billions)</span></div>');        
+        _.each(debts, function(debt){
+          markup.push('<div class="nytg-clear nytg-countryRow nytv-clearfix">');
+          markup.push('<div class="nytg-listItemValue">$'+debt.netowed+'</div>');          
+          markup.push('<div class="nytg-listItemCountry">'+debt.creditor2+' banks </div>');
+          markup.push('</div>');
+        });        
+      }
+		  this.hoverBox.html(markup.join(''));
+		},
+		populateHoverBoxFromArrow: function(slug){
+      var markup  = [];
+		  var arrow   = this.arrows[slug];      
+      markup.push('<div><strong>'+arrow.altdebtor + '</strong> borrowers<br />owe <strong>' + arrow.altcreditor+' </strong>banks<br/><strong>$' + arrow.netowed + ' billion</strong></div>');
+      this.hoverBox.html(markup.join(''));
+		},		
+		drawCircles: function(){
+		  var me = this;
+			_.each(this.data.circles, function(circle){
+			  var circleObject          = _.extend({}, circle);
+			  circleObject.element      = me.canvas.circle(circle.xpos, circle.ypos, circle.radius).attr({ 'stroke-width': 0.000001, fill: '#'+circle.color, opacity: 0 });
+        me.circles[circle.id]     = circleObject;
+        me.circles[circle.id].element.node.onmouseover  = function(e){
+          me.circles[circle.id].element.animate(me.styles.circleHover,200);
+          me.populateHoverBoxFromCircle(circle.id);
+          me.makeHoverBoxVisible();
+        };
+        me.circles[circle.id].element.node.onmouseout   = function(e){
+          me.circles[circle.id].element.animate(me.styles.circleHoverOut,200);
+          me.makeHoverBoxHidden();
+        };
+			});
+		},
+		drawArrows: function(){
+		  var me = this;
+			_.each(this.data.arrows, function(arrow){
+			var arrowObject         = _.extend({}, arrow);
+			if(arrow.id == 'eurozone'){
+
+			  var c =  { 'stroke-width': 1, fill: '#ffffff', opacity: 0, 'stroke-color': '#004276' };
+			  arrowObject.element     = me.canvas.path(arrow.path).attr(c);			  
+			  arrowObject.element.toBack();
+			}else{
+			 var c = { 'stroke-width': 0.000001, fill: '#'+arrow.color, opacity: 0 }; 
+			 arrowObject.element     = me.canvas.path(arrow.path).attr(c);			 
+			}
+
+			me.arrows[arrow.id]     = arrowObject;
+
+			if(arrow.rollover != 'none'){
+				me.arrows[arrow.id].element.node.onmouseover  = function(e){
+				me.arrows[arrow.id].element.animate(me.styles.arrowHover,200);
+				var circleId = arrow.id[0].substr(0,2);
+				me.circles[circleId].element.animate(me.styles.circleHover,200);
+				me.populateHoverBoxFromArrow(arrow.id);
+				me.makeHoverBoxVisible();
+			};
+			me.arrows[arrow.id].element.node.onmouseout   = function(){
+				me.arrows[arrow.id].element.animate(me.styles.arrowHoverOut,200);
+				var circleId = arrow.id[0].substr(0,2);
+				me.circles[circleId].element.animate(me.styles.circleHoverOut,200);            
+				me.makeHoverBoxHidden();
+			};
+        }
+			});
+		},
+		drawText: function(){
+		  var me = this;
+			_.each(this.data.circles, function(label){
+			  if(label.name == 'United States'){
+			    var ypos = label.ypos - 10;
+			  }else{
+			    var ypos = label.ypos
+			  }
+        me.labels[label.id] = me.canvas.text(label.xpos,ypos, label.name);
+        me.labels[label.id].attr(me.styles.labels)
+
+        me.labels[label.id].node.onmouseover  = function(e){
+          me.makeHoverBoxVisible();
+        };
+        // me.arrows[label.id].node.onmouseout   = function(){
+        //   me.makeHoverBoxHidden();
+        // };          
+        
+			});
+		}
+	};
+}();
+nytg.donate.init(canvasData);

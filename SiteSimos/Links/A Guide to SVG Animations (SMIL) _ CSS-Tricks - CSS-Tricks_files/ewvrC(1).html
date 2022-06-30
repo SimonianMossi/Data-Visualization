@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<!-- saved from url=(0115)https://codepen.io/AmeliaBR/embed/VwNvpw?default-tab=result&height=300&host=http%3A%2F%2Fcodepen.io&slug-hash=ewvrC -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width">
+<title>CodePen Embed - Motion along a closed path, arbitrary start point</title>
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="kPXuy1rEEj6osvsUWJ5RX1ImOA77XRERhxZ/V3HibqTYHxC1TrPpqojp9m+aj8fhNSn0HMWAS15CA8Mu1JOHgg==">
+<link rel="stylesheet" media="all" href="./embed-00d7f1b1de25d2946cda76996d392050056e6151ca146529fd6fa071e1bfc615.css">
+<style>
+    .hide {
+      display: none !important;
+    }
+
+    #result-box {
+      background: #3d3d3e;
+      color: #ffffff;
+    }
+    .embed-footer,
+    .embed-nav {
+      background: #3d3d3e;
+      
+    }
+    .embed-nav .code-types a,
+    .embed-nav .result-button-list a,
+    .action-button {
+      color: #ffffff;
+      background-color: #666666;
+    }
+    .embed-nav .code-types a.active,
+    .embed-nav .result-button-list a.active,
+    .action-button.active {
+      background: #888888;
+      color: #ffffff;
+      box-shadow: inset 0px 3px #dddddd;
+    }
+    .embed-nav .logo-wrap .edit-on-codepen {
+      color: #ffffff;
+    }
+
+    .embed-nav svg {
+      stroke: #ffffff !important;
+    }
+  </style>
+<link rel="stylesheet" media="all" href="./twilight-9eb71b6edb11814ec9302f458eb8606e9eb58d14ef36cdf785d88aca31de5447.css">
+<meta name="monetization" content="$ilp.uphold.com/biyqg2MkQKbe">
+</head>
+<body id="the-body" style="border: 1px solid #555555; --borderWidth: 1px;" class="codepen-embed-body static results-active">
+<nav class="embed-nav group" id="embed-nav">
+<ul class="code-types">
+<li class="code-type">
+<a id="html-link" href="https://codepen.io/AmeliaBR/embed/VwNvpw?default-tab=result&amp;height=300&amp;host=http%3A%2F%2Fcodepen.io&amp;slug-hash=ewvrC#html-box" role="button" aria-pressed="false">
+HTML
+</a>
+</li>
+<li class="code-type">
+<a id="css-link" href="https://codepen.io/AmeliaBR/embed/VwNvpw?default-tab=result&amp;height=300&amp;host=http%3A%2F%2Fcodepen.io&amp;slug-hash=ewvrC#css-box" role="button" aria-pressed="false">
+CSS
+</a>
+</li>
+</ul>
+<ul class="result-button-list">
+<li class="results results-type">
+<a id="result-link" href="https://codepen.io/AmeliaBR/embed/VwNvpw?default-tab=result&amp;height=300&amp;host=http%3A%2F%2Fcodepen.io&amp;slug-hash=ewvrC#result-box" class="active" aria-pressed="true" role="button">
+Result
+</a>
+</li>
+<li>
+<a href="https://codepen.io/AmeliaBR/embed/VwNvpw?default-tab=result&amp;height=300&amp;host=http%3A%2F%2Fcodepen.io&amp;slug-hash=ewvrC#resources-link" id="skip-results-iframe-link">Skip Results Iframe</a>
+</li>
+</ul>
+<div class="logo-wrap" id="edit-area">
+<a class="edit-on-codepen" target="_blank" rel="noopener" href="https://codepen.io/AmeliaBR/pen/VwNvpw" title="Edit on CodePen">
+<div class="large-logo">
+<span id="edit-on-text" class="open-on">EDIT ON</span>
+<svg id="embed-codepen-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 138 26" fill="none" stroke="#000" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="CodePen">
+<path d="M80 6h-9v14h9m34-14h-9v14h9m-3-7h-6m-28 0h-6m51 7V6l11 14V6M22 16.7L33 24l11-7.3V9.3L33 2 22 9.3v7.4zm22 0L33 9.3l-11 7.4m0-7.4l11 7.3 11-7.3M33 2v7.3m0 7.4V24m55-10h6c2.2 0 4-1.8 4-4s-1.8-4-4-4h-6v14M15 8c-1.3-1.3-3-2-5-2-4 0-7 3-7 7s3 7 7 7c2 0 3.7-.8 5-2m49-5c0 4-3 7-7 7h-5V6h5c4 0 7 3 7 7z"></path>
+</svg>
+</div>
+<div class="box-logo">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="20 0 26 26" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.3" role="img" aria-label="Edit on CodePen">
+<path id="icon-codepen-box" d="M22 16.7L33 24l11-7.3V9.3L33 2 22 9.3v7.4zm22 0L33 9.3l-11 7.4m0-7.4l11 7.3 11-7.3M33 2v7.3m0 7.4V24"></path>
+</svg>
+</div>
+</a>
+</div>
+</nav>
+<div id="output" data-border-style="thin" data-header="true">
+<div id="html-box" class="code-wrap code-box box " role="region" aria-label="HTML">
+<pre tabindex="0"><code data-lang="htmlmixed" id="actual-html-code" class=" cm-s-default"><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">svg</span> <span class="cm-attribute">viewBox</span>=<span class="cm-string">"0 0 100 100"</span> <span class="cm-attribute">width</span>=<span class="cm-string">"100%"</span> <span class="cm-attribute">height</span>=<span class="cm-string">"100%"</span><span class="cm-tag cm-bracket">&gt;</span>
+  <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">defs</span><span class="cm-tag cm-bracket">&gt;</span>
+    <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">marker</span> <span class="cm-attribute">id</span>=<span class="cm-string">"start"</span> <span class="cm-attribute">viewBox</span>=<span class="cm-string">"-5 -5 10 10"</span>
+            <span class="cm-attribute">markerWidth</span>=<span class="cm-string">"5"</span> <span class="cm-attribute">markerHeight</span>=<span class="cm-string">"5"</span><span class="cm-tag cm-bracket">&gt;</span>
+      <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">circle</span> <span class="cm-attribute">r</span>=<span class="cm-string">"4"</span> <span class="cm-attribute">fill</span>=<span class="cm-string">"none"</span> <span class="cm-attribute">stroke</span>=<span class="cm-string">"darkgray"</span><span class="cm-tag cm-bracket">/&gt;</span>
+      <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">text</span> <span class="cm-attribute">font-size</span>=<span class="cm-string">"8"</span> <span class="cm-attribute">dy</span>=<span class="cm-string">"0.4em"</span> 
+            <span class="cm-attribute">text-anchor</span>=<span class="cm-string">"middle"</span><span class="cm-tag cm-bracket">&gt;</span>S<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">text</span><span class="cm-tag cm-bracket">&gt;</span>
+    <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">marker</span><span class="cm-tag cm-bracket">&gt;</span>
+  <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">defs</span><span class="cm-tag cm-bracket">&gt;</span>
+  <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">path</span> <span class="cm-attribute">id</span>=<span class="cm-string">"p"</span> <span class="cm-attribute">d</span>=<span class="cm-string">"M50 20</span>
+           <span class="cm-string">Q80 0 70 30 T 70 70 T 30 70 T30 30Z"</span>
+        <span class="cm-attribute">fill</span>=<span class="cm-string">"none"</span> <span class="cm-attribute">stroke</span>=<span class="cm-string">"gray"</span> 
+        <span class="cm-attribute">marker-start</span>=<span class="cm-string">"url(#start)"</span><span class="cm-tag cm-bracket">/&gt;</span>
+  <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">circle</span> <span class="cm-attribute">r</span>=<span class="cm-string">"4"</span> <span class="cm-attribute">fill</span>=<span class="cm-string">"red"</span> <span class="cm-attribute">fill-opacity</span>=<span class="cm-string">"0.7"</span><span class="cm-tag cm-bracket">&gt;</span>
+    <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">animateMotion</span> <span class="cm-attribute">id</span>=<span class="cm-string">"forward"</span> 
+                   <span class="cm-attribute">dur</span>=<span class="cm-string">"10s"</span> <span class="cm-attribute">begin</span>=<span class="cm-string">"0s"</span>  <span class="cm-attribute">fill</span>=<span class="cm-string">"freeze"</span>
+                   <span class="cm-attribute">keyPoints</span>=<span class="cm-string">"0.3;1;0;0.3"</span>
+                   <span class="cm-attribute">keyTimes</span>=<span class="cm-string">"0;0.7;0.7;1"</span>
+                   <span class="cm-attribute">calcMode</span>=<span class="cm-string">"linear"</span> <span class="cm-tag cm-bracket">&gt;</span>
+      <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">mpath</span> <span class="cm-attribute">xlink:href</span>=<span class="cm-string">"#p"</span><span class="cm-tag cm-bracket">/&gt;</span>
+    <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">animateMotion</span><span class="cm-tag cm-bracket">&gt;</span>
+    <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">animateMotion</span> <span class="cm-attribute">id</span>=<span class="cm-string">"backward"</span> 
+                   <span class="cm-attribute">begin</span>=<span class="cm-string">"forward.end + 1s"</span>
+                   <span class="cm-attribute">dur</span>=<span class="cm-string">"10s"</span> <span class="cm-attribute">fill</span>=<span class="cm-string">"freeze"</span>
+                   <span class="cm-attribute">keyPoints</span>=<span class="cm-string">"0.3;0;1;0.3"</span>
+                   <span class="cm-attribute">keyTimes</span>=<span class="cm-string">"0;0.3;0.3;1"</span>
+                   <span class="cm-attribute">calcMode</span>=<span class="cm-string">"linear"</span> <span class="cm-tag cm-bracket">&gt;</span>
+      <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">mpath</span> <span class="cm-attribute">xlink:href</span>=<span class="cm-string">"#p"</span><span class="cm-tag cm-bracket">/&gt;</span>
+    <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">animateMotion</span><span class="cm-tag cm-bracket">&gt;</span>
+  <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">circle</span><span class="cm-tag cm-bracket">&gt;</span>
+  <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">text</span> <span class="cm-attribute">font-size</span>=<span class="cm-string">"5"</span><span class="cm-tag cm-bracket">&gt;</span><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">textPath</span> <span class="cm-attribute">xlink:href</span>=<span class="cm-string">"#p"</span> <span class="cm-attribute">startOffset</span>=<span class="cm-string">"30%"</span> <span class="cm-attribute">method</span>=<span class="cm-string">"stretch"</span> <span class="cm-attribute">spacing</span>=<span class="cm-string">"auto"</span><span class="cm-tag cm-bracket">&gt;</span><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">tspan</span> <span class="cm-attribute">dy</span>=<span class="cm-string">"-2"</span><span class="cm-tag cm-bracket">&gt;</span>Animating motion on a closed path, starting from an arbitrary point partway along the path.<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">tspan</span><span class="cm-tag cm-bracket">&gt;</span><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">textPath</span><span class="cm-tag cm-bracket">&gt;</span>
+  
+<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag cm-error">svg</span><span class="cm-tag cm-bracket cm-error">&gt;</span>
+<span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">p</span><span class="cm-tag cm-bracket">&gt;</span> There is no pre-defined way in SVG1.1 to define an offset for <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">code</span><span class="cm-tag cm-bracket">&gt;</span><span class="cm-atom">&amp;lt;</span>animateMotion<span class="cm-atom">&amp;gt;</span><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">code</span><span class="cm-tag cm-bracket">&gt;</span>.  However, you can mimic this behaviour by using key points and times, jumping from the end to the beginning of the path instantaneously.
+<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">p</span><span class="cm-tag cm-bracket">&gt;</span>
+<span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">p</span><span class="cm-tag cm-bracket">&gt;</span>The math to calculate <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">code</span><span class="cm-tag cm-bracket">&gt;</span>keyPoints<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">code</span><span class="cm-tag cm-bracket">&gt;</span> and <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">code</span><span class="cm-tag cm-bracket">&gt;</span>keyTimes<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">code</span><span class="cm-tag cm-bracket">&gt;</span> for the forward movement is as follows:
+<span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">code</span><span class="cm-tag cm-bracket">&gt;</span><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">dl</span><span class="cm-tag cm-bracket">&gt;</span>
+  <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">dt</span><span class="cm-tag cm-bracket">&gt;</span>keyPoints<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">dt</span><span class="cm-tag cm-bracket">&gt;</span> 
+    <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">dd</span><span class="cm-tag cm-bracket">&gt;</span>(startPosition)<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">dd</span><span class="cm-tag cm-bracket">&gt;</span>
+    <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">dd</span><span class="cm-tag cm-bracket">&gt;</span>1<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">dd</span><span class="cm-tag cm-bracket">&gt;</span>
+    <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">dd</span><span class="cm-tag cm-bracket">&gt;</span>0<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">dd</span><span class="cm-tag cm-bracket">&gt;</span>
+    <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">dd</span><span class="cm-tag cm-bracket">&gt;</span>(startPosition)<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">dd</span><span class="cm-tag cm-bracket">&gt;</span>
+  <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">dt</span><span class="cm-tag cm-bracket">&gt;</span>keyTimes<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">dt</span><span class="cm-tag cm-bracket">&gt;</span> 
+    <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">dd</span><span class="cm-tag cm-bracket">&gt;</span>0<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">dd</span><span class="cm-tag cm-bracket">&gt;</span>
+    <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">dd</span><span class="cm-tag cm-bracket">&gt;</span>(1 - startPosition)<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">dd</span><span class="cm-tag cm-bracket">&gt;</span>
+    <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">dd</span><span class="cm-tag cm-bracket">&gt;</span>(1 - startPosition)<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">dd</span><span class="cm-tag cm-bracket">&gt;</span>
+    <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">dd</span><span class="cm-tag cm-bracket">&gt;</span>1<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">dd</span><span class="cm-tag cm-bracket">&gt;</span>
+<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">dl</span><span class="cm-tag cm-bracket">&gt;</span><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">code</span><span class="cm-tag cm-bracket">&gt;</span>
+For the reverse motion, it is:
+<span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">code</span><span class="cm-tag cm-bracket">&gt;</span><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">dl</span><span class="cm-tag cm-bracket">&gt;</span>
+  <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">dt</span><span class="cm-tag cm-bracket">&gt;</span>keyPoints<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">dt</span><span class="cm-tag cm-bracket">&gt;</span> 
+    <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">dd</span><span class="cm-tag cm-bracket">&gt;</span>(startPosition)<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">dd</span><span class="cm-tag cm-bracket">&gt;</span>
+    <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">dd</span><span class="cm-tag cm-bracket">&gt;</span>0<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">dd</span><span class="cm-tag cm-bracket">&gt;</span>
+    <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">dd</span><span class="cm-tag cm-bracket">&gt;</span>1<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">dd</span><span class="cm-tag cm-bracket">&gt;</span>
+    <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">dd</span><span class="cm-tag cm-bracket">&gt;</span>(startPosition)<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">dd</span><span class="cm-tag cm-bracket">&gt;</span>
+  <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">dt</span><span class="cm-tag cm-bracket">&gt;</span>keyTimes<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">dt</span><span class="cm-tag cm-bracket">&gt;</span> 
+    <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">dd</span><span class="cm-tag cm-bracket">&gt;</span>0<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">dd</span><span class="cm-tag cm-bracket">&gt;</span>
+    <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">dd</span><span class="cm-tag cm-bracket">&gt;</span>(startPosition)<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">dd</span><span class="cm-tag cm-bracket">&gt;</span>
+    <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">dd</span><span class="cm-tag cm-bracket">&gt;</span>(startPosition)<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">dd</span><span class="cm-tag cm-bracket">&gt;</span>
+    <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">dd</span><span class="cm-tag cm-bracket">&gt;</span>1<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">dd</span><span class="cm-tag cm-bracket">&gt;</span>
+<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">dl</span><span class="cm-tag cm-bracket">&gt;</span><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">code</span><span class="cm-tag cm-bracket">&gt;</span>
+  In both cases <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">code</span><span class="cm-tag cm-bracket">&gt;</span>startPosition<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">code</span><span class="cm-tag cm-bracket">&gt;</span> is a decimal between 0 and 1 representing the proportion of distance along the path.  You also need to explicitly set <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">code</span><span class="cm-tag cm-bracket">&gt;</span>calcMode="linear"<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">code</span><span class="cm-tag cm-bracket">&gt;</span> for the key values to have an effect.
+  <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">p</span><span class="cm-tag cm-bracket">&gt;</span>
+  <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">p</span><span class="cm-tag cm-bracket">&gt;</span>Now if only there was a way to get text on a path to wrap around a closed path.</code></pre>
+</div>
+<div id="css-box" class="code-wrap code-box box " role="region" aria-label="CSS">
+<pre tabindex="0"><code data-lang="css" id="actual-css-code" class=" cm-s-default"><span class="cm-tag">body</span>, <span class="cm-tag">html</span> {
+  <span class="cm-property">height</span>: <span class="cm-number">100%</span>;
+}
+
+<span class="cm-def">@media</span> (<span class="cm-property">orientation</span>: <span class="cm-keyword">landscape</span>) {
+  <span class="cm-tag">svg</span> {
+    <span class="cm-property">height</span>: <span class="cm-number">100%</span>;
+    <span class="cm-property">width</span>: <span class="cm-number">70%</span>;
+    <span class="cm-property">float</span>: <span class="cm-atom">right</span>;
+    <span class="cm-property">display</span>: <span class="cm-atom">block</span>;
+  }
+}
+<span class="cm-def">@media</span> (<span class="cm-property">orientation</span>: <span class="cm-keyword">portrait</span>) {
+  <span class="cm-tag">svg</span> {
+    <span class="cm-property">height</span>: <span class="cm-number">70%</span>;
+    <span class="cm-property">width</span>: <span class="cm-number">100%</span>;
+    <span class="cm-property">display</span>: <span class="cm-atom">block</span>;
+  }
+}</code></pre>
+</div>
+<div id="result-box" class="code-box active zoom-1" role="region" aria-label="Result">
+<iframe allow="accelerometer; camera; encrypted-media; display-capture; geolocation; gyroscope; microphone; midi; clipboard-read; clipboard-write" allowfullscreen="true" allowpaymentrequest="true" allowtransparency="true" class="result-iframe  " frameborder="0" id="result-iframe" loading="lazy" name="CodePen Preview for Motion along a closed path, arbitrary start point" sandbox="allow-downloads allow-forms allow-modals allow-pointer-lock allow-popups allow-presentation allow-same-origin allow-scripts allow-top-navigation-by-user-activation" scrolling="yes" title="CodePen Preview for Motion along a closed path, arbitrary start point" data-src="https://cdpn.io/AmeliaBR/fullembedgrid/VwNvpw?animations=run&amp;type=embed" src="./VwNvpw.html">
+  </iframe>
+</div>
+<div id="about-box">
+<div class="about-container">
+<div class="about-user">
+<a href="https://codepen.io/AmeliaBR" target="_blank" rel="noopener"><img src="./default.png" loading="lazy" alt="" class="about-image"></a>
+<div class="about-user-info">
+<p>
+This Pen is owned by <a href="https://codepen.io/AmeliaBR" target="_blank" rel="noopener">Amelia Bellamy-Royds</a> on <a href="https://codepen.io/" target="_blank" rel="noopener">CodePen</a>.
+</p>
+<p>
+<a href="https://codepen.io/AmeliaBR" target="_blank" rel="noopener" class="about-user-more">
+See more by @AmeliaBR on CodePen
+</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="resources-box" class="resources-box">
+<h3>External CSS</h3>
+<p>
+This Pen doesn't use any external CSS resources.
+</p>
+<h3>External JavaScript</h3>
+<p>
+This Pen doesn't use any external JavaScript resources.
+</p>
+</div>
+</div>
+<footer class="embed-footer" id="embed-footer">
+<button id="resources-link" class="resources-link action-button bottom left" href="#resources-box" aria-pressed="false" role="button">
+Resources
+</button>
+<ul class="scaling-choices bottom right">
+<li><button class="action-button" id="zoom-button-1">1×</button></li>
+<li><button class="action-button" id="zoom-button-05">0.5×</button></li>
+<li><button class="action-button" id="zoom-button-025">0.25×</button></li>
+</ul>
+<button id="rerun-button" class="action-button rerun-button bottom right">
+Rerun
+</button>
+</footer>
+<script nonce="">
+    __processedPen = {"html":"&lt;svg viewBox=&quot;0 0 100 100&quot; width=&quot;100%&quot; height=&quot;100%&quot;&gt;\n  &lt;defs&gt;\n    &lt;marker id=&quot;start&quot; viewBox=&quot;-5 -5 10 10&quot;\n            markerWidth=&quot;5&quot; markerHeight=&quot;5&quot;&gt;\n      &lt;circle r=&quot;4&quot; fill=&quot;none&quot; stroke=&quot;darkgray&quot;/&gt;\n      &lt;text font-size=&quot;8&quot; dy=&quot;0.4em&quot; \n            text-anchor=&quot;middle&quot;&gt;S&lt;/text&gt;\n    &lt;/marker&gt;\n  &lt;/defs&gt;\n  &lt;path id=&quot;p&quot; d=&quot;M50 20\n           Q80 0 70 30 T 70 70 T 30 70 T30 30Z&quot;\n        fill=&quot;none&quot; stroke=&quot;gray&quot; \n        marker-start=&quot;url(#start)&quot;/&gt;\n  &lt;circle r=&quot;4&quot; fill=&quot;red&quot; fill-opacity=&quot;0.7&quot;&gt;\n    &lt;animateMotion id=&quot;forward&quot; \n                   dur=&quot;10s&quot; begin=&quot;0s&quot;  fill=&quot;freeze&quot;\n                   keyPoints=&quot;0.3;1;0;0.3&quot;\n                   keyTimes=&quot;0;0.7;0.7;1&quot;\n                   calcMode=&quot;linear&quot; &gt;\n      &lt;mpath xlink:href=&quot;#p&quot;/&gt;\n    &lt;/animateMotion&gt;\n    &lt;animateMotion id=&quot;backward&quot; \n                   begin=&quot;forward.end + 1s&quot;\n                   dur=&quot;10s&quot; fill=&quot;freeze&quot;\n                   keyPoints=&quot;0.3;0;1;0.3&quot;\n                   keyTimes=&quot;0;0.3;0.3;1&quot;\n                   calcMode=&quot;linear&quot; &gt;\n      &lt;mpath xlink:href=&quot;#p&quot;/&gt;\n    &lt;/animateMotion&gt;\n  &lt;/circle&gt;\n  &lt;text font-size=&quot;5&quot;&gt;&lt;textPath xlink:href=&quot;#p&quot; startOffset=&quot;30%&quot; method=&quot;stretch&quot; spacing=&quot;auto&quot;&gt;&lt;tspan dy=&quot;-2&quot;&gt;Animating motion on a closed path, starting from an arbitrary point partway along the path.&lt;/tspan&gt;&lt;/textPath&gt;\n  \n&lt;/svg&gt;\n&lt;p&gt; There is no pre-defined way in SVG1.1 to define an offset for &lt;code&gt;&amp;lt;animateMotion&amp;gt;&lt;/code&gt;.  However, you can mimic this behaviour by using key points and times, jumping from the end to the beginning of the path instantaneously.\n&lt;/p&gt;\n&lt;p&gt;The math to calculate &lt;code&gt;keyPoints&lt;/code&gt; and &lt;code&gt;keyTimes&lt;/code&gt; for the forward movement is as follows:\n&lt;code&gt;&lt;dl&gt;\n  &lt;dt&gt;keyPoints&lt;/dt&gt; \n    &lt;dd&gt;(startPosition)&lt;/dd&gt;\n    &lt;dd&gt;1&lt;/dd&gt;\n    &lt;dd&gt;0&lt;/dd&gt;\n    &lt;dd&gt;(startPosition)&lt;/dd&gt;\n  &lt;dt&gt;keyTimes&lt;/dt&gt; \n    &lt;dd&gt;0&lt;/dd&gt;\n    &lt;dd&gt;(1 - startPosition)&lt;/dd&gt;\n    &lt;dd&gt;(1 - startPosition)&lt;/dd&gt;\n    &lt;dd&gt;1&lt;/dd&gt;\n&lt;/dl&gt;&lt;/code&gt;\nFor the reverse motion, it is:\n&lt;code&gt;&lt;dl&gt;\n  &lt;dt&gt;keyPoints&lt;/dt&gt; \n    &lt;dd&gt;(startPosition)&lt;/dd&gt;\n    &lt;dd&gt;0&lt;/dd&gt;\n    &lt;dd&gt;1&lt;/dd&gt;\n    &lt;dd&gt;(startPosition)&lt;/dd&gt;\n  &lt;dt&gt;keyTimes&lt;/dt&gt; \n    &lt;dd&gt;0&lt;/dd&gt;\n    &lt;dd&gt;(startPosition)&lt;/dd&gt;\n    &lt;dd&gt;(startPosition)&lt;/dd&gt;\n    &lt;dd&gt;1&lt;/dd&gt;\n&lt;/dl&gt;&lt;/code&gt;\n  In both cases &lt;code&gt;startPosition&lt;/code&gt; is a decimal between 0 and 1 representing the proportion of distance along the path.  You also need to explicitly set &lt;code&gt;calcMode=&quot;linear&quot;&lt;/code&gt; for the key values to have an effect.\n  &lt;/p&gt;\n  &lt;p&gt;Now if only there was a way to get text on a path to wrap around a closed path.","css":"body, html {\n  height: 100%;\n}\n\n@media (orientation: landscape) {\n  svg {\n    height: 100%;\n    width: 70%;\n    float: right;\n    display: block;\n  }\n}\n@media (orientation: portrait) {\n  svg {\n    height: 70%;\n    width: 100%;\n    display: block;\n  }\n}","js":""};
+    __preprocessors = {
+      "html": "none",
+      "css": "none",
+      "js": "none"
+    };
+    __preprocessorNames = {
+      "html": "HTML",
+      "css": "CSS",
+      "js": "JS"
+    };
+    __editable = false;
+    __embed_prefill = false;
+  </script>
+<script src="./embed-115e6dc413d9b13068e68af21a1ff249e028ae7b6fb6210a776c5536b6ff66bb.js.download"></script>
+
+
+</body></html>

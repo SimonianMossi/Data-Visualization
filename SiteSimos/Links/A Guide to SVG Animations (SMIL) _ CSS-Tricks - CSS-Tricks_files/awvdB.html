@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<!-- saved from url=(0115)https://codepen.io/AmeliaBR/embed/VwNGRM?default-tab=result&height=300&host=http%3A%2F%2Fcodepen.io&slug-hash=awvdB -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width">
+<title>CodePen Embed - Using animVal to read animated SVG attributes </title>
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="SRrr2nmNV5yjjWTrYDtqyWRQ5GYsr8CsogdGahRQdOUB8BWkbfqsCIPWaZCiKvx3A18odBJymuNnEvoTsSGdww==">
+<link rel="stylesheet" media="all" href="./embed-00d7f1b1de25d2946cda76996d392050056e6151ca146529fd6fa071e1bfc615.css">
+<style>
+    .hide {
+      display: none !important;
+    }
+
+    #result-box {
+      background: #3d3d3e;
+      color: #ffffff;
+    }
+    .embed-footer,
+    .embed-nav {
+      background: #3d3d3e;
+      
+    }
+    .embed-nav .code-types a,
+    .embed-nav .result-button-list a,
+    .action-button {
+      color: #ffffff;
+      background-color: #666666;
+    }
+    .embed-nav .code-types a.active,
+    .embed-nav .result-button-list a.active,
+    .action-button.active {
+      background: #888888;
+      color: #ffffff;
+      box-shadow: inset 0px 3px #dddddd;
+    }
+    .embed-nav .logo-wrap .edit-on-codepen {
+      color: #ffffff;
+    }
+
+    .embed-nav svg {
+      stroke: #ffffff !important;
+    }
+  </style>
+<link rel="stylesheet" media="all" href="./twilight-9eb71b6edb11814ec9302f458eb8606e9eb58d14ef36cdf785d88aca31de5447.css">
+<meta name="monetization" content="$ilp.uphold.com/biyqg2MkQKbe">
+</head>
+<body id="the-body" style="border: 1px solid #555555; --borderWidth: 1px;" class="codepen-embed-body static results-active">
+<nav class="embed-nav group" id="embed-nav">
+<ul class="code-types">
+<li class="code-type">
+<a id="html-link" href="https://codepen.io/AmeliaBR/embed/VwNGRM?default-tab=result&amp;height=300&amp;host=http%3A%2F%2Fcodepen.io&amp;slug-hash=awvdB#html-box" role="button" aria-pressed="false">
+HTML
+</a>
+</li>
+<li class="code-type">
+<a id="css-link" href="https://codepen.io/AmeliaBR/embed/VwNGRM?default-tab=result&amp;height=300&amp;host=http%3A%2F%2Fcodepen.io&amp;slug-hash=awvdB#css-box" role="button" aria-pressed="false">
+CSS
+</a>
+</li>
+<li class="code-type">
+<a id="js-link" href="https://codepen.io/AmeliaBR/embed/VwNGRM?default-tab=result&amp;height=300&amp;host=http%3A%2F%2Fcodepen.io&amp;slug-hash=awvdB#js-box" role="button" aria-pressed="false">
+JS
+</a>
+</li>
+</ul>
+<ul class="result-button-list">
+<li class="results results-type">
+<a id="result-link" href="https://codepen.io/AmeliaBR/embed/VwNGRM?default-tab=result&amp;height=300&amp;host=http%3A%2F%2Fcodepen.io&amp;slug-hash=awvdB#result-box" class="active" aria-pressed="true" role="button">
+Result
+</a>
+</li>
+<li>
+<a href="https://codepen.io/AmeliaBR/embed/VwNGRM?default-tab=result&amp;height=300&amp;host=http%3A%2F%2Fcodepen.io&amp;slug-hash=awvdB#resources-link" id="skip-results-iframe-link">Skip Results Iframe</a>
+</li>
+</ul>
+<div class="logo-wrap" id="edit-area">
+<a class="edit-on-codepen" target="_blank" rel="noopener" href="https://codepen.io/AmeliaBR/pen/VwNGRM" title="Edit on CodePen">
+<div class="large-logo">
+<span id="edit-on-text" class="open-on">EDIT ON</span>
+<svg id="embed-codepen-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 138 26" fill="none" stroke="#000" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="CodePen">
+<path d="M80 6h-9v14h9m34-14h-9v14h9m-3-7h-6m-28 0h-6m51 7V6l11 14V6M22 16.7L33 24l11-7.3V9.3L33 2 22 9.3v7.4zm22 0L33 9.3l-11 7.4m0-7.4l11 7.3 11-7.3M33 2v7.3m0 7.4V24m55-10h6c2.2 0 4-1.8 4-4s-1.8-4-4-4h-6v14M15 8c-1.3-1.3-3-2-5-2-4 0-7 3-7 7s3 7 7 7c2 0 3.7-.8 5-2m49-5c0 4-3 7-7 7h-5V6h5c4 0 7 3 7 7z"></path>
+</svg>
+</div>
+<div class="box-logo">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="20 0 26 26" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.3" role="img" aria-label="Edit on CodePen">
+<path id="icon-codepen-box" d="M22 16.7L33 24l11-7.3V9.3L33 2 22 9.3v7.4zm22 0L33 9.3l-11 7.4m0-7.4l11 7.3 11-7.3M33 2v7.3m0 7.4V24"></path>
+</svg>
+</div>
+</a>
+</div>
+</nav>
+<div id="output" data-border-style="thin" data-header="true">
+<div id="html-box" class="code-wrap code-box box " role="region" aria-label="HTML">
+<pre tabindex="0"><code data-lang="htmlmixed" id="actual-html-code" class=" cm-s-default"><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">h1</span><span class="cm-tag cm-bracket">&gt;</span>Hit the circle <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">h1</span><span class="cm-tag cm-bracket">&gt;</span>
+<span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">svg</span> <span class="cm-attribute">height</span>=<span class="cm-string">"150"</span> <span class="cm-attribute">width</span>=<span class="cm-string">"100%"</span><span class="cm-tag cm-bracket">&gt;</span>
+  <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">circle</span> <span class="cm-attribute">id</span>=<span class="cm-string">"catch-me"</span> <span class="cm-attribute">r</span>=<span class="cm-string">"50"</span> <span class="cm-attribute">cy</span>=<span class="cm-string">"75"</span><span class="cm-tag cm-bracket">&gt;</span>
+    <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">animate</span> <span class="cm-attribute">attributeName</span>=<span class="cm-string">"cx"</span>
+             <span class="cm-attribute">values</span>=<span class="cm-string">"0%;100%;30%;65%;5%;95%;0%"</span>
+             <span class="cm-attribute">dur</span>=<span class="cm-string">"5s"</span>
+             <span class="cm-attribute">repeatDur</span>=<span class="cm-string">"indefinite"</span>
+             <span class="cm-attribute">calcMode</span>=<span class="cm-string">"paced"</span> <span class="cm-tag cm-bracket">/&gt;</span>
+             
+  <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">circle</span><span class="cm-tag cm-bracket">&gt;</span>
+<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">svg</span><span class="cm-tag cm-bracket">&gt;</span>
+<span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">ul</span> <span class="cm-attribute">id</span>=<span class="cm-string">"log"</span><span class="cm-tag cm-bracket">&gt;</span><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">ul</span><span class="cm-tag cm-bracket">&gt;</span>
+<span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">p</span><span class="cm-tag cm-bracket">&gt;</span>Although the circle is animated using SMIL, the SVG DOM still provides a way to figure out exactly where it is (i.e., the current value of the <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">code</span><span class="cm-tag cm-bracket">&gt;</span>cx<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">code</span><span class="cm-tag cm-bracket">&gt;</span> attribute) at the time of processing the event.  Every time the circle receives a mousedown event, it will be logged above.
+<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">p</span><span class="cm-tag cm-bracket">&gt;</span>
+<span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">p</span><span class="cm-tag cm-bracket">&gt;</span>P.S.: I'm using a mousedown event, because very few click events were getting through—the circle was moving out from under the mouse before the mouseup (and therefore click) was getting processed. If the circle is still moving too fast, increase the <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">code</span><span class="cm-tag cm-bracket">&gt;</span>dur<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">code</span><span class="cm-tag cm-bracket">&gt;</span> attribute, or reduce the width of the frame.<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">p</span><span class="cm-tag cm-bracket">&gt;</span>
+  </code></pre>
+</div>
+<div id="css-box" class="code-wrap code-box box " role="region" aria-label="CSS">
+<pre tabindex="0"><code data-lang="css" id="actual-css-code" class=" cm-s-default"><span class="cm-tag">circle</span><span class="cm-builtin">#catch-me</span> {
+  <span class="cm-property">stroke</span>:<span class="cm-atom">#222</span>;
+  <span class="cm-property">stroke-width</span>:<span class="cm-number">8</span>;
+  <span class="cm-property">fill</span>:<span class="cm-atom">#888</span>;
+}
+<span class="cm-tag">circle</span><span class="cm-builtin">#catch-me</span>:<span class="cm-variable-3">hover</span> {
+  <span class="cm-property">stroke</span>:<span class="cm-atom">#4f4</span>;
+}
+<span class="cm-tag">svg</span> {
+  <span class="cm-property">background</span>: <span class="cm-variable cm-callee">linear-gradient</span>(<span class="cm-atom">to</span> <span class="cm-atom">bottom</span>, <span class="cm-keyword">lightyellow</span> <span class="cm-number">10%</span>, <span class="cm-keyword">tomato</span> <span class="cm-number">40%</span>, <span class="cm-keyword">darkred</span>, <span class="cm-keyword">tomato</span> <span class="cm-number">60%</span>, <span class="cm-keyword">lightyellow</span> <span class="cm-number">90%</span>);
+}
+<span class="cm-tag">h1</span> {
+  <span class="cm-property">position</span>: <span class="cm-atom">absolute</span>;
+  <span class="cm-property">width</span>: <span class="cm-number">100%</span>;
+  <span class="cm-property">text-align</span>: <span class="cm-atom">center</span>;
+  <span class="cm-property">text-shadow</span>: <span class="cm-number">0</span> <span class="cm-number">0</span> <span class="cm-number">0.3em</span> <span class="cm-atom">#eee</span>, <span class="cm-number">0</span> <span class="cm-number">0</span> <span class="cm-number">0.1em</span> <span class="cm-atom">#eee</span>;
+  <span class="cm-property">pointer-events</span>: <span class="cm-atom">none</span>;
+}
+<span class="cm-tag">body</span>:<span class="cm-variable-3">hover</span> <span class="cm-tag">h1</span> {
+  <span class="cm-property">opacity</span>: <span class="cm-number">0.2</span>;
+}
+<span class="cm-tag">ul</span><span class="cm-builtin">#log</span>:<span class="cm-variable cm-callee">not</span>(:<span class="cm-variable-3">empty</span>) {
+  <span class="cm-property">padding-bottom</span>: <span class="cm-number">1em</span>;
+  <span class="cm-property">border-bottom</span>: <span class="cm-keyword">gray</span> <span class="cm-number">2px</span> <span class="cm-atom">solid</span>;
+}</code></pre>
+</div>
+<div id="js-box" class="code-wrap code-box box " role="region" aria-label="JS">
+<pre tabindex="0"><code data-lang="javascript" id="actual-js-code" class=" cm-s-default"><span class="cm-keyword">var</span> <span class="cm-def">log</span> <span class="cm-operator">=</span> <span class="cm-variable">document</span>.<span class="cm-property">getElementById</span>(<span class="cm-string">"log"</span>);
+<span class="cm-variable">document</span>.<span class="cm-property">getElementById</span>(<span class="cm-string">"catch-me"</span>)
+        .<span class="cm-property">addEventListener</span>(<span class="cm-string">"mousedown"</span>, <span class="cm-variable">logAnimations</span>);
+
+<span class="cm-keyword">function</span> <span class="cm-def">logAnimations</span>(<span class="cm-def">e</span>){
+  <span class="cm-keyword">var</span> <span class="cm-def">c</span> <span class="cm-operator">=</span> <span class="cm-variable-2">e</span>.<span class="cm-property">target</span>,
+      <span class="cm-def">l</span> <span class="cm-operator">=</span> <span class="cm-variable">document</span>.<span class="cm-property">createElement</span>(<span class="cm-string">"li"</span>);
+  <span class="cm-variable-2">l</span>.<span class="cm-property">textContent</span> <span class="cm-operator">=</span> [<span class="cm-string">"Clicked at "</span>,
+                   <span class="cm-variable-2">c</span>.<span class="cm-property">cx</span>.<span class="cm-property">animVal</span>.<span class="cm-property">valueAsString</span>,
+                   <span class="cm-string">" ("</span>,
+                   <span class="cm-variable-2">c</span>.<span class="cm-property">cx</span>.<span class="cm-property">animVal</span>.<span class="cm-property">value</span>,
+                   <span class="cm-string">"px)"</span>
+                   ].<span class="cm-property">join</span>(<span class="cm-string">""</span>);
+  <span class="cm-variable">log</span>.<span class="cm-property">insertBefore</span>(<span class="cm-variable-2">l</span>, <span class="cm-atom">null</span>);
+}</code></pre>
+</div>
+<div id="result-box" class="code-box active zoom-1" role="region" aria-label="Result">
+<iframe allow="accelerometer; camera; encrypted-media; display-capture; geolocation; gyroscope; microphone; midi; clipboard-read; clipboard-write" allowfullscreen="true" allowpaymentrequest="true" allowtransparency="true" class="result-iframe  " frameborder="0" id="result-iframe" loading="lazy" name="CodePen Preview for Using animVal to read animated SVG attributes " sandbox="allow-downloads allow-forms allow-modals allow-pointer-lock allow-popups allow-presentation allow-same-origin allow-scripts allow-top-navigation-by-user-activation" scrolling="yes" title="CodePen Preview for Using animVal to read animated SVG attributes " data-src="https://cdpn.io/AmeliaBR/fullembedgrid/VwNGRM?animations=run&amp;type=embed" src="./VwNGRM.html">
+  </iframe>
+</div>
+<div id="about-box">
+<div class="about-container">
+<div class="about-user">
+<a href="https://codepen.io/AmeliaBR" target="_blank" rel="noopener"><img src="./default.png" loading="lazy" alt="" class="about-image"></a>
+<div class="about-user-info">
+<p>
+This Pen is owned by <a href="https://codepen.io/AmeliaBR" target="_blank" rel="noopener">Amelia Bellamy-Royds</a> on <a href="https://codepen.io/" target="_blank" rel="noopener">CodePen</a>.
+</p>
+<p>
+<a href="https://codepen.io/AmeliaBR" target="_blank" rel="noopener" class="about-user-more">
+See more by @AmeliaBR on CodePen
+</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="resources-box" class="resources-box">
+<h3>External CSS</h3>
+<p>
+This Pen doesn't use any external CSS resources.
+</p>
+<h3>External JavaScript</h3>
+<p>
+This Pen doesn't use any external JavaScript resources.
+</p>
+</div>
+</div>
+<footer class="embed-footer" id="embed-footer">
+<button id="resources-link" class="resources-link action-button bottom left" href="#resources-box" aria-pressed="false" role="button">
+Resources
+</button>
+<ul class="scaling-choices bottom right">
+<li><button class="action-button" id="zoom-button-1">1×</button></li>
+<li><button class="action-button" id="zoom-button-05">0.5×</button></li>
+<li><button class="action-button" id="zoom-button-025">0.25×</button></li>
+</ul>
+<button id="rerun-button" class="action-button rerun-button bottom right">
+Rerun
+</button>
+</footer>
+<script nonce="">
+    __processedPen = {"html":"&lt;h1&gt;Hit the circle &lt;/h1&gt;\n&lt;svg height=&quot;150&quot; width=&quot;100%&quot;&gt;\n  &lt;circle id=&quot;catch-me&quot; r=&quot;50&quot; cy=&quot;75&quot;&gt;\n    &lt;animate attributeName=&quot;cx&quot;\n             values=&quot;0%;100%;30%;65%;5%;95%;0%&quot;\n             dur=&quot;5s&quot;\n             repeatDur=&quot;indefinite&quot;\n             calcMode=&quot;paced&quot; /&gt;\n             \n  &lt;/circle&gt;\n&lt;/svg&gt;\n&lt;ul id=&quot;log&quot;&gt;&lt;/ul&gt;\n&lt;p&gt;Although the circle is animated using SMIL, the SVG DOM still provides a way to figure out exactly where it is (i.e., the current value of the &lt;code&gt;cx&lt;/code&gt; attribute) at the time of processing the event.  Every time the circle receives a mousedown event, it will be logged above.\n&lt;/p&gt;\n&lt;p&gt;P.S.: I&#39;m using a mousedown event, because very few click events were getting through—the circle was moving out from under the mouse before the mouseup (and therefore click) was getting processed. If the circle is still moving too fast, increase the &lt;code&gt;dur&lt;/code&gt; attribute, or reduce the width of the frame.&lt;/p&gt;","css":"circle#catch-me {\n  stroke:#222;\n  stroke-width:8;\n  fill:#888;\n}\ncircle#catch-me:hover {\n  stroke:#4f4;\n}\nsvg {\n  background: linear-gradient(to bottom, lightyellow 10%, tomato 40%, darkred, tomato 60%, lightyellow 90%);\n}\nh1 {\n  position: absolute;\n  width: 100%;\n  text-align: center;\n  text-shadow: 0 0 0.3em #eee, 0 0 0.1em #eee;\n  pointer-events: none;\n}\nbody:hover h1 {\n  opacity: 0.2;\n}\nul#log:not(:empty) {\n  padding-bottom: 1em;\n  border-bottom: gray 2px solid;\n}","js":"var log = document.getElementById(&quot;log&quot;);\ndocument.getElementById(&quot;catch-me&quot;).\naddEventListener(&quot;mousedown&quot;, logAnimations);\n\nfunction logAnimations(e) {\n  var c = e.target,\n  l = document.createElement(&quot;li&quot;);\n  l.textContent = [&quot;Clicked at &quot;,\n  c.cx.animVal.valueAsString,\n  &quot; (&quot;,\n  c.cx.animVal.value,\n  &quot;px)&quot;].\n  join(&quot;&quot;);\n  log.insertBefore(l, null);\n}"};
+    __preprocessors = {
+      "html": "none",
+      "css": "none",
+      "js": "none"
+    };
+    __preprocessorNames = {
+      "html": "HTML",
+      "css": "CSS",
+      "js": "JS"
+    };
+    __editable = false;
+    __embed_prefill = false;
+  </script>
+<script src="./embed-115e6dc413d9b13068e68af21a1ff249e028ae7b6fb6210a776c5536b6ff66bb.js.download"></script>
+
+
+</body></html>

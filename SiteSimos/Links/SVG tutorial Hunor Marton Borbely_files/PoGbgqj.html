@@ -1,0 +1,2660 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)https://cdpn.io/HunorMarton/fullpage/PoGbgqj -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  
+  
+<link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png">
+<meta name="apple-mobile-web-app-title" content="CodePen">
+
+<link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+
+<link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111">
+
+
+  <title>CodePen - SVG tutorial</title>
+  
+  
+  <link rel="stylesheet" href="./agate.min.css">
+  
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
+
+body {
+  background-color: #151515;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+a,
+a:visited {
+  color: inherit;
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+@media (min-width: 770px) and (min-height: 770px) {
+  .App {
+    align-items: center;
+    height: 100vh;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+header {
+  height: 120px;
+  margin: 0;
+  grid-row: 1;
+  grid-column: 1/4;
+}
+
+header h1 {
+  font-family: "Fredoka One", cursive;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(12, auto);
+  gap: 10px;
+  padding: 50px;
+}
+
+.grid .block:nth-of-type(1) {
+  grid-row: 2/4;
+  grid-column: 1/4;
+}
+
+.grid .block:nth-of-type(2) {
+  grid-row: 4/6;
+  grid-column: 1/4;
+}
+
+.grid .block:nth-of-type(3) {
+  grid-row: 6/8;
+  grid-column: 1/4;
+}
+
+.grid .big-block {
+  grid-row: 8/11;
+  grid-column: 1/4;
+}
+
+.grid .small-block {
+  grid-row: 11;
+  grid-column: 1/4;
+}
+
+@media (min-width: 770px) {
+  .grid {
+    grid-template-columns: repeat(6, auto);
+    grid-template-rows: repeat(6, auto);
+  }
+
+  .grid .block:nth-of-type(1) {
+    grid-row: 2/4;
+    grid-column: 1/4;
+  }
+
+  .grid .block:nth-of-type(2) {
+    grid-row: 4/6;
+    grid-column: 1/4;
+  }
+
+  .grid .block:nth-of-type(3) {
+    grid-row: 1/3;
+    grid-column: 4/7;
+  }
+
+  .grid .big-block {
+    grid-row: 3/6;
+    grid-column: 4/7;
+  }
+
+  .grid .small-block {
+    grid-row: 6;
+    grid-column: 1/6;
+  }
+}
+
+.block {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: inherit;
+}
+
+.big-block {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: inherit;
+}
+
+.small-block {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: inherit;
+}
+
+@media (min-width: 770px) {
+  .small-block {
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+  }
+}
+
+.day {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  cursor: pointer;
+
+  background: white;
+  border-radius: 10px;
+  perspective: 500px;
+}
+
+.day .cover {
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Fredoka One", cursive;
+  font-size: 3em;
+  transform-origin: left top;
+  transition: 1s ease-in-out;
+}
+
+.day:hover {
+  z-index: 10;
+}
+
+.day:hover .cover {
+  transform: rotateY(-100deg);
+}
+
+.day:nth-of-type(5n-4) .cover {
+  background-color: #2f3029;
+  color: #f5eed7;
+}
+
+.day:nth-of-type(5n-3) .cover {
+  background-color: #b73a3b;
+  color: #f5eed7;
+
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='15' height='15' viewBox='0 0 100 100'><circle cx='25' cy='25' r='15' fill='%239B2D2B'/><circle cx='75' cy='75' r='16' fill='%239B2D2B'/></svg>");
+}
+
+.day:nth-of-type(5n-2) .cover {
+  background-color: #f5eed7;
+  color: #252721;
+
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='47.5' height='47.5' viewBox='0 0 100 100'><path d='M 25 10 L 25 17 M 25 33 L 25 40 M 10 25 L 17 25 M 33 25 L 40 25' stroke='%23CD803D' stroke-width='6' stroke-linecap='round' /><circle cx='75' cy='75' r='4' fill='%23CD803D'/></svg>");
+}
+
+.day:nth-of-type(5n-1) .cover {
+  background-color: #b7c7b0;
+  color: #252721;
+
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 120 120'><polygon fill='%2393A891' points='120 120 60 120 90 90 120 60 120 0 120 0 60 60 0 0 0 60 30 90 60 120 120 120 '/></svg>");
+}
+
+.day:nth-of-type(5n-0) .cover {
+  background-color: #b73a3b;
+  color: #f5eed7;
+
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='70' height='70' viewBox='0 0 100 100'><path d='M 0 25 L 25 0 M 0 50 L 50 0 M 0 75 L 75 0 M 0 100 L 100 0 M 0 125 L 125 0 M 0 150 L 150 0 M 0 175 L 175 0' stroke='%239B2D2B' stroke-width='6' /></svg>");
+}
+
+.block:nth-of-type(1) *:nth-of-type(2) {
+  grid-column: 2;
+  grid-row: 1/3;
+}
+
+.block:nth-of-type(2) *:nth-of-type(5) {
+  grid-column: 3;
+  grid-row: 1/3;
+}
+
+.block:nth-of-type(3) *:nth-of-type(1) {
+  grid-column: 1;
+  grid-row: 1/3;
+}
+
+.block:nth-of-type(3) *:nth-of-type(4) {
+  grid-column: 3;
+  grid-row: 1/3;
+}
+
+.big-block *:nth-child(5) {
+  grid-column: 2/4;
+  grid-row: 2;
+}
+
+.small-block *:nth-child(2) {
+  grid-column: 2/4;
+  grid-row: 1;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+svg {
+  border-radius: 10px;
+}
+
+.gingerbread .body {
+  fill: #cd803d;
+}
+
+.gingerbread .eye {
+  fill: white;
+}
+.gingerbread .mouth {
+  fill: none;
+  stroke: white;
+  stroke-width: 2px;
+  rx: 2px;
+}
+
+.gingerbread .limb {
+  stroke: #cd803d;
+  stroke-width: 35px;
+  stroke-linecap: round;
+}
+
+.house {
+  stroke: black;
+  stroke-width: 2px;
+  fill: white;
+}
+
+.house .roof {
+  fill: none;
+  stroke: #d1495b;
+  stroke-width: 10px;
+  stroke-linecap: round;
+}
+
+.house .door {
+  fill: #d1495b;
+  rx: 2px;
+}
+
+.house .stair {
+  fill: gray;
+}
+
+.house .window {
+  fill: #fdea96;
+  rx: 5px;
+}
+
+.house .window-sill {
+  fill: #d1495b;
+  stroke-linecap: round;
+  rx: 5px;
+}
+
+.candy .body {
+  stroke-linecap: round;
+  fill: none;
+}
+
+.candy .red-mark {
+  stroke: #d1495b;
+  stroke-width: 2.5px;
+}
+
+.candy .green-mark {
+  stroke: #234236;
+  stroke-width: 2.5px;
+}
+
+.gift .box {
+  fill: #d1495b;
+  stroke: black;
+  stroke-width: 2px;
+}
+
+.gift .stripe {
+  fill: white;
+  stroke: black;
+  stroke-width: 2px;
+}
+
+.gift .ribbon {
+  stroke: #b73a3b;
+  stroke-width: 4px;
+  fill: none;
+}
+
+.bear {
+  background-color: #f5eed7;
+}
+
+.bear .face {
+  fill: white;
+  rx: 50;
+  ry: 30;
+}
+
+.bear .mouth {
+  fill: none;
+  stroke: black;
+  stroke-width: 2;
+}
+
+.sleigh {
+  offset-path: path(
+    "M-200 80 L -90 80 Q 60 80 60 -10 A 50 50 0 0 0 -60 -10 Q -60 80 90 80 L 200 80"
+  );
+  animation: roller-coaster 6000ms infinite linear;
+}
+
+@keyframes roller-coaster {
+  0% {
+    offset-distance: 0%;
+  }
+  100% {
+    offset-distance: 100%;
+  }
+}
+
+.background {
+  display: inline-block;
+  border-radius: 10px;
+
+  background-color: #38755b;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 120 120'%3E%3Cpolygon fill='%230c5c4c' points='120 120 60 120 90 90 120 60 120 0 120 0 60 60 0 0 0 60 30 90 60 120 120 120 '/%3E%3C/svg%3E");
+}
+
+.flake {
+  animation-duration: inherit;
+  animation-name: snowing;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+.flake.small {
+  opacity: 0.7;
+}
+.flake.slow {
+  animation-duration: 5s;
+}
+.flake.fast {
+  animation-duration: 3s;
+}
+
+@keyframes snowing {
+  from {
+    transform: translate(0, -100px);
+  }
+  to {
+    transform: translate(0, 100px);
+  }
+}
+
+.lights {
+  fill: none;
+  stroke: #5f4c6c;
+  stroke-width: 2;
+}
+
+.lights #button {
+  cursor: pointer;
+}
+
+.bell:hover {
+  transform-origin: center 30%;
+}
+
+.bell:hover,
+.bell:hover .bell-tongue {
+  animation-duration: 0.5s;
+  animation-delay: -0.25s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  animation-name: ring;
+}
+
+@keyframes ring {
+  from {
+    transform: rotate(-20deg);
+  }
+  to {
+    transform: rotate(20deg);
+  }
+}
+
+.detail-screen {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: 100;
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+@media (min-width: 770px) {
+  .detail-screen {
+    grid-template-columns: minmax(400px, auto) auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  .detail-screen {
+    width: 1200px;
+    height: calc(100% - 30px);
+    border-radius: 10px;
+  }
+  .details {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}
+
+@media (min-width: 770px) {
+  .content {
+    padding: 50px 0 50px 0;
+  }
+}
+
+.close {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: gray;
+  cursor: pointer;
+
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 100 100'><path d='M 30 30 L 70 70 M 30 70 L 70 30' stroke='white' stroke-width='10' /></svg>");
+}
+
+.details {
+  padding: 40px;
+  background-color: #333333;
+  overflow: scroll;
+  color: black;
+  background-color: lightgray;
+}
+
+.code-section {
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+
+.source-code {
+  color: white;
+  background-color: #333333;
+  padding: 2em;
+  border-radius: 5px;
+  overflow: scroll;
+}
+
+.twitter {
+  color: #f5eed7;
+  font-size: 0.8em;
+  background-color: #16212b;
+}
+
+#youtube,
+#youtube-card {
+  display: none;
+}
+
+@media (min-height: 425px) {
+  /** Youtube logo by https://codepen.io/alvaromontoro */
+  #youtube {
+    z-index: 50;
+    width: 100px;
+    display: block;
+    height: 70px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: red;
+    border-radius: 50% / 11%;
+    transform: scale(0.8);
+    transition: transform 0.5s;
+  }
+
+  #youtube:hover,
+  #youtube:focus {
+    transform: scale(0.9);
+  }
+
+  #youtube::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 7.5%;
+    left: -6%;
+    width: 112%;
+    height: 85%;
+    background: red;
+    border-radius: 9% / 50%;
+  }
+
+  #youtube::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    width: 45px;
+    height: 30px;
+    border: 15px solid transparent;
+    box-sizing: border-box;
+    border-left: 30px solid white;
+  }
+
+  #youtube span {
+    font-size: 0;
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+  }
+
+  #youtube:hover + #youtube-card {
+    z-index: 49;
+    display: block;
+    position: fixed;
+    bottom: 12px;
+    right: 10px;
+    padding: 25px 130px 25px 25px;
+    width: 300px;
+    background-color: white;
+  }
+}
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+
+</head>
+
+<body translate="no">
+  <div id="root"><div class="App"><div class="grid"><header><h1>Learn to code SVG</h1><p>Click a tile to reveal an image and its source code</p></header><div class="block"><div class="day" style="z-index: 1;"><div class="cover">1</div><svg width="120" height="120" viewBox="-100 -100 200 200"><circle cx="0" cy="20" r="70" fill="#D1495B"></circle><circle cx="0" cy="-75" r="12" fill="none" stroke="#F79257" stroke-width="2"></circle><rect x="-17.5" y="-65" width="35" height="20" fill="#F79257"></rect></svg></div><div class="day" style="z-index: 1;"><div class="cover">2</div><svg width="120" height="240" viewBox="-100 -200 200 400"><polygon points="0,0 80,120 -80,120" fill="#234236"></polygon><polygon points="0,-40 60,60 -60,60" fill="#0C5C4C"></polygon><polygon points="0,-80 40,0 -40,0" fill="#38755B"></polygon><rect x="-20" y="120" width="40" height="30" fill="brown"></rect></svg></div><div class="day" style="z-index: 1;"><div class="cover">3</div><svg class="gingerbread" width="120" height="120" viewBox="-100 -100 200 200"><circle class="body" cx="0" cy="-50" r="30"></circle><circle class="eye" cx="-12" cy="-55" r="3"></circle><circle class="eye" cx="12" cy="-55" r="3"></circle><rect class="mouth" x="-10" y="-40" width="20" height="5" rx="2"></rect><line class="limb" x1="-40" y1="-10" x2="40" y2="-10"></line><line class="limb" x1="-25" y1="50" x2="0" y2="-15"></line><line class="limb" x1="25" y1="50" x2="0" y2="-15"></line><circle class="button" cx="0" cy="-10" r="5"></circle><circle class="button" cx="0" cy="10" r="5"></circle></svg></div><div class="day" style="z-index: 1;"><div class="cover">4</div><svg class="house" width="120" height="120" viewBox="-100 -100 200 200"><polygon class="wall" points="-65,80 -65,-10 0,-70 65,-10 65,80"></polygon><polyline class="roof" points="-75,-8 0,-78 75,-8"></polyline><rect class="door" x="-45" y="10" width="30" height="60"></rect><circle class="door-knob" cx="-35" cy="40" r="2"></circle><rect class="stair" x="-47" y="70" width="34" height="5"></rect><rect class="stair" x="-49" y="75" width="38" height="5"></rect><rect class="window" x="5" y="15" width="40" height="35"></rect><line x1="5" y1="32.5" x2="45" y2="32.5"></line><line x1="25" y1="15" x2="25" y2="50"></line><rect class="window-sill" x="2" y="48" width="46" height="5"></rect><circle class="window" cx="0" cy="-25" r="15"></circle><line x1="-15" y1="-25" x2="15" y2="-25"></line><line x1="0" y1="-40" x2="0" y2="-10"></line></svg></div><div class="day" style="z-index: 1;"><div class="cover">5</div><svg width="120" height="120" viewBox="-100 -100 200 200"><clippath id="ball"><circle cx="0" cy="20" r="70"></circle></clippath><circle cx="0" cy="20" r="70" fill="#D1495B"></circle><polyline clip-path="url(#ball)" points="-120 40 -80 0 -40 40 0 0 40 40 80 0 120 40" fill="none" stroke="#9C2D2A" stroke-width="20"></polyline><circle cx="0" cy="-75" r="12" fill="none" stroke="#F79257" stroke-width="2"></circle><rect x="-17.5" y="-65" width="35" height="20" fill="#F79257"></rect></svg></div></div><div class="block"><div class="day" style="z-index: 1;"><div class="cover">6</div><svg class="star" width="120" height="120" viewBox="-100 -100 200 200"><g transform="translate(0 5)"><g><polygon points="0,0 36,-50 0,-100" fill="#EDD8B7"></polygon><polygon points="0,0 -36,-50 0,-100" fill="#E5C39C"></polygon></g><g transform="rotate(72)"><polygon points="0,0 36,-50 0,-100" fill="#EDD8B7"></polygon><polygon points="0,0 -36,-50 0,-100" fill="#E5C39C"></polygon></g><g transform="rotate(-72)"><polygon points="0,0 36,-50 0,-100" fill="#EDD8B7"></polygon><polygon points="0,0 -36,-50 0,-100" fill="#E5C39C"></polygon></g><g transform="rotate(144)"><polygon points="0,0 36,-50 0,-100" fill="#EDD8B7"></polygon><polygon points="0,0 -36,-50 0,-100" fill="#E5C39C"></polygon></g><g transform="rotate(-144)"><polygon points="0,0 36,-50 0,-100" fill="#EDD8B7"></polygon><polygon points="0,0 -36,-50 0,-100" fill="#E5C39C"></polygon></g></g></svg></div><div class="day" style="z-index: 1;"><div class="cover">7</div><svg width="120" height="120" viewBox="-100 -100 200 200"><defs><path id="branch" d=" M 0 0 L 0 -90 M 0 -20 L 20 -34 M 0 -20 L -20 -34 M 0 -40 L 20 -54 M 0 -40 L -20 -54 M 0 -60 L 20 -74 M 0 -60 L -20 -74" stroke="#E5C39C" stroke-width="5"></path></defs><use href="#branch"></use><use href="#branch" transform="rotate(60)"></use><use href="#branch" transform="rotate(120)"></use><use href="#branch" transform="rotate(180)"></use><use href="#branch" transform="rotate(240)"></use><use href="#branch" transform="rotate(300)"></use></svg></div><div class="day" style="z-index: 1;"><div class="cover">8</div><svg width="120" height="120" viewBox="-100 -100 200 200"><defs><g id="tree"><polygon points="-10,0 10,0 0 -50" fill="#38755b"></polygon><line x1="0" y1="0" x2="0" y2="10" stroke="#778074" stroke-width="2"></line></g></defs><rect x="-100" y="-100" width="200" height="200" fill="#F1DBC3"></rect><circle cx="0" cy="380" r="350" fill="#F8F4E8"></circle><use href="#tree" x="-30" y="25" transform="scale(2)"></use><use href="#tree" x="-20" y="40" transform="scale(1.2)"></use><use href="#tree" x="40" y="40"></use><use href="#tree" x="50" y="30" transform="scale(1.5)"></use></svg></div><div class="day"><div class="cover">9</div><svg width="120" height="120" viewBox="-100 -100 200 200"><defs><radialgradient id="shine" cx="0.25" cy="0.25" r="0.35"><stop offset="0%" stop-color="#e3a8b0"></stop><stop offset="100%" stop-color="#D1495B"></stop></radialgradient></defs><circle cx="0" cy="20" r="70" fill="url(#shine)"></circle><circle cx="0" cy="-75" r="12" fill="none" stroke="#F79257" stroke-width="2"></circle><rect x="-17.5" y="-65" width="35" height="20" fill="#F79257"></rect></svg></div><div class="day" style="z-index: 1;"><div class="cover">10</div><svg width="120" height="240" viewBox="-100 -200 200 400"><defs><radialgradient id="snowball" cx="0.25" cy="0.25" r="1"><stop offset="0%" stop-color="white"></stop><stop offset="50%" stop-color="white"></stop><stop offset="100%" stop-color="#d6d6d6"></stop></radialgradient></defs><circle id="bigball" cx="0" cy="60" r="80" fill="url(#snowball)"></circle><circle cx="0" cy="-40" r="50" fill="url(#snowball)"></circle><polygon points="10,-46 50,-40 10,-34" fill="#e66465"></polygon><circle cx="0" cy="-55" r="5"></circle><circle cx="20" cy="-55" r="5"></circle><line x1="-40" y1="30" x2="-90" y2="-30" stroke="black" stroke-width="5"></line><line x1="-65" y1="0" x2="-90" y2="-10" stroke="black" stroke-width="5"></line></svg></div></div><div class="block"><div class="day" style="z-index: 1;"><div class="cover">11</div><svg width="120" height="240" viewBox="-100 -200 200 400"><path d=" M 0 -80 Q 5 -75 0 -70 Q -10 -65 0 -60 Q 15 -55 0 -50 Q -20 -45 0 -40 Q 25 -35 0 -30 Q -30 -25 0 -20 Q 35 -15 0 -10 Q -40 -5 0 0 Q 45 5 0 10 Q -50 15 0 20 Q 55 25 0 30 Q -60 35 0 40 Q 65 45 0 50 Q -70 55 0 60 Q 75 65 0 70 Q -80 75 0 80 Q 85 85 0 90 Q -90 95 0 100 Q 95 105 0 110 Q -100 115 0 120 L 0 140 L 20 140 L -20 140" fill="none" stroke="#0C5C4C" stroke-width="5"></path></svg></div><div class="day" style="z-index: 1;"><div class="cover">12</div><svg class="gift" width="120" height="120" viewBox="-100 -100 200 200"><path class="ribbon" d=" M 0 -50 L 30 -50 C 50 -50 50 -70 30 -65 L 0 -50 "></path><path class="ribbon" d=" M 0 -50 L -30 -50 C -50 -50 -50 -70 -30 -65 L 0 -50 "></path><circle cx="0" cy="-50" r="10" fill="#a9172a"></circle><rect class="box" x="-60" y="-40" width="120" height="100"></rect><rect class="box" x="-70" y="-47" width="140" height="20"></rect><rect class="stripe" x="-20" y="-40" width="40" height="100"></rect><rect class="stripe" x="-25" y="-47" width="50" height="20"></rect></svg></div><div class="day"><div class="cover">13</div><svg width="120" height="120" viewBox="-100 -100 200 200"><g stroke="black" stroke-width="2"><circle cx="0" cy="-45" r="7" fill="#4F6D7A"></circle><circle cx="0" cy="50" r="10" fill="#F79257"></circle><path d=" M -50 40 L -50 50 L 50 50 L 50 40 Q 40 40 40 10 C 40 -60 -40 -60 -40 10 Q -40 40 -50 40" fill="#FDEA96"></path></g></svg></div><div class="day"><div class="cover">14</div><svg class="candy" width="120" height="240" viewBox="-100 -200 200 400"><path d=" M 50 120 L 50 -80 A 50 50 0 0 0 -50 -80" stroke="#cd803d" stroke-width="45" class="body"></path><path d=" M 50 120 L 50 -80 A 50 50 0 0 0 -50 -80" stroke="white" stroke-width="40" class="body"></path><line class="green-mark" x1="-35" y1="-90" x2="-60" y2="-100"></line><line class="red-mark" x1="-15" y1="-115" x2="-25" y2="-135"></line><line class="green-mark" x1="20" y1="-110" x2="35" y2="-130"></line><line class="red-mark" x1="40" y1="-60" x2="60" y2="-80"></line><line class="green-mark" x1="40" y1="-10" x2="60" y2="-30"></line><line class="red-mark" x1="40" y1="40" x2="60" y2="20"></line><line class="green-mark" x1="40" y1="90" x2="60" y2="70"></line></svg></div></div><div class="big-block"><div class="day"><div class="cover">15</div><svg width="120" height="120" viewBox="-100 -100 200 200"><defs><path id="ribbon" d=" M 0 -20 Q 28 -40 56 -45 C 96 -48 96 48 56 45 Q 28 40 0 20 " fill="#B73A3B"></path></defs><use href="#ribbon"></use><use href="#ribbon" transform="scale(-1)"></use><ellipse cx="0" cy="0" rx="20" ry="24" fill="#9C2D2A"></ellipse><path d=" M 0 20 Q 40 40 30 60 Q 20 80 40 90 M 0 20 Q -30 30 -20 60 Q -10 90 -50 100" fill="none" stroke="#B73A3B" stroke-width="3"></path></svg></div><div class="day twitter">Follow me<a href="https://twitter.com/HunorBorbely" target="_blank">@HunorBorbely</a></div><div class="day" style="z-index: 1;"><div class="cover">16</div><svg class="bear" width="120" height="120" viewBox="-100 -100 200 200"><circle cx="-40" cy="-50" r="20" fill="white"></circle><circle cx="40" cy="-50" r="20" fill="white"></circle><circle cx="-40" cy="-50" r="15" fill="#E5C39C"></circle><circle cx="40" cy="-50" r="15" fill="#E5C39C"></circle><rect class="face" x="-55" y="-60" width="110" height="120"></rect><circle cx="20" cy="-30" r="3"></circle><circle cx="-20" cy="-30" r="3"></circle><path d=" M -30 0 C -30 -25 30 -25 30 0 L 30 30 Q 30 40 20 40 L -20 40 Q -30 40 -30 30" fill="#E5C39C"></path><path d=" M -10 0 L 10 0 C 10 20 -10 20 -10 0"></path><path class="mouth" d=" M 0 10 Q 0 25 10 25 M 0 10 Q 0 25 -10 25"></path></svg></div><div class="day" style="z-index: 1;"><div class="cover">17</div><svg width="120" height="120" viewBox="-100 -100 200 200"><defs><path id="text-arc" d="M 0, 50 A 50 50 0 1 1 1,50"></path></defs><text fill="#0c5c4c" font-family="Tahoma" font-size="0.77em" font-weight="bold"><textpath href="#text-arc">Happy Holidays! Happy Holidays! Happy Holidays!</textpath></text></svg></div><div class="day" style="z-index: 1;"><div class="cover">18</div><svg width="240" height="120" viewBox="-200 -100 400 200" fill="none"><path stroke="#E0CEB9" stroke-width="4" d="M-200 80 L -80 80 Q 80 80 70 -10 A 70 70 0 0 0 -70 -10 Q -80 80 80 80 L 200 80"></path><g class="sleigh"><path d=" M -30 -2 L 30 -2 A 10 10 0 0 0 30 -22 M -20 -2 L -20 -17 M 20 -2 L 20 -17" stroke="#AF6455" stroke-width="5"></path><path d="M -27 -17 L 27 -17" stroke="#7A504F" stroke-width="6"></path></g></svg></div><div class="day"><div class="cover">19</div><svg class="bell" width="120" height="120" viewBox="-100 -100 200 200"><g stroke="#001514" stroke-width="2"><circle cx="0" cy="-45" r="7" fill="#4F6D7A"></circle><circle class="bell-tongue" cx="0" cy="50" r="10" fill="#F79257"></circle><path d=" M -50 40 L -50 50 L 50 50 L 50 40 Q 40 40 40 10 C 40 -60 -40 -60 -40 10 Q -40 40 -50 40" fill="#FDEA96"></path></g></svg></div><div class="day"><div class="cover">20</div><svg width="120" height="120" viewBox="-100 -100 200 200"><defs><g id="tree"><polygon points="-10,0 10,0 0 -50" fill="#38755b"></polygon><line x1="0" y1="0" x2="0" y2="10" stroke="#778074" stroke-width="2"></line></g><circle id="big-flake" cx="0" cy="0" r="5" fill="white"></circle><circle id="small-flake" cx="0" cy="0" r="3" fill="white"></circle></defs><rect x="-100" y="-100" width="200" height="200" fill="#F1DBC3"></rect><circle cx="0" cy="380" r="350" fill="#F8F4E8"></circle><use href="#tree" x="-30" y="25" transform="scale(2)"></use><use href="#tree" x="-20" y="40" transform="scale(1.2)"></use><use href="#tree" x="40" y="40"></use><use href="#tree" x="50" y="30" transform="scale(1.5)"></use><use href="#big-flake" x="0" y="0" class="flake fast"></use><use href="#big-flake" x="-50" y="-20" class="flake fast small"></use><use href="#big-flake" x="30" y="-40" class="flake fast"></use><use href="#big-flake" x="50" y="-20" class="flake fast small"></use><use href="#big-flake" x="30" y="50" class="flake slow"></use><use href="#big-flake" x="-70" y="-80" class="flake slow small"></use><use href="#big-flake" x="30" y="50" class="flake slow"></use><use href="#big-flake" x="90" y="-80" class="flake slow small"></use><use href="#small-flake" x="10" y="-50" class="flake slow"></use><use href="#small-flake" x="-50" y="-60" class="flake slow small"></use><use href="#small-flake" x="30" y="70" class="flake slow"></use><use href="#small-flake" x="10" y="-80" class="flake slow small"></use></svg></div><div class="day"><div class="cover">21</div><div class="background" style="width: 120px; height: 120px;"></div></div></div><div class="small-block"><div class="day"><div class="cover">22</div><svg class="clock" width="120" height="120" viewBox="-100 -100 200 200"><rect x="-100" y="-100" width="200" height="200" fill="#CD803D"></rect><circle r="55" stroke="#FCCE7B" stroke-width="10" fill="white"></circle><circle r="45" stroke="#B6705F" stroke-width="6" stroke-dasharray="6 17.56194490192345" stroke-dashoffset="3" fill="none"></circle><g stroke="#5f4c6c" stroke-linecap="round"><line id="hours" y2="-20" stroke-width="8" transform="rotate(210)"></line><line id="minutes" y2="-35" stroke-width="6" transform="rotate(150)"></line></g></svg></div><div class="day"><div class="cover">23</div><svg class="lights" width="240" height="120" viewBox="-200 -100 400 200"><defs><g id="bulb"><path d="M 0,0 Q 20 25 0 40 Q -20 25 0 0"></path><rect x="-6" y="-1" width="12" height="10" rx="3" fill="#5F4C6C"></rect></g></defs><path d="M -140 -60 Q -70 -50 0 -60 Q 110 -70 110 10"></path><line x1="-70" y1="-15" x2="-70" y2="-55"></line><line x1="30" y1="-25" x2="30" y2="-60"></line><use class="b" href="#bulb" x="-120" y="-45" transform="rotate(5)" fill="white"></use><use class="b" href="#bulb" x="-70" y="-15" fill="white"></use><use class="b" href="#bulb" x="-20" y="-57" transform="rotate(-5)" fill="white"></use><use class="b" href="#bulb" x="30" y="-25" fill="white"></use><rect x="90" y="10" width="40" height="40" fill="lightgray"></rect><circle id="button" cx="110" cy="30" r="15" fill="red"></circle></svg></div><div class="day"><div class="cover">24</div><svg width="120" height="120" viewBox="-100 -100 200 200"><rect x="-55" y="20" width="15" height="30" fill="#CD803D"></rect><rect x="-35" y="10" width="15" height="40" fill="#CD803D"></rect><rect x="-15" y="-20" width="15" height="70" fill="#CD803D"></rect><rect x="5" y="0" width="15" height="50" fill="#CD803D"></rect><rect x="25" y="20" width="15" height="30" fill="#CD803D"></rect><rect x="45" y="-10" width="15" height="60" fill="#CD803D"></rect><polyline points="-55,10 -54,10.999583385413567 -53,11.996668332936563 -52,12.988762649471983 -51,13.973386615901225 -50,14.948079185090458 -49,15.910404133226791 -48,16.85795614910903 -47,17.788366846173012 -46,18.699310682224606 -45,19.58851077208406 -44,20.453744578613183 -43,21.29284946790071 -42,22.10372811472079 -41,22.88435374475382 -40,23.632775200466682 -39,24.347121817990455 -38,25.025608102805855 -37,25.666538192549666 -36,26.268310095787474 -35,26.82941969615793 -34,27.34846451188034 -33,27.82414720122871 -32,28.25527880521042 -31,28.640781719344524 -30,28.979692387111726 -29,29.27116370834386 -28,29.514467156533183 -27,29.708994599769202 -26,29.85425982075177 -25,29.94989973208109 -24,29.99567528378714 -23,29.9914720608301 -22,29.937300569078378 -21,29.833296209049372 -20,29.67971893747874 -19,29.476952617563903 -18,29.225504059505997 -17,28.926001753748288 -16,28.579194300077386 -15,28.185948536513635 -14,27.74724737266751 -13,27.264187332977475 -12,26.737975815969953 -11,26.169928076391802 -10,25.561463937758425 -9,24.914104243534403 -8,24.229467055816887 -7,23.50926361102302 -6,22.755294042690075 -5,21.96944288207913 -4,21.15367434782834 -3,20.310027436429284 -2,19.440610825797652 -1,18.547597604676596 0,17.633219841046632 1,16.6997630031181 2,15.749560246850887 3,14.784986584279649 4,13.808452947220541 5,12.822400161197343 6,11.829292844648744 7,10.83161324866581 8,9.831855052657028 9,8.832517131448398 10,7.836097309397832 11,6.845086117135036 12,5.861960566532004 13,4.8891779594633755 14,3.9291697458314134 15,2.984335446207603 16,2.057036654280804 17,1.14959113410295 18,0.2642670268860119 19,-0.5967228181698676 20,-1.431226374846874 21,-2.237157818854378 22,-3.012502741303347 23,-3.755323183679476 24,-4.463762481730242 25,-5.136049906158565 26,-5.770505088523901 27,-6.365542221288205 28,-6.919674021508932 29,-7.431515448271764 30,-7.89978716457167 31,-8.323318734989098 32,-8.70105155116898 33,-9.032041477790322 34,-9.315461212412778 35,-9.55060235330194 36,-9.73687717006473 37,-9.87382007266929 38,-9.96108877517759 39,-9.998465151282016 40,-9.98585577950756 41,-9.923292176716814 42,-9.810930719334266 43,-9.649052252486648 44,-9.438061388036417 45,-9.17848549326277 46,-8.870973372718133 47,-8.51629364655465 48,-8.11533282937409 49,-7.669093114403061 50,-7.1786898685318405 51,-6.6453488444780255 52,-6.070403117043117 53,-5.455289751119743 54,-4.801546209777888 55,-4.110806511407839 56,-3.3847971455252406 57,-2.625332757446433 58,-1.834311612620187 59,-1.0137108519527516" fill="none" stroke="black" stroke-width="5"></polyline></svg></div><div class="day"><div class="cover">25</div><svg width="120" height="120" viewBox="-100 -100 200 200"><clippath id="snow-globe"><circle cx="0" cy="0" r="80"></circle></clippath><g clip-path="url(#snow-globe)"><rect x="-100" y="-100" width="200" height="200" fill="#F1DBC3"></rect><circle cx="0" cy="380" r="350" fill="#F8F4E8"></circle><g><defs><g id="tree"><polygon points="-10,0 10,0 0 -50" fill="#38755b"></polygon><line x2="0" y2="10" stroke="#778074" stroke-width="2"></line></g></defs><use href="#tree" x="-20" y="25" transform="scale(1.8)"></use><use href="#tree" x="-10" y="40" transform="scale(1)"></use><use href="#tree" x="30" y="40" transform="scale(0.8)"></use><use href="#tree" x="40" y="30" transform="scale(1.2)"></use></g><g class="snowing"><defs><circle id="big-flake" cx="0" cy="0" r="5" fill="white"></circle><circle id="small-flake" cx="0" cy="0" r="3" fill="white"></circle></defs><use href="#big-flake" x="0" y="0" class="flake fast"></use><use href="#big-flake" x="-50" y="-20" class="flake fast small"></use><use href="#big-flake" x="30" y="-40" class="flake fast"></use><use href="#big-flake" x="50" y="-20" class="flake fast small"></use><use href="#big-flake" x="30" y="50" class="flake slow"></use><use href="#big-flake" x="-70" y="-80" class="flake slow small"></use><use href="#big-flake" x="30" y="50" class="flake slow"></use><use href="#big-flake" x="90" y="-80" class="flake slow small"></use><use href="#small-flake" x="10" y="-50" class="flake slow"></use><use href="#small-flake" x="-50" y="-60" class="flake slow small"></use><use href="#small-flake" x="30" y="70" class="flake slow"></use><use href="#small-flake" x="10" y="-80" class="flake slow small"></use></g></g><circle cx="0" cy="0" r="80" fill="none" stroke="gray" stroke-width="2"></circle></svg></div></div></div></div></div>
+
+<a id="youtube" target="_blank" href="https://youtu.be/kBT90nwUb_o">
+  <span>Learn SVGs</span>
+</a>
+<div id="youtube-card">
+  Learn SVG through 24 examples
+</div>
+
+<script>
+  // This section contains the detail screen metadata
+  const detailScreens = [];
+  detailScreens.push({
+    title: "Christmas bauble",
+    description: `<p>The SVG tag contains the image elements and defines the frame of our image. It has a width and a height property defining how much space the image takes up in the document. There's also a viewBox property that defines a coordinate system. Every image element is positioned based on this coordinate system. The first two values in viewBox define the top-left coordinate in the image and the last two define the size. The size, in this case, matches the one defined at the width and the height, but that's not necessary. If they don't match the image scales up or scales down. With this setting, the 0,0 coordinate ends up at the middle of the image.</p>
+    <p>Let’s start with a simple Christmas bauble. Here we only use simple shapes, a rectangle, and two circles. We position and style these elements with attributes. For the circle, we define the center position and for the rectangle, we define the top left corner. These positions are always related to the coordinate system defined by the viewBox.</p>
+
+<p>We also have presentational attributes that style our shapes. Unlike in HTML, we do not use background-color to set a color for a shape but we use the fill attribute. And to set a border for a shape we use stroke and stroke-width. Note how we use the circle element both to draw a ring and a ball with different attributes.</p>`,
+    sourceCodes: [{
+      type: "HTML",
+      content: `<svg width="200" height="200" viewBox="-100 -100 200 200">
+  <circle cx="0" cy="20" r="70" fill="#D1495B" />
+
+  <circle
+    cx="0"
+    cy="-75"
+    r="12"
+    fill="none"
+    stroke="#F79257"
+    stroke-width="2"
+  />
+
+  <rect x="-17.5" y="-65" width="35" height="20" fill="#F79257" />
+</svg>`
+    }]
+  });
+  detailScreens.push({
+    title: "Tree",
+    description: `<p>We can’t always use basic shapes to assemble our image. A polygon is the simplest way to draw a freeform shape. Here we set a list of coordinates that are connected with straight lines.</p>`,
+    sourceCodes: [{
+      type: "HTML",
+      content: `<svg width="200" height="200" viewBox="-100 -100 200 200">
+  <polygon points="0,0 80,120 -80,120" fill="#234236" />
+  <polygon points="0,-40 60,60 -60,60" fill="#0C5C4C" />
+  <polygon points="0,-80 40,0 -40,0" fill="#38755B" />
+  <rect x="-20" y="120" width="40" height="30" fill="brown" />
+</svg>`
+    }]
+  });
+  detailScreens.push({
+    title: "Gingerbread figure",
+    description: `<p>Since our SVG is living inside an HTML file now, we can assign CSS classes to each tag and move some attributes to CSS. You can only move the presentation attributes though. Position attributes and attributes that define the shape still have to stay in HTML. But colors, stroke, and font attributes can be moved to CSS.</p>
+
+<p>We already saw the fill and some of the stroke properties, but here’s another one. The stroke-linecap. This can make our line cap round. Note that the legs and the arms are simple lines here. To give you a comparison if we remove the line cap and set a smaller stroke-width, then this is how it would looks like. But by setting a thick stroke width and a round line cap we can shape legs and arms for our figure.</p>
+
+<p>Also, note the rx property at the rectangle defining the mouth. This will make the edges round. You can think of it as border-radius if you like.</p>`,
+    sourceCodes: [{
+        type: "HTML",
+        content: `<svg class=“gingerbread" width="200" height="200" viewBox="-100 -100 200 200">
+  <circle class="body" cx="0" cy="-50" r="30" />
+
+  <circle class="eye" cx="-12" cy="-55" r="3" />
+  <circle class="eye" cx="12" cy="-55" r="3" />
+  <rect class="mouth" x="-10" y="-40" width="20" height="5" rx="2" />
+
+  <line class="limb" x1="-40" y1="-10" x2="40" y2="-10" />
+  <line class="limb" x1="-25" y1="50" x2="0" y2="-15" />
+  <line class=“limb" x1="25" y1="50" x2="0" y2="-15" />
+
+  <circle class="button" cx="0" cy="-10" r="5" />
+  <circle class="button" cx="0" cy="10" r="5" />
+</svg>`
+      },
+      {
+        type: "CSS",
+        content: `.gingerbread .body {
+  fill: #cd803d;
+}
+
+.gingerbread .eye {
+  fill: white;
+}
+
+.gingerbread .mouth {
+  fill: none;
+  stroke: white;
+  stroke-width: 2px;
+}
+
+.gingerbread .limb {
+  stroke: #cd803d;
+  stroke-width: 35px;
+  stroke-linecap: round;
+}`
+      }
+    ]
+  });
+  detailScreens.push({
+    title: "House",
+    sourceCodes: [{
+        type: "HTML",
+        content: `<svg class=“house" width="200" height="200" viewBox="-100 -100 200 200">
+  <polygon class="wall" points="-65,80 -65,-10 0,-70 65,-10 65,80" />
+  <polyline class="roof" points="-75,-8 0,-78 75,-8" />
+
+  <rect class="door" x="-45" y="10" width="30" height="60" />
+  <circle class="door-knob" cx="-35" cy="40" r="2" />
+  <rect class="stair" x="-47" y="70" width="34" height="5" />
+  <rect class="stair" x="-49" y="75" width="38" height="5" />
+
+  <rect class="window" x="5" y="15" width="40" height="35" />
+  <line x1="5" y1="32.5" x2="45" y2="32.5" />
+  <line x1="25" y1="15" x2="25" y2="50" />
+  <rect class="window-sill" x="2" y="48" width="46" height="5" />
+
+  <circle class="window" cx="0" cy="-25" r="15" />
+  <line x1="-15" y1="-25" x2="15" y2="-25" />
+  <line x1="0" y1="-40" x2="0" y2="-10" />
+</svg>`
+      },
+      {
+        type: "CSS",
+        content: `.house {
+  stroke: black;
+  stroke-width: 2px;
+  fill: white;
+}
+
+.house .roof {
+  fill: none;
+  stroke: #d1495b;
+  stroke-width: 10px;
+  stroke-linecap: round;
+}
+
+.house .door {
+  fill: #d1495b;
+  rx: 2px;
+}
+
+.house .stair {
+  fill: gray;
+}
+
+.house .window {
+  fill: #fdea96;
+  rx: 5px;
+}
+
+.house .window-sill {
+  fill: #d1495b;
+  stroke-linecap: round;
+  rx: 5px;
+}`
+      }
+    ]
+  });
+  detailScreens.push({
+    title: "Christmas bauble with clip-path",
+    description: `<p>This bauble has a motif on its side defined as a polyline. Polylines normally wouldn't care about the edge of the ball. Part of the line would overhang or stop too soon. We use clip-path here to make sure that the motif fits perfectly with the ball.</p>
+
+<p>We define the motif to be bigger than the ball then we cut the overhanging parts with a clip-path. The clip-path is defined in the definitions section. The defs section is like a hidden compartment of our image. Things here don't show up as part of our image, but we can refer to them and use them later.</p>`,
+    sourceCodes: [{
+      type: "HTML",
+      content: `<svg width="200" height="200" viewBox="-100 -100 200 200">
+  <defs>
+    <clipPath id="ball">
+      <circle cx="0" cy="20" r="70" />
+    </clipPath>
+  </defs>
+
+  <circle cx="0" cy="20" r="70" fill="#D1495B" />
+
+  <polyline
+    clip-path="url(#ball)"
+    points="-120 40 -80 0 -40 40 0 0 40 40 80 0 120 40"
+    fill="none"
+    stroke="#9C2D2A"
+    stroke-width="20"
+  />
+
+  <circle
+    cx="0"
+    cy="-75"
+    r="12"
+    fill="none"
+    stroke="#F79257"
+    stroke-width="2"
+  />
+  <rect x="-17.5" y="-65" width="35" height="20" fill="#F79257" />
+</svg>`
+    }]
+  });
+  detailScreens.push({
+    title: "Star",
+    description: `<p>A star is a simple shape, so we could define it as a bunch of polygons and set each point individually. But then we would need to know each coordinate. Instead of that, we can just define one wing, then repeat it five times with a rotation to get the same shape. We use the transform attribute to set a rotation.</p>
+
+<p>In this example, each wing consists of two polygons. They need to be rotated the same way, so we can group them with a g tag and rotate them together. You can think of the g tag as the div tag in HTML. On its own, it does not represent anything. But it can contain other elements and attributes defined on the group tag apply to its children.</p>`,
+    sourceCodes: [{
+      type: "HTML",
+      content: `<svg width="200" height="200" viewBox="-100 -100 200 200">
+  <g transform="translate(0 5)">
+    <g>
+      <polygon points="0,0 36,-50 0,-100" fill="#EDD8B7" />
+      <polygon points="0,0 -36,-50 0,-100" fill="#E5C39C" />
+    </g>
+    <g transform="rotate(72)">
+      <polygon points="0,0 36,-50 0,-100" fill="#EDD8B7" />
+      <polygon points="0,0 -36,-50 0,-100" fill="#E5C39C" />
+    </g>
+    <g transform="rotate(-72)">
+      <polygon points="0,0 36,-50 0,-100" fill="#EDD8B7" />
+      <polygon points="0,0 -36,-50 0,-100" fill="#E5C39C" />
+    </g>
+    <g transform="rotate(144)">
+      <polygon points="0,0 36,-50 0,-100" fill="#EDD8B7" />
+      <polygon points="0,0 -36,-50 0,-100" fill="#E5C39C" />
+    </g>
+    <g transform="rotate(-144)">
+      <polygon points="0,0 36,-50 0,-100" fill="#EDD8B7" />
+      <polygon points="0,0 -36,-50 0,-100" fill="#E5C39C" />
+    </g>
+  </g>
+</svg>`
+    }]
+  });
+  detailScreens.push({
+    title: "Snowflake",
+    description: `<p>Instead of repeating the same code over and over again we can also create a definition for a shape and reuse it. Here we define a branch of a snowflake then use it six times with different rotations.</p>
+
+<p>The branch is defined as a path. The path is the most powerful SVG tag. We can define pretty much anything with paths and if you open any SVG file, you will see paths mostly.</p>
+
+<p>The shape of the path is defined by the d attribute. Here we define several drawing commands. A command always starts with a letter defining the command type and ends with a coordinate. Here we only have the two most simple commands, move to and line to. The move to command moves the cursor to a point without drawing a line and the line to command draws a straight line from the previous point. A command always continues the previous command so when we draw a line we only define the endpoint. The starting point will be the previous command’s endpoint. This path is a bit unusual because there are several move to commands in it to draw the main branch and each side branches with the same path.</p>`,
+    sourceCodes: [{
+      type: "HTML",
+      content: `<svg width="200" height="200" viewBox="-100 -100 200 200">
+  <defs>
+    <path
+      id="branch"
+      d="
+        M 0 0 L 0 -90
+        M 0 -20 L 20 -34
+        M 0 -20 L -20 -34
+        M 0 -40 L 20 -54
+        M 0 -40 L -20 -54
+        M 0 -60 L 20 -74
+        M 0 -60 L -20 -74"
+      stroke="#E5C39C"
+      stroke-width="5"
+    />
+  </defs>
+
+  <use href="#branch" />
+  <use href="#branch" transform="rotate(60)" />
+  <use href="#branch" transform="rotate(120)" />
+  <use href="#branch" transform="rotate(180)" />
+  <use href="#branch" transform="rotate(240)" />
+  <use href="#branch" transform="rotate(300)" />
+</svg>`
+    }]
+  });
+  detailScreens.push({
+    title: "Forest",
+    description: `Rotation is not the only way we can generate images from simple shapes. In this example, we define a tree shape then place it to various positions in different sizes to draw a forest.`,
+    sourceCodes: [{
+      type: "HTML",
+      content: `<svg width="200" height="200" viewBox="-100 -100 200 200">
+  <defs>
+    <g id="tree">
+      <polygon points="-10,0 10,0 0 -50" fill="#38755b" />
+      <line
+        x1="0"
+        y1="0"
+        x2="0"
+        y2="10"
+        stroke="#778074"
+        stroke-width="2"
+      />
+    </g>
+  </defs>
+
+  <rect x="-100" y="-100" width="200" height="200" fill="#F1DBC3" />
+  <circle cx="0" cy="380" r="350" fill="#F8F4E8" />
+
+  <use href="#tree" x="-30" y="25" transform="scale(2)" />
+  <use href="#tree" x="-20" y="40" transform="scale(1.2)" />
+  <use href="#tree" x="40" y="40" />
+  <use href="#tree" x="50" y="30" transform="scale(1.5)" />
+</svg>`
+    }]
+  });
+  detailScreens.push({
+    title: "Christmas bauble with gradient",
+    description: `The filling of a shape can be defined as a gradient. Here we apply a radial gradient to our Christmas decoration to have a subtle 3D effect. It has a different syntax than CSS but the capabilities are rather similar. Gradients in SVG though can also be applied for strokes and pretty cool effects can be achieved that way.`,
+    sourceCodes: [{
+      type: "HTML",
+      content: `<svg width="200" height="200" viewBox="-100 -100 200 200">
+  <defs>
+    <radialGradient id="shine" cx="0.25" cy="0.25" r="0.35">
+      <stop offset="0%" stop-color="#e3a8b0" />
+      <stop offset="100%" stop-color="#D1495B" />
+    </radialGradient>
+  </defs>
+
+  <circle cx="0" cy="20" r="70" fill="url(#shine)" />
+  <circle
+    cx="0"
+    cy="-75"
+    r="12"
+    fill="none"
+    stroke="#F79257"
+    stroke-width="2"
+  />
+  <rect x="-17.5" y="-65" width="35" height="20" fill="#F79257" />
+</svg>`
+    }]
+  });
+  detailScreens.push({
+    title: "Snowman",
+    sourceCodes: [{
+      type: "HTML",
+      content: `<svg width="200" height="400" viewBox="-100 -200 200 400">
+  <defs>
+    <radialGradient id="snowball" cx="0.25" cy="0.25" r="1">
+      <stop offset="0%" stop-color="white" />
+      <stop offset="50%" stop-color="white" />
+      <stop offset="100%" stop-color="#d6d6d6" />
+    </radialGradient>
+  </defs>
+
+  <circle id="bigball" cx="0" cy="60" r="80" fill="url(#snowball)" />
+  <circle cx="0" cy="-40" r="50" fill="url(#snowball)" />
+  <polygon points="10,-46 50,-40 10,-34" fill="#e66465" />
+
+  <circle cx="0" cy="-55" r="5" />
+  <circle cx="20" cy="-55" r="5" />
+
+  <line
+    x1="-40"
+    y1="30"
+    x2="-90"
+    y2="-30"
+    stroke="black"
+    stroke-width="5"
+  />
+  <line x1="-65" y1="0" x2="-90" y2="-10" stroke="black" stroke-width="5" />
+</svg>`
+    }]
+  });
+  detailScreens.push({
+    title: "Quadratic Bézier",
+    description: `The path element becomes really powerful when we start using curves. One of them is the quadratic Bezier curve that not only defines an endpoint for a segment but also has a control point. The control point is an invisible coordinate to which the line is bending to, but not touching it. Here we have a series of quadratic beziers where the control points get further and further away from the center of the tree as the path goes down.`,
+    sourceCodes: [{
+      type: "HTML",
+      content: `<svg width="200" height="400" viewBox="-100 -200 200 400">
+  <path
+    d="
+      M 0 -80
+      Q 5 -75 0 -70
+      Q -10 -65 0 -60
+      Q 15 -55 0 -50
+      Q -20 -45 0 -40
+      Q 25 -35 0 -30
+      Q -30 -25 0 -20
+      Q 35 -15 0 -10
+      Q -40 -5 0 0
+      Q 45 5 0 10
+      Q -50 15 0 20
+      Q 55 25 0 30
+      Q -60 35 0 40
+      Q 65 45 0 50
+      Q -70 55 0 60
+      Q 75 65 0 70
+      Q -80 75 0 80
+      Q 85 85 0 90
+      Q -90 95 0 100
+      Q 95 105 0 110
+      Q -100 115 0 120
+      L 0 140
+      L 20 140
+      L -20 140"
+    fill="none"
+    stroke="#0C5C4C"
+    stroke-width="5"
+  />
+</svg>`
+    }]
+  });
+  detailScreens.push({
+    title: "Cubic Bézier",
+    description: `<p>While the quadratic bezier is great when we want to bend a line, often it’s not flexible enough. With cubic Bezier, we not only one have one control point but two. The first control point sets the initial direction of the curve and the second one defines from which direction should the curve arrive to its endpoint. If these directions match the directions of the line before and the line after the curve, then we have a smooth transitioning between the path segments.</p>
+
+<p>In this example the ribbon of the gift box uses a cubic Bezier that smoothly continues the previous straight line then turns back to the direction of the upcoming line.</p>`,
+    sourceCodes: [{
+        type: "HTML",
+        content: `<svg width="200" height="200" viewBox="-100 -100 200 200">
+  <circle cx="0" cy="-50" r="10" fill="#a9172a" />
+  <rect class="box" x="-60" y="-40" width="120" height="100" />
+  <rect class="box" x="-70" y="-47" width="140" height="20" />
+  <rect class="stripe" x="-20" y="-40" width="40" height="100" />
+  <rect class="stripe" x="-25" y="-47" width="50" height="20" />
+
+  <path
+    class="ribbon"
+    d="
+      M 0 -50
+      L 30 -50
+      C 50 -50 50 -70 30 -65
+      L 0 -50"
+  />
+
+  <path
+    class="ribbon"
+    d="
+      M 0 -50
+      L -30 -50
+      C -50 -50 -50 -70 -30 -65
+      L 0 -50"
+  />
+</svg>`
+      },
+      {
+        type: "CSS",
+        content: `.gift .box {
+  fill: #d1495b;
+  stroke: black;
+  stroke-width: 2px;
+}
+
+.gift .stripe {
+  fill: white;
+  stroke: black;
+  stroke-width: 2px;
+}
+
+.gift .ribbon {
+  stroke: #b73a3b;
+  stroke-width: 4px;
+  fill: none;
+}`
+      }
+    ]
+  });
+  detailScreens.push({
+    title: "Bell",
+    description: `Let’s have another example with cubic and quadratic beziers. Here the bottom of this bell is defined with straight lines. Then a quadratic Beziers starts the bell cloak. Then the line is continued with a cubic Bezier to form the top of the bell. Then we reach the bottom part with another quadratic bezier.`,
+    sourceCodes: [{
+      type: "HTML",
+      content: `<svg width="200" height="200" viewBox="-100 -100 200 200">
+  <g stroke="black" stroke-width="2">
+    <circle cx="0" cy="-45" r="7" fill="#4F6D7A" />
+    <circle cx="0" cy="50" r="10" fill="#F79257" />
+    <path
+      d="
+        M -50 40
+        L -50 50
+        L 50 50
+        L 50 40
+        Q 40 40 40 10
+        C 40 -60 -40 -60 -40 10
+        Q -40 40 -50 40"
+      fill="#FDEA96"
+    />
+  </g>
+</svg>`
+    }]
+  });
+  detailScreens.push({
+    title: "Arc",
+    description: `<p>If you thought that cubic Beziers are the most complicated parts of SVGs then I have bad news for you. Arcs are even more complicated.</p>
+
+<p>The last two parameters are still the endpoint of the arc. Arcs have five extra parameters on top of that though. You define a horizontal and vertical radius for an arc. If these two values are not the same then you end up with an ellipse. If you draw an ellipse you can also turn it by an angle, which will be the third parameter. Given the starting point coming from the previous segment, given the endpoint defined here, and the radiuses there are still two possible arc centers and four possible arcs to draw. The last two parameters of an arc are to pick one of these four options.</p>`,
+    sourceCodes: [{
+      type: "HTML",
+      content: `<svg width="200" height="400" viewBox="-100 -200 200 400">
+  <path
+    d="
+      M 50 120
+      L 50 -80
+      A 50 50 0 0 0 -50 -80"
+    stroke="#cd803d"
+    stroke-width="45"
+    class="body"
+  />
+
+  <path
+    d="
+      M 50 120
+      L 50 -80
+      A 50 50 0 0 0 -50 -80"
+    stroke="white"
+    stroke-width="40"
+    class="body"
+  />
+
+  <line class="green-mark" x1="-35" y1="-90" x2="-60" y2="-100" />
+  <line class="red-mark" x1="-15" y1="-115" x2="-25" y2="-135" />
+  <line class="green-mark" x1="20" y1="-110" x2="35" y2="-130" />
+  <line class="red-mark" x1="40" y1="-60" x2="60" y2="-80" />
+  <line class="green-mark" x1="40" y1="-10" x2="60" y2="-30" />
+  <line class="red-mark" x1="40" y1="40" x2="60" y2="20" />
+  <line class="green-mark" x1="40" y1="90" x2="60" y2="70" />
+</svg>`
+    }]
+  });
+  detailScreens.push({
+    title: "Ribbon",
+    sourceCodes: [{
+      type: "HTML",
+      content: `<svg width="200" height="200" viewBox="-100 -100 200 200">
+  <defs>
+    <path
+      id="ribbon"
+      d="
+        M 0 -20
+        Q 28 -40 56 -45
+        C 96 -48 96 48 56 45
+        Q 28 40 0 20"
+      fill="#B73A3B"
+    />
+  </defs>
+
+  <use href="#ribbon" />
+  <use href="#ribbon" transform="scale(-1)" />
+  <ellipse cx="0" cy="0" rx="20" ry="24" fill="#9C2D2A" />
+
+  <path
+    d="
+      M 0 20
+      Q 40 40 30 60
+      Q 20 80 40 90
+
+      M 0 20
+      Q -30 30 -20 60
+      Q -10 90 -50 100"
+    fill="none"
+    stroke="#B73A3B"
+    stroke-width="3"
+  />
+</svg>`
+    }]
+  });
+  detailScreens.push({
+    title: "Bear",
+    sourceCodes: [{
+        type: "HTML",
+        content: `<svg class="bear" width="200" height="200" viewBox="-100 -100 200 200">
+  <circle cx="-40" cy="-50" r="20" fill="white" />
+  <circle cx="40" cy="-50" r="20" fill="white" />
+  <circle cx="-40" cy="-50" r="15" fill="#E5C39C" />
+  <circle cx="40" cy="-50" r="15" fill="#E5C39C" />
+
+  <rect class="face" x="-55" y="-60" width="110" height="120" />
+  <circle cx="20" cy="-30" r="3" />
+  <circle cx="-20" cy="-30" r="3" />
+
+  <path
+    d="
+      M -30 0
+      C -30 -25 30 -25 30 0
+      L 30 30
+      Q 30 40 20 40
+      L -20 40
+      Q -30 40 -30 30"
+    fill="#E5C39C"
+  />
+  <path
+    d="
+      M -10 0
+      L 10 0
+      C 10 20 -10 20 -10 0"
+  />
+  <path
+    class="mouth"
+    d="
+      M 0 10
+      Q 0 25 10 25
+
+      M 0 10
+      Q 0 25 -10 25"
+  />
+</svg>`
+      },
+      {
+        type: "CSS",
+        content: `.bear {
+  background-color: #f5eed7;
+}
+
+.bear .face {
+  fill: white;
+  rx: 50;
+  ry: 30;
+}
+
+.bear .mouth {
+  fill: none;
+  stroke: black;
+  stroke-width: 2;
+}`
+      }
+    ]
+  });
+  detailScreens.push({
+    title: "Text Path",
+    description: `Drawing shapes are not the only use case for paths. We can also use them to render a text along an invisible path. We can define a path in the definitions section to make sure it's invisible. Then we refer to it in the textPath attribute to make a text go around a circle. Here we use arc again, but you can use any other path and the text will follow it.`,
+    sourceCodes: [{
+      type: "HTML",
+      content: `<svg width="200" height="200" viewBox="-100 -100 200 200">
+  <defs>
+    <path id="text-arc" d="M 0, 50 A 50 50 0 1 1 1,50" />
+  </defs>
+
+  <text
+    fill="#0c5c4c"
+    font-family="Tahoma"
+    font-size="0.77em"
+    font-weight="bold"
+  >
+    <textPath href="#text-arc">
+      Happy Holidays! Happy Holidays! Happy Holidays!
+    </textPath>
+  </text>
+</svg>`
+    }]
+  });
+  detailScreens.push({
+    title: "Path based animation",
+    description: `<p>Another fun use of paths is to create animation paths. This method is not SVG only. I’m using a CSS property here that works for any other HTML tag. But if you check the value of this attribute, you see that we define a path the same way as we do for SVGs.</p>
+
+<p>To give you a fair warning though, this feature at this point is rather experimental at this point and it’s not supported for Safari. There’s also an old SVG specific way for doing the same thing with animationMotion. Unfortunately, that’s rather obsolete. So at this point, neither of these are fully supported, but I’m sure there’s going to be a way in the future to use paths for animation.</p>`,
+    sourceCodes: [{
+        type: "HTML",
+        content: `<svg width="400" height="200" viewBox="-200 -100 400 200" fill="none">
+  <path
+    stroke="#E0CEB9"
+    stroke-width="4"
+    d=“
+      M-200 80 L -80 80 Q 80 80 70 -10
+      A 70 70 0 0 0 -70 -10
+      Q -80 80 80 80 L 200 80"
+  />
+
+  <g class="sleigh">
+    <path
+      d="
+      M -30 -2 L 30 -2 A 10 10 0 0 0 30 -22
+      M -20 -2 L -20 -17
+      M 20 -2 L 20 -17"
+      stroke="#AF6455"
+      stroke-width="5"
+    />
+    <path d="M -27 -17 L 27 -17" stroke="#7A504F" stroke-width="6" />
+  </g>
+</svg>`
+      },
+      {
+        type: "CSS",
+        content: `.sleigh {
+  offset-path: path(
+    "M-200 80 L -90 80 Q 60 80 60 -10 A 50 50 0 0 0 -60 -10 Q -60 80 90 80 L 200 80"
+  );
+  animation: roller-coaster 6000ms infinite linear;
+}
+
+@keyframes roller-coaster {
+  0% {
+    offset-distance: 0%;
+  }
+  100% {
+    offset-distance: 100%;
+  }
+}`
+      }
+    ]
+  });
+  detailScreens.push({
+    title: "Ringing on hover",
+    description: `A more traditional animation that certainly works in every browser is a ringing effect. We animate the transform property with keyframes. We can even trigger this effect on hovering. There’s nothing SVG specific here. The same works with any HTML element, but it’s a cool example of how to combine SVGs with CSS.`,
+    sourceCodes: [{
+        type: "HTML",
+        content: `<svg class="bell" width="200" height="200" viewBox="-100 -100 200 200">
+  <g stroke="#001514" stroke-width="2">
+    <circle cx="0" cy="-45" r="7" fill="#4F6D7A" />
+    <circle class="bell-tongue" cx="0" cy="50" r="10" fill="#F79257" />
+    <path
+      d="
+        M -50 40
+        L -50 50
+        L 50 50
+        L 50 40
+        Q 40 40 40 10
+        C 40 -60 -40 -60 -40 10
+        Q -40 40 -50 40"
+      fill="#FDEA96"
+    />
+  </g>
+</svg>`
+      },
+      {
+        type: "CSS",
+        content: `.bell:hover {
+  transform-origin: center 30%;
+}
+
+.bell:hover,
+.bell:hover .bell-tongue {
+  animation-duration: 0.5s;
+  animation-delay: -0.25s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  animation-name: ring;
+}
+
+@keyframes ring {
+  from {
+    transform: rotate(-20deg);
+  }
+  to {
+    transform: rotate(20deg);
+  }
+}`
+      }
+    ]
+  });
+  detailScreens.push({
+    title: "Snowing",
+    descritpion: `To continue our forest example we can add a snowing effect with a similar animation. We animate transform again, but this time we move many more elements. It's a bit glitchy and not the most sophisticated animation, but you get the idea.`,
+    sourceCodes: [{
+        type: "HTML",
+        content: `<svg width="200" height="200" viewBox="-100 -100 200 200">
+  <defs>
+    <g id="tree">
+      <polygon points="-10,0 10,0 0 -50" fill="#38755b" />
+      <line x2="0" y2="10" stroke="#778074" stroke-width="2" />
+    </g>
+   <circle id="big" cx="0" cy="0" r="5" fill="white" />
+    <circle id="small" cx="0" cy="0" r="3" fill="white" />
+  </defs>
+
+  <rect
+    x="-100"
+    y="-100"
+    width=“200"
+    height="200"
+    fill=“#F1DBC3"
+  />
+  <circle cx="0" cy="380" r="350" fill="#F8F4E8" />
+
+  <use href="#tree" x="-30" y="25" transform="scale(2)" />
+  <use href="#tree" x="-20" y="40" transform="scale(1.2)" />
+  <use href="#tree" x="40" y="40" />
+  <use href="#tree" x="50" y="30" transform="scale(1.5)" />
+
+  <use href="#big" x="0" y="0" class="flake fast" />
+  <use href="#big" x="-50" y="-20" class="flake fast opaque" />
+  <use href="#big" x="30" y="-40" class="flake fast" />
+  <use href="#big" x="50" y="-20" class="flake fast opaque" />
+  <use href="#big" x="30" y="50" class="flake slow" />
+  <use href="#big" x="-70" y="-80" class="flake slow opaque" />
+  <use href="#big" x="30" y="50" class="flake slow" />
+  <use href="#big" x="90" y="-80" class="flake slow opaque" />
+  <use href="#small" x="10" y="-50" class="flake slow" />
+  <use href="#small" x="-50" y="-60" class="flake slow opaque" />
+  <use href="#small" x="30" y="70" class="flake slow" />
+  <use href="#small" x="10" y="-80" class="flake slow opaque" />
+</svg>`
+      },
+      {
+        type: "CSS",
+        content: `.flake {
+  animation-duration: inherit;
+  animation-name: snowing;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes snowing {
+  from {
+    transform: translate(0, -100px);
+  }
+  to {
+    transform: translate(0, 100px);
+  }
+}
+
+.flake.opaque {
+  opacity: 0.7;
+}
+
+.flake.slow {
+  animation-duration: 5s;
+}
+
+.flake.fast {
+  animation-duration: 3s;
+}`
+      }
+    ]
+  });
+  detailScreens.push({
+    title: "Background pattern",
+    description: `This example is a bit of an easter egg. For any HTML element, you can set a background image in CSS. Here we usually provide a link to an image, but we can also inline one here. Normally you wouldn't do that, because you end up with something gibberish in your CSS. If we do that with an SVG though then it’s not even that cryptic. This SVG code is still character encoded, so that’s why you still see some weird parts.  The pointy brackets are replaced here. This is a great way to create background patterns with only a few lines of code in CSS. If you like this idea check out svgbackgrounds.com for a lot of great patterns.`,
+    sourceCodes: [{
+        type: "HTML",
+        content: `<div class="background" />`
+      },
+      {
+        type: "CSS",
+        content: `.background {
+  background-color: #38755b;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 120 120'%3E%3Cpolygon fill='%230c5c4c' points='120 120 60 120 90 90 120 60 120 0 120 0 60 60 0 0 0 60 30 90 60 120 120 120 '/%3E%3C/svg%3E");
+}
+      `
+      }
+    ]
+  });
+  detailScreens.push({
+    title: "Clock",
+    description: `<p>SVG elements can be manipulated from JavaScript the same way as any other HTML tag. In this example we are using a short code snipped to show the actual time on a clock. You can even have a script tag inside the SVG but of course, you can have it outside of an SVG as well and refer to the elements the same way.</p>
+
+<p>There’s another trick here worth mentioning. The dots here showing each hour are actually part of a circle. In CSS we can set the border-style to be dashed, but CSS is not too flexible on this one. SVG though took this to the next level and we can fine-tune the length of each dash segment and the space in between. That’s what we use here to show the dots for each hour.</p>`,
+    sourceCodes: [{
+      type: "HTML",
+      content: `<svg width="200" height="200" viewBox="-100 -100 200 200">
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const hoursElement = document.getElementById("hours");
+      const minutesElement = document.getElementById("minutes");
+      const hour = new Date().getHours() % 12;
+      const minute = new Date().getMinutes();
+      hoursElement.setAttribute("transform", \`rotate(\${(360 / 12) * hour})\`);
+      minutesElement.setAttribute("transform", \`rotate(\${(360 / 60) * minute})\`);
+    });
+  \</script\>
+
+  <rect x="-100" y="-100" width="200" height="200" fill="#CD803D" />
+
+  <circle r="55" stroke="#FCCE7B" stroke-width="10" fill="white" />
+  <circle
+    r="45"
+    stroke="#B6705F"
+    stroke-width="6"
+    stroke-dasharray="6 17.56194490192345"
+    stroke-dashoffset="3"
+    fill="none"
+  />
+
+  <g stroke="#5f4c6c" stroke-linecap="round">
+    <line id="hours" y2="-20" stroke-width="8" />
+    <line id="minutes" y2="-35" stroke-width="6" />
+  </g>
+</svg>`
+    }]
+  });
+  detailScreens.push({
+    title: "Interaction",
+    description: `We can not only manipulate SVGs from JavaScript but we can also assign event listeners to parts of SVGs. Here, by clicking the red button we switch on or off the lights. The possibilities are endless. You can even create a full-featured game with SVG and JavaScript.`,
+    sourceCodes: [{
+        type: "HTML",
+        content: `<svg class="lights" width="200" height="200" viewBox="-100 -100 200 200">
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const button = document.getElementById("button");
+      let lightsOn = false;
+      button.addEventListener("click", () => {
+        const bulbs = document.querySelectorAll(".b");
+        bulbs[0].setAttribute("fill", lightsOn ? "white" : "#FFC05B");
+        bulbs[1].setAttribute("fill", lightsOn ? "white" : "#F86285");
+        bulbs[2].setAttribute("fill", lightsOn ? "white" : "#03A8A8");
+        bulbs[3].setAttribute("fill", lightsOn ? "white" : "#748CEF");
+        lightsOn = !lightsOn;
+      });
+    });
+  \</script\>
+
+  <defs>
+    <g id="bulb">
+      <path d="M 0,0 Q 20 25 0 40 Q -20 25 0 0" />
+      <rect x="-6" y="-1" width="12" height="10" rx="3" fill="#5F4C6C" />
+    </g>
+  </defs>
+
+  <path d="M -140 -60 Q -70 -50 0 -60 Q 110 -70 110 10" />
+  <line x1="-70" y1="-15" x2="-70" y2="-55" />
+  <line x1="30" y1="-25" x2="30" y2="-60" />
+  <use class="b" href="#bulb" x="-120" y="-45" transform="rotate(5)" />
+  <use class="b" href="#bulb" x="-70" y="-15" />
+  <use class="b" href="#bulb" x="-20" y="-57" transform="rotate(-5)" />
+  <use class="b" href="#bulb" x="30" y="-25" />
+
+  <rect x="90" y="10" width="40" height="40" fill="lightgray" />
+  <circle id="button" cx="110" cy="30" r="15" fill="red" />
+</svg>`
+      },
+      {
+        type: "CSS",
+        content: `.lights {
+  fill: none;
+  stroke: #5f4c6c;
+  stroke-width: 2;
+}
+
+.lights #button {
+  cursor: pointer;
+}`
+      }
+    ]
+  });
+  detailScreens.push({
+    title: "Data-driven diagram",
+    description: `<p>SVGs also work well with frontend libraries. Here I’m using React to generate a data-driven diagram. Here I’m both generating a list of rectangles to create a column diagram based on some data and I also generate a series of coordinates for a polyline.</p>
+
+<p>For simple use cases, you can code your own diagram like this. But if you need more complex diagrams then check out the D3 library. The D3 library uses SVG under to hood to create all sorts of diagrams.</p>`,
+    sourceCodes: [{
+      type: "JavaScript",
+      content: `function Diagram() {
+  const dataPoints = [3, 4, 7, 5, 3, 6];
+  const sineWave = Array.from({ length: 115 })
+    .map((item, index) => \`\${index - 55},\${Math.sin(index / 20) * 20 + 10}\`)
+    .join(" ");
+
+  return (
+    <svg width=“200" height="200" viewBox="-100 -100 200 200">
+      {dataPoints.map((dataPoint, index) => (
+        <rect
+          key={index}
+          x={index * 20 - 55}
+          y={50 - dataPoint * 10}
+          width="15"
+          height={dataPoint * 10}
+          fill="#CD803D"
+        />
+      ))}
+
+      <polyline points={sineWave} fill="none" stroke="black" stroke-width="5" />
+    </svg>
+  );
+}`
+    }]
+  });
+  detailScreens.push({
+    title: "Multi-component snow globe",
+    description: `If you really got into SVGs and you got one where the code got a bit out of hand then you can break it down into components. Here I’m using React again, but the same things apply for Vue.JS. Mind though that there’s only one SVG tag at the root of the component as there's still only one image. The child components have their content in group elements.`,
+    sourceCodes: [{
+      type: "JavaScript",
+      content: `function SnowGlobe() {
+  return (
+    <svg width=“200" height="200" viewBox="-100 -100 200 200">
+      <clipPath id="snow-globe">
+        <circle cx="0" cy="0" r="80" />
+      </clipPath>
+
+      <g clip-path="url(#snow-globe)">
+        <rect x="-100" y="-100" width="200" height="200" fill="#F1DBC3" />
+        <circle cx="0" cy="380" r="350" fill="#F8F4E8" />
+
+        <Threes />
+        <Snow />
+      </g>
+
+      <circle cx="0" cy="0" r="80" fill="none" stroke="gray" stroke-width="2" />
+    </svg>
+  );
+}
+
+function Threes() {
+  return (
+    <g>
+      <defs>
+        <g id="tree">
+          <polygon points="-10,0 10,0 0 -50" fill="#38755b" />
+          <line x2="0" y2="10" stroke="#778074" stroke-width="2" />
+        </g>
+      </defs>
+
+      <use href="#tree" x="-20" y="25" transform="scale(1.8)" />
+      <use href="#tree" x="-10" y="40" transform="scale(1)" />
+      <use href="#tree" x="30" y="40" transform="scale(0.8)" />
+      <use href="#tree" x="40" y="30" transform="scale(1.2)" />
+    </g>
+  );
+}
+
+function Snow() {
+  return (
+    <g class="snowing">
+      <defs>
+        <circle id="big" cx="0" cy="0" r="5" fill="white" />
+        <circle id="small" cx="0" cy="0" r="3" fill="white" />
+      </defs>
+
+      <use href="#big" x="0" y="0" class="flake fast" />
+      <use href="#big" x="-50" y="-20" class="flake fast opaque" />
+      <use href="#big" x="30" y="-40" class="flake fast" />
+      <use href="#big" x="50" y="-20" class="flake fast opaque" />
+      <use href="#big" x="30" y="50" class="flake slow" />
+      <use href="#big" x="-70" y="-80" class="flake slow opaque" />
+      <use href="#big" x="30" y="50" class="flake slow" />
+      <use href="#big" x="90" y="-80" class="flake slow opaque" />
+      <use href="#small" x="10" y="-50" class="flake slow" />
+      <use href="#small" x="-50" y="-60" class="flake slow opaque" />
+      <use href="#small" x="30" y="70" class="flake slow" />
+      <use href="#small" x="10" y="-80" class="flake slow opaque" />
+    </g>
+  );
+}`
+    }, {
+      type: "CSS",
+      content: `.flake {
+  animation-duration: inherit;
+  animation-name: snowing;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes snowing {
+  from {
+    transform: translate(0, -100px);
+  }
+  to {
+    transform: translate(0, 100px);
+  }
+}
+
+.flake.opaque {
+  opacity: 0.7;
+}
+
+.flake.slow {
+  animation-duration: 5s;
+}
+
+.flake.fast {
+  animation-duration: 3s;
+}`
+    }]
+  });
+</script>
+    <script src="./stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js.download"></script>
+
+  <script src="./highlight.min.js.download"></script>
+<script src="./react.production.min.js.download"></script>
+<script src="./react-dom.production.min.js.download"></script>
+      <script id="rendered-js">
+/*
+
+A video walkthrough of each SVGs source code: https://www.youtube.com/watch?v=kBT90nwUb_o
+
+Follow me on twitter for more: https://twitter.com/HunorBorbely
+
+*/
+
+function Decoration({ size = 1 }) {
+  return /*#__PURE__*/(
+    React.createElement("svg", { width: 200 * size, height: 200 * size, viewBox: "-100 -100 200 200" }, /*#__PURE__*/
+    React.createElement("circle", { cx: "0", cy: "20", r: "70", fill: "#D1495B" }), /*#__PURE__*/
+    React.createElement("circle", {
+      cx: "0",
+      cy: "-75",
+      r: "12",
+      fill: "none",
+      stroke: "#F79257",
+      "stroke-width": "2" }), /*#__PURE__*/
+
+    React.createElement("rect", { x: "-17.5", y: "-65", width: "35", height: "20", fill: "#F79257" })));
+
+
+}
+
+detailScreens[0].svg = Decoration;
+
+function Three({ size = 1 }) {
+  return /*#__PURE__*/(
+    React.createElement("svg", { width: 200 * size, height: 400 * size, viewBox: "-100 -200 200 400" }, /*#__PURE__*/
+    React.createElement("polygon", { points: "0,0 80,120 -80,120", fill: "#234236" }), /*#__PURE__*/
+    React.createElement("polygon", { points: "0,-40 60,60 -60,60", fill: "#0C5C4C" }), /*#__PURE__*/
+    React.createElement("polygon", { points: "0,-80 40,0 -40,0", fill: "#38755B" }), /*#__PURE__*/
+    React.createElement("rect", { x: "-20", y: "120", width: "40", height: "30", fill: "brown" })));
+
+
+}
+
+detailScreens[1].svg = Three;
+
+function Gingerbread({ size = 1 }) {
+  return /*#__PURE__*/(
+    React.createElement("svg", {
+      class: "gingerbread",
+      width: 200 * size,
+      height: 200 * size,
+      viewBox: "-100 -100 200 200" }, /*#__PURE__*/
+
+    React.createElement("circle", { class: "body", cx: "0", cy: "-50", r: "30" }), /*#__PURE__*/
+
+    React.createElement("circle", { class: "eye", cx: "-12", cy: "-55", r: "3" }), /*#__PURE__*/
+    React.createElement("circle", { class: "eye", cx: "12", cy: "-55", r: "3" }), /*#__PURE__*/
+    React.createElement("rect", { class: "mouth", x: "-10", y: "-40", width: "20", height: "5", rx: "2" }), /*#__PURE__*/
+
+    React.createElement("line", { class: "limb", x1: "-40", y1: "-10", x2: "40", y2: "-10" }), /*#__PURE__*/
+    React.createElement("line", { class: "limb", x1: "-25", y1: "50", x2: "0", y2: "-15" }), /*#__PURE__*/
+    React.createElement("line", { class: "limb", x1: "25", y1: "50", x2: "0", y2: "-15" }), /*#__PURE__*/
+
+    React.createElement("circle", { class: "button", cx: "0", cy: "-10", r: "5" }), /*#__PURE__*/
+    React.createElement("circle", { class: "button", cx: "0", cy: "10", r: "5" })));
+
+
+}
+
+detailScreens[2].svg = Gingerbread;
+
+function House({ size = 1 }) {
+  return /*#__PURE__*/(
+    React.createElement("svg", {
+      class: "house",
+      width: 200 * size,
+      height: 200 * size,
+      viewBox: "-100 -100 200 200" }, /*#__PURE__*/
+
+    React.createElement("polygon", { class: "wall", points: "-65,80 -65,-10 0,-70 65,-10 65,80" }), /*#__PURE__*/
+    React.createElement("polyline", { class: "roof", points: "-75,-8 0,-78 75,-8" }), /*#__PURE__*/
+
+    React.createElement("rect", { class: "door", x: "-45", y: "10", width: "30", height: "60" }), /*#__PURE__*/
+    React.createElement("circle", { class: "door-knob", cx: "-35", cy: "40", r: "2" }), /*#__PURE__*/
+    React.createElement("rect", { class: "stair", x: "-47", y: "70", width: "34", height: "5" }), /*#__PURE__*/
+    React.createElement("rect", { class: "stair", x: "-49", y: "75", width: "38", height: "5" }), /*#__PURE__*/
+
+    React.createElement("rect", { class: "window", x: "5", y: "15", width: "40", height: "35" }), /*#__PURE__*/
+    React.createElement("line", { x1: "5", y1: "32.5", x2: "45", y2: "32.5" }), /*#__PURE__*/
+    React.createElement("line", { x1: "25", y1: "15", x2: "25", y2: "50" }), /*#__PURE__*/
+    React.createElement("rect", { class: "window-sill", x: "2", y: "48", width: "46", height: "5" }), /*#__PURE__*/
+
+    React.createElement("circle", { class: "window", cx: "0", cy: "-25", r: "15" }), /*#__PURE__*/
+    React.createElement("line", { x1: "-15", y1: "-25", x2: "15", y2: "-25" }), /*#__PURE__*/
+    React.createElement("line", { x1: "0", y1: "-40", x2: "0", y2: "-10" })));
+
+
+}
+
+detailScreens[3].svg = House;
+
+function DecorationWithClip({ size = 1 }) {
+  return /*#__PURE__*/(
+    React.createElement("svg", { width: 200 * size, height: 200 * size, viewBox: "-100 -100 200 200" }, /*#__PURE__*/
+    React.createElement("clipPath", { id: "ball" }, /*#__PURE__*/
+    React.createElement("circle", { cx: "0", cy: "20", r: "70" })), /*#__PURE__*/
+
+
+    React.createElement("circle", { cx: "0", cy: "20", r: "70", fill: "#D1495B" }), /*#__PURE__*/
+
+    React.createElement("polyline", {
+      "clip-path": "url(#ball)",
+      points: "-120 40 -80 0 -40 40 0 0 40 40 80 0 120 40",
+      fill: "none",
+      stroke: "#9C2D2A",
+      "stroke-width": "20" }), /*#__PURE__*/
+
+
+    React.createElement("circle", {
+      cx: "0",
+      cy: "-75",
+      r: "12",
+      fill: "none",
+      stroke: "#F79257",
+      "stroke-width": "2" }), /*#__PURE__*/
+
+    React.createElement("rect", { x: "-17.5", y: "-65", width: "35", height: "20", fill: "#F79257" })));
+
+
+}
+
+detailScreens[4].svg = DecorationWithClip;
+
+function Star({ size = 1 }) {
+  return /*#__PURE__*/(
+    React.createElement("svg", {
+      class: "star",
+      width: 200 * size,
+      height: 200 * size,
+      viewBox: "-100 -100 200 200" }, /*#__PURE__*/
+
+    React.createElement("g", { transform: "translate(0 5)" }, /*#__PURE__*/
+    React.createElement("g", null, /*#__PURE__*/
+    React.createElement("polygon", { points: "0,0 36,-50 0,-100", fill: "#EDD8B7" }), /*#__PURE__*/
+    React.createElement("polygon", { points: "0,0 -36,-50 0,-100", fill: "#E5C39C" })), /*#__PURE__*/
+
+    React.createElement("g", { transform: "rotate(72)" }, /*#__PURE__*/
+    React.createElement("polygon", { points: "0,0 36,-50 0,-100", fill: "#EDD8B7" }), /*#__PURE__*/
+    React.createElement("polygon", { points: "0,0 -36,-50 0,-100", fill: "#E5C39C" })), /*#__PURE__*/
+
+    React.createElement("g", { transform: "rotate(-72)" }, /*#__PURE__*/
+    React.createElement("polygon", { points: "0,0 36,-50 0,-100", fill: "#EDD8B7" }), /*#__PURE__*/
+    React.createElement("polygon", { points: "0,0 -36,-50 0,-100", fill: "#E5C39C" })), /*#__PURE__*/
+
+    React.createElement("g", { transform: "rotate(144)" }, /*#__PURE__*/
+    React.createElement("polygon", { points: "0,0 36,-50 0,-100", fill: "#EDD8B7" }), /*#__PURE__*/
+    React.createElement("polygon", { points: "0,0 -36,-50 0,-100", fill: "#E5C39C" })), /*#__PURE__*/
+
+    React.createElement("g", { transform: "rotate(-144)" }, /*#__PURE__*/
+    React.createElement("polygon", { points: "0,0 36,-50 0,-100", fill: "#EDD8B7" }), /*#__PURE__*/
+    React.createElement("polygon", { points: "0,0 -36,-50 0,-100", fill: "#E5C39C" })))));
+
+
+
+
+}
+
+detailScreens[5].svg = Star;
+
+function Snowflake({ size = 1 }) {
+  return /*#__PURE__*/(
+    React.createElement("svg", { width: 200 * size, height: 200 * size, viewBox: "-100 -100 200 200" }, /*#__PURE__*/
+    React.createElement("defs", null, /*#__PURE__*/
+    React.createElement("path", {
+      id: "branch",
+      d: " M 0 0 L 0 -90 M 0 -20 L 20 -34 M 0 -20 L -20 -34 M 0 -40 L 20 -54 M 0 -40 L -20 -54 M 0 -60 L 20 -74 M 0 -60 L -20 -74",
+
+
+
+
+
+
+
+      stroke: "#E5C39C",
+      "stroke-width": "5" })), /*#__PURE__*/
+
+
+
+    React.createElement("use", { href: "#branch" }), /*#__PURE__*/
+    React.createElement("use", { href: "#branch", transform: "rotate(60)" }), /*#__PURE__*/
+    React.createElement("use", { href: "#branch", transform: "rotate(120)" }), /*#__PURE__*/
+    React.createElement("use", { href: "#branch", transform: "rotate(180)" }), /*#__PURE__*/
+    React.createElement("use", { href: "#branch", transform: "rotate(240)" }), /*#__PURE__*/
+    React.createElement("use", { href: "#branch", transform: "rotate(300)" })));
+
+
+}
+
+detailScreens[6].svg = Snowflake;
+
+function Forest({ size = 1 }) {
+  return /*#__PURE__*/(
+    React.createElement("svg", { width: 200 * size, height: 200 * size, viewBox: "-100 -100 200 200" }, /*#__PURE__*/
+    React.createElement("defs", null, /*#__PURE__*/
+    React.createElement("g", { id: "tree" }, /*#__PURE__*/
+    React.createElement("polygon", { points: "-10,0 10,0 0 -50", fill: "#38755b" }), /*#__PURE__*/
+    React.createElement("line", {
+      x1: "0",
+      y1: "0",
+      x2: "0",
+      y2: "10",
+      stroke: "#778074",
+      "stroke-width": "2" }))), /*#__PURE__*/
+
+
+
+
+    React.createElement("rect", { x: "-100", y: "-100", width: "200", height: "200", fill: "#F1DBC3" }), /*#__PURE__*/
+    React.createElement("circle", { cx: "0", cy: "380", r: "350", fill: "#F8F4E8" }), /*#__PURE__*/
+
+    React.createElement("use", { href: "#tree", x: "-30", y: "25", transform: "scale(2)" }), /*#__PURE__*/
+    React.createElement("use", { href: "#tree", x: "-20", y: "40", transform: "scale(1.2)" }), /*#__PURE__*/
+    React.createElement("use", { href: "#tree", x: "40", y: "40" }), /*#__PURE__*/
+    React.createElement("use", { href: "#tree", x: "50", y: "30", transform: "scale(1.5)" })));
+
+
+}
+
+detailScreens[7].svg = Forest;
+
+function DecorationWithGradient({ size = 1 }) {
+  return /*#__PURE__*/(
+    React.createElement("svg", { width: 200 * size, height: 200 * size, viewBox: "-100 -100 200 200" }, /*#__PURE__*/
+    React.createElement("defs", null, /*#__PURE__*/
+    React.createElement("radialGradient", { id: "shine", cx: "0.25", cy: "0.25", r: "0.35" }, /*#__PURE__*/
+    React.createElement("stop", { offset: "0%", "stop-color": "#e3a8b0" }), /*#__PURE__*/
+    React.createElement("stop", { offset: "100%", "stop-color": "#D1495B" }))), /*#__PURE__*/
+
+
+
+    React.createElement("circle", { cx: "0", cy: "20", r: "70", fill: "url(#shine)" }), /*#__PURE__*/
+    React.createElement("circle", {
+      cx: "0",
+      cy: "-75",
+      r: "12",
+      fill: "none",
+      stroke: "#F79257",
+      "stroke-width": "2" }), /*#__PURE__*/
+
+    React.createElement("rect", { x: "-17.5", y: "-65", width: "35", height: "20", fill: "#F79257" })));
+
+
+}
+
+detailScreens[8].svg = DecorationWithGradient;
+
+function Snowman({ size = 1 }) {
+  return /*#__PURE__*/(
+    React.createElement("svg", { width: 200 * size, height: 400 * size, viewBox: "-100 -200 200 400" }, /*#__PURE__*/
+    React.createElement("defs", null, /*#__PURE__*/
+    React.createElement("radialGradient", { id: "snowball", cx: "0.25", cy: "0.25", r: "1" }, /*#__PURE__*/
+    React.createElement("stop", { offset: "0%", "stop-color": "white" }), /*#__PURE__*/
+    React.createElement("stop", { offset: "50%", "stop-color": "white" }), /*#__PURE__*/
+    React.createElement("stop", { offset: "100%", "stop-color": "#d6d6d6" }))), /*#__PURE__*/
+
+
+
+    React.createElement("circle", { id: "bigball", cx: "0", cy: "60", r: "80", fill: "url(#snowball)" }), /*#__PURE__*/
+    React.createElement("circle", { cx: "0", cy: "-40", r: "50", fill: "url(#snowball)" }), /*#__PURE__*/
+    React.createElement("polygon", { points: "10,-46 50,-40 10,-34", fill: "#e66465" }), /*#__PURE__*/
+
+    React.createElement("circle", { cx: "0", cy: "-55", r: "5" }), /*#__PURE__*/
+    React.createElement("circle", { cx: "20", cy: "-55", r: "5" }), /*#__PURE__*/
+
+    React.createElement("line", {
+      x1: "-40",
+      y1: "30",
+      x2: "-90",
+      y2: "-30",
+      stroke: "black",
+      "stroke-width": "5" }), /*#__PURE__*/
+
+    React.createElement("line", { x1: "-65", y1: "0", x2: "-90", y2: "-10", stroke: "black", "stroke-width": "5" })));
+
+
+}
+
+detailScreens[9].svg = Snowman;
+
+function ThreeWithCurves({ size = 1 }) {
+  return /*#__PURE__*/(
+    React.createElement("svg", { width: 200 * size, height: 400 * size, viewBox: "-100 -200 200 400" }, /*#__PURE__*/
+    React.createElement("path", {
+      d: " M 0 -80 Q 5 -75 0 -70 Q -10 -65 0 -60 Q 15 -55 0 -50 Q -20 -45 0 -40 Q 25 -35 0 -30 Q -30 -25 0 -20 Q 35 -15 0 -10 Q -40 -5 0 0 Q 45 5 0 10 Q -50 15 0 20 Q 55 25 0 30 Q -60 35 0 40 Q 65 45 0 50 Q -70 55 0 60 Q 75 65 0 70 Q -80 75 0 80 Q 85 85 0 90 Q -90 95 0 100 Q 95 105 0 110 Q -100 115 0 120 L 0 140 L 20 140 L -20 140",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      fill: "none",
+      stroke: "#0C5C4C",
+      "stroke-width": "5" })));
+
+
+
+}
+
+detailScreens[10].svg = ThreeWithCurves;
+
+function Gift({ size = 1 }) {
+  return /*#__PURE__*/(
+    React.createElement("svg", {
+      class: "gift",
+      width: 200 * size,
+      height: 200 * size,
+      viewBox: "-100 -100 200 200" }, /*#__PURE__*/
+
+    React.createElement("path", {
+      class: "ribbon",
+      d: " M 0 -50 L 30 -50 C 50 -50 50 -70 30 -65 L 0 -50 " }), /*#__PURE__*/
+
+
+
+
+
+
+
+    React.createElement("path", {
+      class: "ribbon",
+      d: " M 0 -50 L -30 -50 C -50 -50 -50 -70 -30 -65 L 0 -50 " }), /*#__PURE__*/
+
+
+
+
+
+
+
+    React.createElement("circle", { cx: "0", cy: "-50", r: "10", fill: "#a9172a" }), /*#__PURE__*/
+
+    React.createElement("rect", { class: "box", x: "-60", y: "-40", width: "120", height: "100" }), /*#__PURE__*/
+    React.createElement("rect", { class: "box", x: "-70", y: "-47", width: "140", height: "20" }), /*#__PURE__*/
+    React.createElement("rect", { class: "stripe", x: "-20", y: "-40", width: "40", height: "100" }), /*#__PURE__*/
+    React.createElement("rect", { class: "stripe", x: "-25", y: "-47", width: "50", height: "20" })));
+
+
+}
+
+detailScreens[11].svg = Gift;
+
+function Bell({ size = 1 }) {
+  return /*#__PURE__*/(
+    React.createElement("svg", { width: 200 * size, height: 200 * size, viewBox: "-100 -100 200 200" }, /*#__PURE__*/
+    React.createElement("g", { stroke: "black", "stroke-width": "2" }, /*#__PURE__*/
+    React.createElement("circle", { cx: "0", cy: "-45", r: "7", fill: "#4F6D7A" }), /*#__PURE__*/
+    React.createElement("circle", { cx: "0", cy: "50", r: "10", fill: "#F79257" }), /*#__PURE__*/
+    React.createElement("path", {
+      d: " M -50 40 L -50 50 L 50 50 L 50 40 Q 40 40 40 10 C 40 -60 -40 -60 -40 10 Q -40 40 -50 40",
+
+
+
+
+
+
+
+      fill: "#FDEA96" }))));
+
+
+
+
+}
+
+detailScreens[12].svg = Bell;
+
+function Candy({ size = 1 }) {
+  return /*#__PURE__*/(
+    React.createElement("svg", {
+      class: "candy",
+      width: 200 * size,
+      height: 400 * size,
+      viewBox: "-100 -200 200 400" }, /*#__PURE__*/
+
+    React.createElement("path", {
+      d: " M 50 120 L 50 -80 A 50 50 0 0 0 -50 -80",
+
+
+
+      stroke: "#cd803d",
+      "stroke-width": "45",
+      class: "body" }), /*#__PURE__*/
+
+
+    React.createElement("path", {
+      d: " M 50 120 L 50 -80 A 50 50 0 0 0 -50 -80",
+
+
+
+      stroke: "white",
+      "stroke-width": "40",
+      class: "body" }), /*#__PURE__*/
+
+
+    React.createElement("line", { class: "green-mark", x1: "-35", y1: "-90", x2: "-60", y2: "-100" }), /*#__PURE__*/
+    React.createElement("line", { class: "red-mark", x1: "-15", y1: "-115", x2: "-25", y2: "-135" }), /*#__PURE__*/
+    React.createElement("line", { class: "green-mark", x1: "20", y1: "-110", x2: "35", y2: "-130" }), /*#__PURE__*/
+    React.createElement("line", { class: "red-mark", x1: "40", y1: "-60", x2: "60", y2: "-80" }), /*#__PURE__*/
+    React.createElement("line", { class: "green-mark", x1: "40", y1: "-10", x2: "60", y2: "-30" }), /*#__PURE__*/
+    React.createElement("line", { class: "red-mark", x1: "40", y1: "40", x2: "60", y2: "20" }), /*#__PURE__*/
+    React.createElement("line", { class: "green-mark", x1: "40", y1: "90", x2: "60", y2: "70" })));
+
+
+}
+
+detailScreens[13].svg = Candy;
+
+function Ribbon({ size = 1 }) {
+  return /*#__PURE__*/(
+    React.createElement("svg", { width: 200 * size, height: 200 * size, viewBox: "-100 -100 200 200" }, /*#__PURE__*/
+    React.createElement("defs", null, /*#__PURE__*/
+    React.createElement("path", {
+      id: "ribbon",
+      d: " M 0 -20 Q 28 -40 56 -45 C 96 -48 96 48 56 45 Q 28 40 0 20 ",
+
+
+
+
+
+      fill: "#B73A3B" })), /*#__PURE__*/
+
+
+
+    React.createElement("use", { href: "#ribbon" }), /*#__PURE__*/
+    React.createElement("use", { href: "#ribbon", transform: "scale(-1)" }), /*#__PURE__*/
+
+    React.createElement("ellipse", { cx: "0", cy: "0", rx: "20", ry: "24", fill: "#9C2D2A" }), /*#__PURE__*/
+
+    React.createElement("path", {
+      d: " M 0 20 Q 40 40 30 60 Q 20 80 40 90 M 0 20 Q -30 30 -20 60 Q -10 90 -50 100",
+
+
+
+
+
+
+
+      fill: "none",
+      stroke: "#B73A3B",
+      "stroke-width": "3" })));
+
+
+
+}
+
+detailScreens[14].svg = Ribbon;
+
+function Bear({ size = 1 }) {
+  return /*#__PURE__*/(
+    React.createElement("svg", {
+      class: "bear",
+      width: 200 * size,
+      height: 200 * size,
+      viewBox: "-100 -100 200 200" }, /*#__PURE__*/
+
+    React.createElement("circle", { cx: "-40", cy: "-50", r: "20", fill: "white" }), /*#__PURE__*/
+    React.createElement("circle", { cx: "40", cy: "-50", r: "20", fill: "white" }), /*#__PURE__*/
+    React.createElement("circle", { cx: "-40", cy: "-50", r: "15", fill: "#E5C39C" }), /*#__PURE__*/
+    React.createElement("circle", { cx: "40", cy: "-50", r: "15", fill: "#E5C39C" }), /*#__PURE__*/
+
+    React.createElement("rect", { class: "face", x: "-55", y: "-60", width: "110", height: "120" }), /*#__PURE__*/
+
+    React.createElement("circle", { cx: "20", cy: "-30", r: "3" }), /*#__PURE__*/
+    React.createElement("circle", { cx: "-20", cy: "-30", r: "3" }), /*#__PURE__*/
+
+    React.createElement("path", {
+      d: " M -30 0 C -30 -25 30 -25 30 0 L 30 30 Q 30 40 20 40 L -20 40 Q -30 40 -30 30",
+
+
+
+
+
+
+      fill: "#E5C39C" }), /*#__PURE__*/
+
+
+    React.createElement("path", {
+      d: " M -10 0 L 10 0 C 10 20 -10 20 -10 0" }), /*#__PURE__*/
+
+
+
+
+    React.createElement("path", {
+      class: "mouth",
+      d: " M 0 10 Q 0 25 10 25 M 0 10 Q 0 25 -10 25" })));
+
+
+
+
+
+
+
+
+}
+
+detailScreens[15].svg = Bear;
+
+function Text({ size = 1 }) {
+  return /*#__PURE__*/(
+    React.createElement("svg", { width: 200 * size, height: 200 * size, viewBox: "-100 -100 200 200" }, /*#__PURE__*/
+    React.createElement("defs", null, /*#__PURE__*/
+    React.createElement("path", { id: "text-arc", d: "M 0, 50 A 50 50 0 1 1 1,50" })), /*#__PURE__*/
+
+
+    React.createElement("text", {
+      fill: "#0c5c4c",
+      "font-family": "Tahoma",
+      "font-size": "0.77em",
+      "font-weight": "bold" }, /*#__PURE__*/
+
+    React.createElement("textPath", { href: "#text-arc" }, "Happy Holidays! Happy Holidays! Happy Holidays!"))));
+
+
+
+
+
+}
+
+detailScreens[16].svg = Text;
+
+function Sleigh({ size = 1 }) {
+  return /*#__PURE__*/(
+    React.createElement("svg", {
+      width: 400 * size,
+      height: 200 * size,
+      viewBox: "-200 -100 400 200",
+      fill: "none" }, /*#__PURE__*/
+
+    React.createElement("path", {
+      stroke: "#E0CEB9",
+      "stroke-width": "4",
+      d: "M-200 80 L -80 80 Q 80 80 70 -10 A 70 70 0 0 0 -70 -10 Q -80 80 80 80 L 200 80" }), /*#__PURE__*/
+
+
+    React.createElement("g", { class: "sleigh" }, /*#__PURE__*/
+    React.createElement("path", {
+      d: " M -30 -2 L 30 -2 A 10 10 0 0 0 30 -22 M -20 -2 L -20 -17 M 20 -2 L 20 -17",
+
+
+
+      stroke: "#AF6455",
+      "stroke-width": "5" }), /*#__PURE__*/
+
+    React.createElement("path", { d: "M -27 -17 L 27 -17", stroke: "#7A504F", "stroke-width": "6" }))));
+
+
+
+}
+
+detailScreens[17].svg = Sleigh;
+
+function RingingBell({ size = 1 }) {
+  return /*#__PURE__*/(
+    React.createElement("svg", {
+      class: "bell",
+      width: 200 * size,
+      height: 200 * size,
+      viewBox: "-100 -100 200 200" }, /*#__PURE__*/
+
+    React.createElement("g", { stroke: "#001514", "stroke-width": "2" }, /*#__PURE__*/
+    React.createElement("circle", { cx: "0", cy: "-45", r: "7", fill: "#4F6D7A" }), /*#__PURE__*/
+    React.createElement("circle", { class: "bell-tongue", cx: "0", cy: "50", r: "10", fill: "#F79257" }), /*#__PURE__*/
+    React.createElement("path", {
+      d: " M -50 40 L -50 50 L 50 50 L 50 40 Q 40 40 40 10 C 40 -60 -40 -60 -40 10 Q -40 40 -50 40",
+
+
+
+
+
+
+
+      fill: "#FDEA96" }))));
+
+
+
+
+}
+
+detailScreens[18].svg = RingingBell;
+
+function Snowing({ size = 1 }) {
+  return /*#__PURE__*/(
+    React.createElement("svg", { width: 200 * size, height: 200 * size, viewBox: "-100 -100 200 200" }, /*#__PURE__*/
+    React.createElement("defs", null, /*#__PURE__*/
+    React.createElement("g", { id: "tree" }, /*#__PURE__*/
+    React.createElement("polygon", { points: "-10,0 10,0 0 -50", fill: "#38755b" }), /*#__PURE__*/
+    React.createElement("line", {
+      x1: "0",
+      y1: "0",
+      x2: "0",
+      y2: "10",
+      stroke: "#778074",
+      "stroke-width": "2" })), /*#__PURE__*/
+
+
+
+    React.createElement("circle", { id: "big-flake", cx: "0", cy: "0", r: "5", fill: "white" }), /*#__PURE__*/
+    React.createElement("circle", { id: "small-flake", cx: "0", cy: "0", r: "3", fill: "white" })), /*#__PURE__*/
+
+
+    React.createElement("rect", { x: "-100", y: "-100", width: "200", height: "200", fill: "#F1DBC3" }), /*#__PURE__*/
+    React.createElement("circle", { cx: "0", cy: "380", r: "350", fill: "#F8F4E8" }), /*#__PURE__*/
+
+    React.createElement("use", { href: "#tree", x: "-30", y: "25", transform: "scale(2)" }), /*#__PURE__*/
+    React.createElement("use", { href: "#tree", x: "-20", y: "40", transform: "scale(1.2)" }), /*#__PURE__*/
+    React.createElement("use", { href: "#tree", x: "40", y: "40" }), /*#__PURE__*/
+    React.createElement("use", { href: "#tree", x: "50", y: "30", transform: "scale(1.5)" }), /*#__PURE__*/
+
+    React.createElement("use", { href: "#big-flake", x: "0", y: "0", class: "flake fast" }), /*#__PURE__*/
+    React.createElement("use", { href: "#big-flake", x: "-50", y: "-20", class: "flake fast small" }), /*#__PURE__*/
+    React.createElement("use", { href: "#big-flake", x: "30", y: "-40", class: "flake fast" }), /*#__PURE__*/
+    React.createElement("use", { href: "#big-flake", x: "50", y: "-20", class: "flake fast small" }), /*#__PURE__*/
+    React.createElement("use", { href: "#big-flake", x: "30", y: "50", class: "flake slow" }), /*#__PURE__*/
+    React.createElement("use", { href: "#big-flake", x: "-70", y: "-80", class: "flake slow small" }), /*#__PURE__*/
+    React.createElement("use", { href: "#big-flake", x: "30", y: "50", class: "flake slow" }), /*#__PURE__*/
+    React.createElement("use", { href: "#big-flake", x: "90", y: "-80", class: "flake slow small" }), /*#__PURE__*/
+    React.createElement("use", { href: "#small-flake", x: "10", y: "-50", class: "flake slow" }), /*#__PURE__*/
+    React.createElement("use", { href: "#small-flake", x: "-50", y: "-60", class: "flake slow small" }), /*#__PURE__*/
+    React.createElement("use", { href: "#small-flake", x: "30", y: "70", class: "flake slow" }), /*#__PURE__*/
+    React.createElement("use", { href: "#small-flake", x: "10", y: "-80", class: "flake slow small" })));
+
+
+}
+
+detailScreens[19].svg = Snowing;
+
+function Background({ size = 1 }) {
+  return /*#__PURE__*/(
+    React.createElement("div", { class: "background", style: { width: 200 * size, height: 200 * size } }));
+
+}
+
+detailScreens[20].svg = Background;
+
+function Clock({ size = 1 }) {
+  const hour = new Date().getHours() % 12;
+  const minute = new Date().getMinutes();
+  let [hourRotation, setHourRotation] = React.useState(360 / 12 * hour);
+  let [minuteRotation, setMinuteRotation] = React.useState(360 / 60 * minute);
+
+  setTimeout(() => {
+    const hour = new Date().getHours() % 12;
+    const minute = new Date().getMinutes();
+    setHourRotation(360 / 12 * hour);
+    setMinuteRotation(360 / 60 * minute);
+  }, 1000);
+
+  return /*#__PURE__*/(
+    React.createElement("svg", {
+      class: "clock",
+      width: 200 * size,
+      height: 200 * size,
+      viewBox: "-100 -100 200 200" }, /*#__PURE__*/
+
+    React.createElement("rect", { x: "-100", y: "-100", width: "200", height: "200", fill: "#CD803D" }), /*#__PURE__*/
+
+    React.createElement("circle", { r: "55", stroke: "#FCCE7B", "stroke-width": "10", fill: "white" }), /*#__PURE__*/
+    React.createElement("circle", {
+      r: "45",
+      stroke: "#B6705F",
+      "stroke-width": "6",
+      "stroke-dasharray": "6 17.56194490192345",
+      "stroke-dashoffset": "3",
+      fill: "none" }), /*#__PURE__*/
+
+    React.createElement("g", { stroke: "#5f4c6c", "stroke-linecap": "round" }, /*#__PURE__*/
+    React.createElement("line", {
+      id: "hours",
+      y2: "-20",
+      "stroke-width": "8",
+      transform: `rotate(${hourRotation})` }), /*#__PURE__*/
+
+    React.createElement("line", {
+      id: "minutes",
+      y2: "-35",
+      "stroke-width": "6",
+      transform: `rotate(${minuteRotation})` }))));
+
+
+
+
+}
+
+detailScreens[21].svg = Clock;
+
+function Lights({ size = 1 }) {
+  const [lightsOn, setLights] = React.useState(false);
+
+  const switchLights = () => setLights(!lightsOn);
+
+  return /*#__PURE__*/(
+    React.createElement("svg", {
+      class: "lights",
+      width: 400 * size,
+      height: 200 * size,
+      viewBox: "-200 -100 400 200" }, /*#__PURE__*/
+
+    React.createElement("defs", null, /*#__PURE__*/
+    React.createElement("g", { id: "bulb" }, /*#__PURE__*/
+    React.createElement("path", { d: "M 0,0 Q 20 25 0 40 Q -20 25 0 0" }), /*#__PURE__*/
+    React.createElement("rect", { x: "-6", y: "-1", width: "12", height: "10", rx: "3", fill: "#5F4C6C" }))), /*#__PURE__*/
+
+
+
+    React.createElement("path", { d: "M -140 -60 Q -70 -50 0 -60 Q 110 -70 110 10" }), /*#__PURE__*/
+    React.createElement("line", { x1: "-70", y1: "-15", x2: "-70", y2: "-55" }), /*#__PURE__*/
+    React.createElement("line", { x1: "30", y1: "-25", x2: "30", y2: "-60" }), /*#__PURE__*/
+    React.createElement("use", {
+      class: "b",
+      href: "#bulb",
+      x: "-120",
+      y: "-45",
+      transform: "rotate(5)",
+      fill: lightsOn ? "#FFC05B" : "white" }), /*#__PURE__*/
+
+    React.createElement("use", {
+      class: "b",
+      href: "#bulb",
+      x: "-70",
+      y: "-15",
+      fill: lightsOn ? "#F86285" : "white" }), /*#__PURE__*/
+
+    React.createElement("use", {
+      class: "b",
+      href: "#bulb",
+      x: "-20",
+      y: "-57",
+      transform: "rotate(-5)",
+      fill: lightsOn ? "#03A8A8" : "white" }), /*#__PURE__*/
+
+    React.createElement("use", {
+      class: "b",
+      href: "#bulb",
+      x: "30",
+      y: "-25",
+      fill: lightsOn ? "#748CEF" : "white" }), /*#__PURE__*/
+
+
+    React.createElement("rect", { x: "90", y: "10", width: "40", height: "40", fill: "lightgray" }), /*#__PURE__*/
+    React.createElement("circle", {
+      id: "button",
+      cx: "110",
+      cy: "30",
+      r: "15",
+      fill: "red",
+      onClick: switchLights })));
+
+
+
+}
+
+detailScreens[22].svg = Lights;
+
+function Diagram({ size = 1 }) {
+  const dataPoints = [3, 4, 7, 5, 3, 6];
+  const sineWave = Array.from({ length: 115 }).
+  map((item, index) => `${index - 55},${Math.sin(index / 20) * 20 + 10}`).
+  join(" ");
+
+  return /*#__PURE__*/(
+    React.createElement("svg", { width: 200 * size, height: 200 * size, viewBox: "-100 -100 200 200" },
+    dataPoints.map((dataPoint, index) => /*#__PURE__*/
+    React.createElement("rect", {
+      key: index,
+      x: index * 20 - 55,
+      y: 50 - dataPoint * 10,
+      width: "15",
+      height: dataPoint * 10,
+      fill: "#CD803D" })), /*#__PURE__*/
+
+
+    React.createElement("polyline", { points: sineWave, fill: "none", stroke: "black", "stroke-width": "5" })));
+
+
+}
+
+detailScreens[23].svg = Diagram;
+
+function Threes() {
+  return /*#__PURE__*/(
+    React.createElement("g", null, /*#__PURE__*/
+    React.createElement("defs", null, /*#__PURE__*/
+    React.createElement("g", { id: "tree" }, /*#__PURE__*/
+    React.createElement("polygon", { points: "-10,0 10,0 0 -50", fill: "#38755b" }), /*#__PURE__*/
+    React.createElement("line", { x2: "0", y2: "10", stroke: "#778074", "stroke-width": "2" }))), /*#__PURE__*/
+
+
+
+    React.createElement("use", { href: "#tree", x: "-20", y: "25", transform: "scale(1.8)" }), /*#__PURE__*/
+    React.createElement("use", { href: "#tree", x: "-10", y: "40", transform: "scale(1)" }), /*#__PURE__*/
+    React.createElement("use", { href: "#tree", x: "30", y: "40", transform: "scale(0.8)" }), /*#__PURE__*/
+    React.createElement("use", { href: "#tree", x: "40", y: "30", transform: "scale(1.2)" })));
+
+
+}
+
+function Snow() {
+  return /*#__PURE__*/(
+    React.createElement("g", { class: "snowing" }, /*#__PURE__*/
+    React.createElement("defs", null, /*#__PURE__*/
+    React.createElement("circle", { id: "big-flake", cx: "0", cy: "0", r: "5", fill: "white" }), /*#__PURE__*/
+    React.createElement("circle", { id: "small-flake", cx: "0", cy: "0", r: "3", fill: "white" })), /*#__PURE__*/
+
+
+    React.createElement("use", { href: "#big-flake", x: "0", y: "0", class: "flake fast" }), /*#__PURE__*/
+    React.createElement("use", { href: "#big-flake", x: "-50", y: "-20", class: "flake fast small" }), /*#__PURE__*/
+    React.createElement("use", { href: "#big-flake", x: "30", y: "-40", class: "flake fast" }), /*#__PURE__*/
+    React.createElement("use", { href: "#big-flake", x: "50", y: "-20", class: "flake fast small" }), /*#__PURE__*/
+    React.createElement("use", { href: "#big-flake", x: "30", y: "50", class: "flake slow" }), /*#__PURE__*/
+    React.createElement("use", { href: "#big-flake", x: "-70", y: "-80", class: "flake slow small" }), /*#__PURE__*/
+    React.createElement("use", { href: "#big-flake", x: "30", y: "50", class: "flake slow" }), /*#__PURE__*/
+    React.createElement("use", { href: "#big-flake", x: "90", y: "-80", class: "flake slow small" }), /*#__PURE__*/
+    React.createElement("use", { href: "#small-flake", x: "10", y: "-50", class: "flake slow" }), /*#__PURE__*/
+    React.createElement("use", { href: "#small-flake", x: "-50", y: "-60", class: "flake slow small" }), /*#__PURE__*/
+    React.createElement("use", { href: "#small-flake", x: "30", y: "70", class: "flake slow" }), /*#__PURE__*/
+    React.createElement("use", { href: "#small-flake", x: "10", y: "-80", class: "flake slow small" })));
+
+
+}
+
+function SnowGlobe({ size = 1 }) {
+  return /*#__PURE__*/(
+    React.createElement("svg", { width: 200 * size, height: 200 * size, viewBox: "-100 -100 200 200" }, /*#__PURE__*/
+    React.createElement("clipPath", { id: "snow-globe" }, /*#__PURE__*/
+    React.createElement("circle", { cx: "0", cy: "0", r: "80" })), /*#__PURE__*/
+
+
+    React.createElement("g", { "clip-path": "url(#snow-globe)" }, /*#__PURE__*/
+    React.createElement("rect", { x: "-100", y: "-100", width: "200", height: "200", fill: "#F1DBC3" }), /*#__PURE__*/
+    React.createElement("circle", { cx: "0", cy: "380", r: "350", fill: "#F8F4E8" }), /*#__PURE__*/
+
+    React.createElement(Threes, null), /*#__PURE__*/
+    React.createElement(Snow, null)), /*#__PURE__*/
+
+
+    React.createElement("circle", { cx: "0", cy: "0", r: "80", fill: "none", stroke: "gray", "stroke-width": "2" })));
+
+
+}
+
+detailScreens[24].svg = SnowGlobe;
+
+function Day({ index, Component, select }) {
+  const onMouseEnter = event => event.currentTarget.style["z-index"] = 10;
+  const onMouseLeave = event => {
+    const target = event.currentTarget;
+    // Add a delay to leave enough time for the door to close
+    setTimeout(() => {
+      target.style["z-index"] = 1;
+    }, 1000);
+  };
+
+  return /*#__PURE__*/(
+    React.createElement("div", {
+      class: "day",
+      onClick: () => select(index),
+      onMouseEnter: onMouseEnter,
+      onMouseLeave: onMouseLeave }, /*#__PURE__*/
+
+    React.createElement("div", { class: "cover" }, index + 1), /*#__PURE__*/
+    React.createElement(Component, { size: "0.6" })));
+
+
+}
+
+function App() {
+  const [selection, setSelection] = React.useState(undefined);
+  const DetailSVG = selection != undefined && detailScreens[selection].svg;
+
+  return /*#__PURE__*/(
+    React.createElement("div", { className: "App" }, /*#__PURE__*/
+    React.createElement("div", { className: "grid" }, /*#__PURE__*/
+    React.createElement("header", null, /*#__PURE__*/
+    React.createElement("h1", null, "Learn to code SVG"), /*#__PURE__*/
+    React.createElement("p", null, "Click a tile to reveal an image and its source code")), /*#__PURE__*/
+
+    React.createElement("div", { className: "block" }, /*#__PURE__*/
+    React.createElement(Day, { index: 0, Component: Decoration, select: setSelection }), /*#__PURE__*/
+    React.createElement(Day, { index: 1, Component: Three, select: setSelection }), /*#__PURE__*/
+    React.createElement(Day, { index: 2, Component: Gingerbread, select: setSelection }), /*#__PURE__*/
+    React.createElement(Day, { index: 3, Component: House, select: setSelection }), /*#__PURE__*/
+    React.createElement(Day, { index: 4, Component: DecorationWithClip, select: setSelection })), /*#__PURE__*/
+
+    React.createElement("div", { className: "block" }, /*#__PURE__*/
+    React.createElement(Day, { index: 5, Component: Star, select: setSelection }), /*#__PURE__*/
+    React.createElement(Day, { index: 6, Component: Snowflake, select: setSelection }), /*#__PURE__*/
+    React.createElement(Day, { index: 7, Component: Forest, select: setSelection }), /*#__PURE__*/
+    React.createElement(Day, {
+      index: 8,
+      Component: DecorationWithGradient,
+      select: setSelection }), /*#__PURE__*/
+
+    React.createElement(Day, { index: 9, Component: Snowman, select: setSelection })), /*#__PURE__*/
+
+
+    React.createElement("div", { className: "block" }, /*#__PURE__*/
+    React.createElement(Day, { index: 10, Component: ThreeWithCurves, select: setSelection }), /*#__PURE__*/
+    React.createElement(Day, { index: 11, Component: Gift, select: setSelection }), /*#__PURE__*/
+    React.createElement(Day, { index: 12, Component: Bell, select: setSelection }), /*#__PURE__*/
+    React.createElement(Day, { index: 13, Component: Candy, select: setSelection })), /*#__PURE__*/
+
+
+    React.createElement("div", { className: "big-block" }, /*#__PURE__*/
+    React.createElement(Day, { index: 14, Component: Ribbon, select: setSelection }), /*#__PURE__*/
+
+    React.createElement("div", { class: "day twitter" }, "Follow me", /*#__PURE__*/
+
+    React.createElement("a", { href: "https://twitter.com/HunorBorbely", target: "_blank" }, "@HunorBorbely")), /*#__PURE__*/
+
+
+
+
+    React.createElement(Day, { index: 15, Component: Bear, select: setSelection }), /*#__PURE__*/
+    React.createElement(Day, { index: 16, Component: Text, select: setSelection }), /*#__PURE__*/
+    React.createElement(Day, { index: 17, Component: Sleigh, select: setSelection }), /*#__PURE__*/
+    React.createElement(Day, { index: 18, Component: RingingBell, select: setSelection }), /*#__PURE__*/
+    React.createElement(Day, { index: 19, Component: Snowing, select: setSelection }), /*#__PURE__*/
+    React.createElement(Day, { index: 20, Component: Background, select: setSelection })), /*#__PURE__*/
+
+
+    React.createElement("div", { className: "small-block" }, /*#__PURE__*/
+    React.createElement(Day, { index: 21, Component: Clock, select: setSelection }), /*#__PURE__*/
+    React.createElement(Day, { index: 22, Component: Lights, select: setSelection }), /*#__PURE__*/
+    React.createElement(Day, { index: 23, Component: Diagram, select: setSelection }), /*#__PURE__*/
+    React.createElement(Day, { index: 24, Component: SnowGlobe, select: setSelection }))),
+
+
+    selection != undefined && /*#__PURE__*/
+    React.createElement("div", { className: "detail-screen" }, /*#__PURE__*/
+    React.createElement("div", { className: "close", onClick: () => setSelection(undefined) }), /*#__PURE__*/
+    React.createElement("div", { class: "content" }, /*#__PURE__*/
+    React.createElement(DetailSVG, { size: "1" })), /*#__PURE__*/
+
+
+    React.createElement("div", { class: "details" }, /*#__PURE__*/
+    React.createElement("h1", null, detailScreens[selection].title), /*#__PURE__*/
+    React.createElement("p", {
+      dangerouslySetInnerHTML: {
+        __html: detailScreens[selection].description } }),
+
+
+    detailScreens[selection].sourceCodes.map(({ type, content }) => /*#__PURE__*/
+    React.createElement("div", { class: "code-section", key: type }, /*#__PURE__*/
+    React.createElement("h2", null, type), /*#__PURE__*/
+
+    React.createElement("pre", { class: "source-code" }, /*#__PURE__*/
+    React.createElement("code", {
+      dangerouslySetInnerHTML: {
+        __html: hljs.highlight(type, content).value } }))))))));
+
+
+
+
+
+
+
+
+
+
+}
+
+ReactDOM.render( /*#__PURE__*/React.createElement(App, null), document.getElementById("root"));
+//# sourceURL=pen.js
+    </script>
+
+  
+
+
+
+
+ 
+</body></html>

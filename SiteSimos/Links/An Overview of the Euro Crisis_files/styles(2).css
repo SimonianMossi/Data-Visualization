@@ -1,0 +1,18 @@
+/**
+ * $Id: styles.css 121425 2013-02-22 13:44:43Z gopi_borra $
+ * /css/0.1/screen/build/interactive/sunday-review/dark/styles.css
+ * (c)2006 - 2011 The New York Times Company
+ */
+
+#branding {
+  background: url(/images/logos/nyt/nyt-logo-110x16-dark.png) no-repeat;
+  display: block;
+  float: none;
+  margin-top: 7px;
+}
+
+#masthead h2 {
+  margin: 0 0 13px;
+  position: static;
+  text-align: left;
+}

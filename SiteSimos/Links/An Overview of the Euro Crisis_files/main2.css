@@ -1,0 +1,313 @@
+.nytg-clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.nytg-clearfix { display: inline-block; }  /* for IE/Mac */
+
+.nytg-ie .nytg-clearfix {
+  zoom: 1;     /* triggers hasLayout */
+  display: block;     /* resets display for IE/Win */
+} 
+
+
+div.storyHeader h1 {
+    font-size: 26px!important;
+    margin-bottom:4px!important;
+    margin-top:12px!important;
+}
+#interactiveABC .ledeStory .summary,
+div.storyHeader,
+.storySummary {
+/*  display:none;*/
+
+}
+.storySummary {
+	padding-bottom:20px;
+}
+#main{
+  position:relative;
+}
+#articleToolsTop{
+  position:absolute;
+  right:10px;
+  top:-15px;
+}
+#interactiveFooter .module .noWrap{white-space:normal;}
+#interactiveFooter { margin-top: -55px;}	
+
+/* -----------------------------------------------------  */
+#nytg-container{
+  position:relative;
+}
+#nytg-header{
+  margin: 50px 10px 0 15px;
+  padding: 0 0 8px;
+  position:relative;
+  z-index:1000;
+	display:none;
+}
+.nytg-headerText{
+  margin: 15px auto 0px; padding: 0 0 8px;
+  font-family: nyt-cheltenham-hinted, georgia,"times new roman",times,serif;  
+  color:#333;
+  font-size:30px;
+  font-weight:normal;
+/*  border-bottom:1px solid #333;  */
+}
+.nytg-headerSummary{
+  margin: 0; padding: 0;
+  font-family: georgia,"times new roman",times,serif;    
+  color:#333;
+  line-height:1.5;
+  font-size:14px;
+}
+
+/* ----------------------------------------------------- cols */
+#nytg-colsContainer{
+  margin: 25px 10px 0;
+  width:950px;
+  padding: 20px 0;
+  position:relative;
+  z-index:100;
+}
+/* ----------------------------------------------------- nav */
+.nytg-navItems{
+  margin: 0 15px 0 0; padding: 0 0 0 0;
+  float:left;
+  display:inline;
+  width:235px;
+  list-style-type:none;  
+}
+.nytg-navItems li{
+  display:block;
+  margin: 0; padding: 0;
+  background:none;
+  list-style-type:none;
+  float:none;
+}
+.nytg-navItems li a{
+  display:block;
+  background:#f0f4f5;
+  border:1px solid #ddd;
+  border-top:none;  
+  width:235px;
+  height:80px;
+  overflow:hidden;
+  -webkit-transition: background .4s;
+  -moz-transition: background .4s;  
+  outline:none;
+}
+.nytg-navItems li.nytg-first a{
+  -moz-border-radius: 2px 2px 0 0;
+  -webkit-border-radius: 2px 2px 0 0;
+  border-radius: 2px 2px 0 0;    
+}
+.nytg-navItems li.nytg-last a{
+  -moz-border-radius: 0 0 2px 2px;
+  -webkit-border-radius: 0 0 2px 2px;
+  border-radius: 0 0 2px 2px;    
+}
+
+.nytg-navItems li a:hover{
+  background:#FFFFE9;
+  text-decoration:none;
+}
+.nytg-navItems li.nytg-navItemSelected a{
+  background:#fff;  
+  color:#000;
+}
+.nytg-navItems li.nytg-first a{
+  border-top:1px solid #ddd;
+}
+.nytg-navImage{
+  margin:5px 16px 0 5px;
+  float:left;
+  display:inline;
+/*  background:#ddd;*/
+  width:70px;
+  height:70px;
+}
+.nytg-navItems .nytg-navText{
+  float:left;
+  display:inline;  
+  margin: 24px 0 0 0;
+  width:142px;
+  font-size:13px;
+  font-family: arial,helvetica,sans-serif;
+  line-height:15px;
+  text-transform:uppercase;
+  font-weight:bold;
+}
+/* ----------------------------------------------------- chart */
+#nytg-chartContainer{
+  float:left;
+  display:inline;
+  width:700px;
+  height:700px;
+  position:relative;
+}
+#nytg-chart{
+  float:left;
+  display:inline;
+  width:700px;
+  height:700px;
+  margin-top:-60px;
+}
+/* ----------------------------------------------------- chapters */
+#nytg-chapters{
+  width:700px;
+  position:relative;
+  height:700px;
+}
+.nytg-chapter{
+  position:absolute;
+  font-family: arial,helvetica,sans-serif;
+  left:0;
+  top:0;
+  height:0;
+  overflow:hidden;
+	pointer-events:none;
+}
+.nytg-chapter *{
+	pointer-events:none;
+}
+.nytg-selectedChapter{
+  height:auto;
+}
+#nytg-chartContainer .nytg-chapterAnnotation{
+  font-family: arial,helvetica,sans-serif;
+  font-size:13px;
+  line-height:18px;
+  color:#000;
+  margin:0;
+}
+#nytg-chartContainer .nytg-diagramLabel,
+#nytg-chartContainer .nytg-keyHed,
+#nytg-chartContainer .nytg-keyLabel{
+	font-size:11px;
+	line-height:13px;
+	text-transform:uppercase;
+}
+#nytg-chartContainer .nytg-keyText{
+	font-size:12px;
+	line-height:14px;
+	margin-bottom:2px;
+	margin-top:2px;
+}
+#nytg-chartContainer .nytg-keyHed{
+	font-weight:bold;
+	color:#555;
+}
+#nytg-chartContainer .nytg-keySwatches{
+	line-height:10px;
+	padding:5px 0 4px;
+}
+#nytg-chartContainer .nytg-keySwatch{
+	float:left;
+	width:55px;
+}
+#nytg-chartContainer .nytg-keyLabel{
+	margin-top:0px;
+}
+
+
+/* ----------------------------------------------------- hover */
+#nytg-hoverBox{
+  display:none;
+  position:absolute;
+  z-index:1000;
+  top:0;
+  left:0;
+  -moz-box-shadow: 1px 1px 1px rgba(0,0,0,.2);
+  -webkit-box-shadow: 1px 1px 1px rgba(0,0,0,.2);
+  box-shadow: 1px 1px 1px rgba(0,0,0,.2);    
+  background:#fff;
+  border:1px solid #ddd;
+/*  width:180px;*/
+  width:200px;
+  padding:10px;
+  opacity:.95;
+  -webkit-transition:opacity .2s;
+  -moz-transition:opacity .2s;  
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 12px;
+	line-height: 18px;
+	color: #505050;
+  
+}
+.nytg-countryRow{
+/*  border-bottom:1px dotted #ddd;*/
+  padding: 0 0 4px;
+  margin-bottom: 4px;
+  height:14px;
+}
+.nytg-countryRow:last-child{
+  border-bottom:none;
+}
+#nytg-hoverBox h3{
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 16px;
+	line-height: 22px;
+	padding: 0;
+	color: #222;
+	margin:0px;
+}
+
+#nytg-hoverBox .nytg-listItemCountry{
+	font-size: 12px;
+	line-height: 18px;
+	color: #505050;
+	margin:0px;
+	float:left;
+}
+
+#nytg-hoverBox .nytg-listItemValue{
+	font-size: 12px;
+	font-weight:bold;
+	line-height: 18px;
+	color: #505050;
+	margin:0px;
+	float:right;
+	display:inline;	
+}
+
+#nytg-hoverBox .nytg-clear{
+	clear:both;
+}
+
+#nytg-hoverBox .nytg-debtCaption{	
+	font-size: 10px;
+	line-height: 12px;
+	color: #999;
+	text-transform:uppercase;
+	float:left;
+	display:inline;	
+  margin: 4px 0 0; padding: 0;
+}
+
+#nytg-hoverBox .nytg-debtNumber{
+	font-size:28px;
+	font-weight:bold;
+	color:#222;
+	padding-right:12px;
+	padding-bottom:10px;
+	margin-bottom:0;
+	float:left;
+	display:inline;
+}
+
+#nytg-hoverBox .nytg-owesHeader{
+  border-bottom:1px solid #000;
+  padding-bottom:1px;
+  margin-bottom:5px;
+  color:#000;
+}
+.nytg-billions{
+  float:right;
+  display:inline;
+  font-size:10px;
+}
