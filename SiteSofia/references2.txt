@@ -1,0 +1,137 @@
+references
+https://sofispace.w3spaces.com/references.html
+
+
+
+  <!DOCTYPE html>
+<html lang="el">
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Syne" />
+  <style>
+    body {
+      background-image: url(https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80);
+      /* The image used for background*/
+      background-repeat: no-repeat;
+      /* Do not repeat the image */
+      background-position: center;
+      /* Center the image */
+      background-size: cover;
+      /* Resize the background image to cover the entire container */
+      font-family: "Syne", sans-serif;
+    }
+
+    .container {
+      width: 100%;
+      padding-right: 15px;
+      padding-left: 15px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    .image-container {
+      text-align: center;
+      width: 100%;
+    }
+
+    .links-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .link {
+      min-width: 50% !important;
+    }
+
+    @media (min-width: 1200px) {
+      .container {
+        max-width: 1140px;
+      }
+    }
+
+    @media (min-width: 992px) {
+      .container {
+        max-width: 960px;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        max-width: 720px;
+      }
+
+      .link {
+        width: 100%;
+      }
+    }
+
+    @media (min-width: 576px) {
+      .container {
+        max-width: 540px;
+      }
+    }
+
+    .w3-yellow,
+    .w3-hover-purple:hover,
+    .w3-text-black {
+      color: rgba(255, 204, 217) !important;
+      background-color: rgba(255, 255, 179, 0.3) !important;
+    }
+  </style>
+</head>
+
+<body>
+ <div class="w3-content w3-padding-32 w3-center" style="padding-right: 10px; padding-left: 10px; max-width: 600px">
+   <h1 class="w3-text-white">References </h1>
+ 
+   <div class="w3-content w3-padding-32 w3-center" style="padding-right: 10px; padding-left: 10px; max-width: 600px">
+      <p class="w3-text-white">
+       Για τη ΣΕΛΙΔΑ DATA VISUALIZATION:
+        <div class="links-container">
+          <a href="https://graphics.reuters.com/ENTERTAINMENT-STARWARS/0100B4QC2F7/index.html" class="w3-button w3-hover-pink w3-large w3-round-xlarge w3-yellow link" target="_blank">Οπτικοποίηση1 <br> t.ly/G6aZ </a>
+          <a href="https://graphics.reuters.com/HEALTH-CORONAVIRUS/VACCINE/yzdpxqxnwvx/index.html" class="w3-button w3-hover-pink w3-large w3-round-xlarge w3-yellow link" target="_blank">Οπτικοποίηση2 <br> t.ly/jILU </a>
+          <a href="https://graphics.reuters.com/MUSIC-EUROVISION/FINAL/rlgvdyeqzpo/" class="w3-button w3-hover-pink w3-large w3-round-xlarge w3-yellow link" target="_blank">Οπτικοποίηση3 <br> t.ly/lKFY </a>
+          <a href="https://graphics.reuters.com/ENVIRONMENT-CORALS-DISEASE/0100B2CP1GL/index.html" class="w3-button w3-hover-pink w3-large w3-round-xlarge w3-yellow link" target="_blank">Οπτικοποίηση4 <br> t.ly/48dkJ </a>
+          <a href="https://en.wikipedia.org/wiki/Coral_reef_protection" class="w3-button w3-hover-pink w3-large w3-round-xlarge w3-yellow link" target="_blank">Πληροφορίες για τους υφάλους1 <br> t.ly/4pm0 </a>
+          <a href="https://en.wikipedia.org/wiki/Coral_reef" class="w3-button w3-hover-pink w3-large w3-round-xlarge w3-yellow link" target="_blank">Πληροφορίες για τους υφάλους2 <br> t.ly/pGpe </a>
+          <a href="https://blog.hubspot.com/marketing/great-data-visualization-examples" class="w3-button w3-hover-pink w3-large w3-round-xlarge w3-yellow link" target="_blank">Πληροφορίες για την οπτικοποίηση <br> t.ly/ieN5 </a>
+        </div>
+      </p>
+      <p class="w3-text-white">
+       Για τη ΣΕΛΙΔΑ SVG:
+        <div class="links-container">
+          <a href="https://css-tricks.com/transforms-on-svg-elements/" class="w3-button w3-hover-pink w3-large w3-round-xlarge w3-yellow link" target="_blank">Πηγή1 <br>  </a>
+          <a href="https://css-tricks.com/guide-svg-animations-smil/?fbclid=IwAR1u0dOU6KKbdK9wZRQeAUkdCbfBFuXZhmBxvIl6EZhAlhNYs2d9ndAqzPs" class="w3-button w3-hover-pink w3-large w3-round-xlarge w3-yellow link" target="_blank">Πηγή2 <br>  </a>
+          <a href="https://en.wikipedia.org/wiki/Scalable_Vector_Graphics" class="w3-button w3-hover-pink w3-large w3-round-xlarge w3-yellow link" target="_blank">Ορισμός SVG <br> t.ly/JrpW </a>
+        </div>
+      </p>
+      <p class="w3-text-white">
+       Για την κατασκευή της παρούσας ιστοσελίδας, χρησιμοποιήθηκε η σελίδα της W3Schools
+        <div class="links-container">
+          <a href="https://www.w3schools.com/" class="w3-button w3-hover-pink w3-large w3-round-xlarge w3-yellow link" target="_blank">W3Schools <br> https://www.w3schools.com/ </a>
+          <a href="https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80" class="w3-button w3-hover-pink w3-large w3-round-xlarge w3-yellow link" target="_blank">Εικόνα Background <br> t.ly/OdwH </a>
+        </div>
+      </p>
+     </div>
+
+     
+     <div class="w3-row">
+        <div class="w3-content w3-padding-32 w3-center" style="padding-right: 10px; padding-left: 10px; max-width: 600px">
+          <p>
+            <button class="w3-button w3-yellow w3-padding-large w3-round-xlarge">
+              <a href="https://sofiaspace.w3spaces.com/arxiki1.html"  target="_self">ΠΙΣΩ</a>
+            </button>
+          </p>
+        </div>
+     </div>
+   </div>
+ </div>
+</body>
+         

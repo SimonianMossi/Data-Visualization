@@ -1,0 +1,131 @@
+get to know me
+https://sofispace.w3spaces.com/get2knowme.html
+
+
+
+
+ <!DOCTYPE html>
+<html lang="el">
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Syne" />
+  <style>
+    body {
+      background-image: url(https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80);
+      /* The image used for background*/
+      background-repeat: no-repeat;
+      /* Do not repeat the image */
+      background-position: center;
+      /* Center the image */
+      background-size: cover;
+      /* Resize the background image to cover the entire container */
+      font-family: "Syne", sans-serif;
+    }
+
+    .container {
+      width: 100%;
+      padding-right: 15px;
+      padding-left: 15px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    .image-container {
+      text-align: center;
+      width: 100%;
+    }
+
+    .links-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .link {
+      min-width: 50% !important;
+    }
+
+    @media (min-width: 1200px) {
+      .container {
+        max-width: 1140px;
+      }
+    }
+
+    @media (min-width: 992px) {
+      .container {
+        max-width: 960px;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        max-width: 720px;
+      }
+
+      .link {
+        width: 100%;
+      }
+    }
+
+    @media (min-width: 576px) {
+      .container {
+        max-width: 540px;
+      }
+    }
+
+    .w3-yellow,
+    .w3-hover-purple:hover,
+    .w3-text-black {
+      color: rgba(255, 204, 217) !important;
+      background-color: rgba(255, 255, 179, 0.3) !important;
+    }
+  </style>
+</head>
+
+<head>
+ <div class="w3-content w3-padding-32 w3-center" style="padding-right: 10px; padding-left: 10px; max-width: 600px">
+     <h1 class="w3-text-white">Get 2 Know Me </h1> <br>
+ </div>
+
+ <div class="w3-content w3-padding-32 w3-center" style="padding-right: 10px; padding-left: 10px; max-width: 600px">
+     <h2 class="w3-text-white">Life Highlights :) </h2>
+ 
+     <p class="w3-text-white">
+         1996: Γέννηση!<br>2002: Νηπειαγωγείο! <br> 2004: 2α Δημοτικού! Γνωριμία με τη γερμανική γλώσσα (1ος έρωτας!) <br>
+         2007: Διάκριση στα Γερμανικά. Πρώτο βαραβείο στον διαγωνισμό που συμμετείχαν όλοι οι μαθητές της 5ης και 6ης τάξης του δημοτικού.<br>
+         2010: Αγορά πρώτου smartphone και γνωριμία με τα νέα apps.Ανακάλυψη δυνατοτήτων προγραμματισμού (2ος έρωτας!)<br>
+         2012: Απόκτηση Πτυχίων Ξένων Γλωσσών (Εκπλήρωση 1ου έρωτα) <br> 2014: Εισαγωγή στο Φυσικό Πάτρας <br> 2020: Απόκτηση Πτυχίου <br> Πρώτη Δουλειά <br> 
+         2021: Εγγραφή στο Μεταπτυχιακό ΤΠΕ του τμήματος ΤΠΕ για μελλοντική απόπειρα ενασχόλησης με τον προγραμματισμό! (και εκπλήρωση 2ου έρωτα)<br> 
+         2022: Παρούσα Εργασία! Στα επόμενα buttons δίνονται κάποια data visualization παραδείγματα, καθώς και οι πηγές αυτών.   
+     </p>
+ </div>
+
+
+ <div class="w3-content w3-padding-32 w3-center" style="padding-right: 10px; padding-left: 10px; max-width: 600px">
+     <h2 class="w3-text-white">Hobbies :) </h2>
+  
+     <p class="w3-text-white">
+         Κολύμβηση <br> Αναρρίχηση <br> Μπάσκετ <br> Άπειρες ώρες τηλεθέασης ξένων ταινιών και απομνημόνευση φράσεων που έχουν ειπωθεί σε αυτές!
+ </div>
+
+ <div class="w3-content w3-padding-32 w3-center" style="padding-right: 10px; padding-left: 10px; max-width: 600px">
+     <h3 class="w3-text-white">Τώρα που έγινε η αρχική γνωριμία, ας πάμε να δούμε κάποια παραδείγματα οπτικοποίησης δεδομένων! </h3>
+ </div>
+
+ <div class="w3-row">
+     <div class="w3-content w3-padding-32 w3-center" style="padding-right: 10px; padding-left: 10px; max-width: 600px">
+         <p>
+             <button class="w3-button w3-yellow w3-padding-large w3-round-xlarge">
+                 <a href="https://sofiaspace.w3spaces.com/arxiki1.html"  target="_self">ΠΙΣΩ</a>
+              
+                </button>
+         </p>
+     </div>
+ </div>    
+</body>

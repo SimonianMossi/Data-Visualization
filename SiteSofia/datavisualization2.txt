@@ -1,0 +1,206 @@
+datavisualization
+https://sofispace.w3spaces.com/datavisualization.html
+
+
+
+ <!DOCTYPE html>
+<html lang="el">
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Syne" />
+  <style>
+    body {
+      background-image: url(https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80);
+      /* The image used for background*/
+      background-repeat: no-repeat;
+      /* Do not repeat the image */
+      background-position: center;
+      /* Center the image */
+      background-size: cover;
+      /* Resize the background image to cover the entire container */
+      font-family: "Syne", sans-serif;
+    }
+
+    .container {
+      width: 100%;
+      padding-right: 15px;
+      padding-left: 15px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    .image-container {
+      text-align: center;
+      width: 100%;
+    }
+
+    .links-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .link {
+      min-width: 50% !important;
+    }
+
+    @media (min-width: 1200px) {
+      .container {
+        max-width: 1140px;
+      }
+    }
+
+    @media (min-width: 992px) {
+      .container {
+        max-width: 960px;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        max-width: 720px;
+      }
+
+      .link {
+        width: 100%;
+      }
+    }
+
+    @media (min-width: 576px) {
+      .container {
+        max-width: 540px;
+      }
+    }
+
+    .w3-yellow,
+    .w3-hover-purple:hover,
+    .w3-text-black {
+      color: rgba(255, 204, 217) !important;
+      background-color: rgba(255, 255, 179, 0.3) !important;
+    }
+  </style>
+</head>
+
+<body>
+ <div class="w3-content w3-padding-32 w3-center" style="padding-right: 10px; padding-left: 10px; max-width: 600px">
+     <h1 class="w3-text-white">Data Visualization </h1>
+ 
+     <div class="w3-content w3-padding-32 w3-center" style="padding-right: 10px; padding-left: 10px; max-width: 600px">
+         <p class="w3-text-white">
+             Με την έννοια της λέξης "οπτικοποίηση" εννοείται η μετατροπή της ό,ποιας πληροφορίας σε οπτικό ερέθισμα. 
+             Η οπτικοποίηση της πληροφορίας λοιπόν μπορεί να γίνει μέσω: <br>
+             1. Γραφημάτων γραμμής <br>
+             2. Διαγραμμάτων <br>
+             3. Γεωγραφικών χαρτών <br>  
+             4. Νοητικών και Εννοιλογικών χαρτών <br>
+             5. Πινάκων <br>
+             6. Ραβδογραμμάτων και <br>
+             7. Διαγραμμάτων πίτας <br>
+             Μετά από ενδελεχή εξερεύνηση στο διαδίκτυο για τη μελέτη και έρευνα οπτικοποιήσεων, κάποιες ξεχώρισαν παραπάνω από κάποιες άλλες. <br>
+             Παρακάτω, παρουσιάζονται κάποια παραδείγματα αυτών που μου έκαναν περισσότερη εντύπωση. <br>
+
+            </p> <br> <hr>
+      </div>
+     <div class="container">
+         <div class="image-container">
+             <img
+                 src="im5.png"
+                 class="w3-margin"
+                 alt="Visualization No1"
+                 width="80%"
+                 height="60%"
+          
+                />
+         </div>
+     </div>    
+     <p class="w3-text-white">
+         Στο πρώτο παράδειγμα οπτικοποίησης, η πληροφορία παρουσιάζεται με ευκολόνητο τρόπο. 
+         Βλέποντας κανείς το ancestry tree style visualization μαθαίνει γρήγορα το περιεχόμενο της πληροφορίας, 
+         δίχως να χρειάζεται να διαβάσει βιβλία, comics και άλλες πηγές σχετιζόμενες με αυτό. 
+
+     </p> <br>
+     <div class="container">
+         <div class="image-container">
+             <img
+                 src="im2.png"
+                 class="w3-margin"
+                 alt="Visualization No1"
+                 width="80%"
+                 height="60%"
+          
+                />
+         </div>
+     </div>    
+     <p class="w3-text-white">
+         Στο δεύτερο παράδειγμα οπτικοποίησης, η πληροφορία παρουσιάζεται με τη βοήθεια ενός ραβδογράμματος. 
+         Βλέποντας κανείς το διάγραμμα μαθαίνει γρήγορα για τα είδη και τον αριθμό των υποψήφιων εμβολίων κάθε είδους για τον Covid 19.
+         Ακουμπώντας το βελάκι πάνω σε κάθε γραμμή, εμφανίζεται για κάθε είδος εμβολίου, ο αριθμός τών υποψηφίων που βρίσκονται σε κλινική δοκιμή. 
+    
+        </p> <br>
+     <div class="container">
+         <div class="image-container">
+             <img
+                 src="im3.png"
+                 class="w3-margin"
+                 alt="Visualization No1"
+                 width="80%"
+                 height="60%"
+          
+                />
+         </div>
+     </div>    
+     <p class="w3-text-white">
+         Στο τρίτο παράδειγμα οπτικοποίησης, η πληροφορία παρουσιάζεται όπως προηγουμένως μέσω ενός ραβδογράμματος.
+         Βλέποντας κανείς το διάγραμμα χωρίς πολλή προσπάθεια σε δευτερόλεπτα αντλεί ενα estimation των συμμετοχών κάθε χώρας
+         στο διαγωνισμό της eurovision, όπως επίσης και τις χώρες που λαμβάνουν μέρος κάθε χρόνο σε αυτόν. Επίσης, με ροζ χρώμα
+         γίνεται ο διαχωρισμός των ιδρυτών χωρών του διαγωνισμού. 
+
+        </p> <br>
+     <div class="container">
+         <div class="image-container">
+             <img
+                 src="im4.png"
+                 class="w3-margin"
+                 alt="Visualization No1"
+                 width="80%"
+                 height="60%"
+          
+                />
+         </div>
+     </div>    
+     <p class="w3-text-white">
+         Και τέλος στο τέταρτο και τελευταίο παράδειγμα, η πληροφορία παρουσιάζεται μέσω ενός γεωγραφικού χάρτη.
+         Βλέποντας κανείς τον χάρτη των virgin islands κάνοντας scroll μπορεί να δει την πορεία καταστροφής του υφάλου και
+         των κοραλλίων αυτού. <br> <hr>
+     <div class="w3-content w3-padding-32 w3-center" style="padding-right: 10px; padding-left: 10px; max-width: 600px">
+     <p class="w3-text-white">
+         Από τα παραπάνω παραδείγματα, αυτό που θα διάλεγα ως αγαπημένο μου, θα έλεγα πως είναι το τελευταίο 
+         τόσο, εξαιτίας της θεματικής του, όσο και του τρόπου απεικόνισης της γνώσης. <br>
+         Αρχικά να τονίσουμε σε αυτό το σημείο, τη σημαντικότητα των κοραλλιογενών υφάλων. Χάρη σε αυτούς, προστατεύονται πολλές 
+         ακτές από τα κύματα. Πολλά νησιά μάλιστα, δε θα υπήρχαν χωρίς αυτούς. <br>
+         Αν και καλύπτουν λιγότερο του 10% του ωκεανού, ωφελούν περισσότερα από 9 εκατομμύρια θαλάσσια είδη για ανάγκες 
+         όπως στέγη, τροφή, προστασία, θηλασμό των μικρών και αναπαραγωγή. <br>
+         Το κείμενο πραγματεύεται την καταστροφή των κοραλλίων λόγω ασθένειας που εξαπλώνεται γρήγορα. <br>
+         Ο λόγος που διαλέγω αυτή την οπτικοποίηση ως την αγαπημένη μου είναι πως καταφέρνει να επιστήσει την προσοχή του αναγνώστη 
+         στο πρόβλημα at hand και με εύκολο τρόπο να κάνει κατανοητή στον αναγνώστη τη γρήγορη μετάδοση αυτής της ασθένειας. 
+
+        </p>
+
+     <div class="w3-row">
+         <div class="w3-content w3-padding-32 w3-center" style="padding-right: 10px; padding-left: 10px; max-width: 600px">
+             <p>
+                 <button class="w3-button w3-yellow w3-padding-large w3-round-xlarge">
+                     <a href="https://sofiaspace.w3spaces.com/arxiki1.html"  target="_self">ΠΙΣΩ</a>
+              
+                    </button>
+             </p>
+         </div>
+     </div>
+ </div>
+</body>

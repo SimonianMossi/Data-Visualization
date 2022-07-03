@@ -1,0 +1,169 @@
+svg
+https://sofispace.w3spaces.com/svg.html
+
+
+
+
+ <!DOCTYPE html>
+<html lang="el">
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Syne" />
+  <style>
+    body {
+      background-image: url(https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80);
+      /* The image used for background*/
+      background-repeat: no-repeat;
+      /* Do not repeat the image */
+      background-position: center;
+      /* Center the image */
+      background-size: cover;
+      /* Resize the background image to cover the entire container */
+      font-family: "Syne", sans-serif;
+    }
+
+    .container {
+      width: 100%;
+      padding-right: 15px;
+      padding-left: 15px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    .image-container {
+      text-align: center;
+      width: 100%;
+    }
+
+    .links-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .link {
+      min-width: 50% !important;
+    }
+
+    @media (min-width: 1200px) {
+      .container {
+        max-width: 1140px;
+      }
+    }
+
+    @media (min-width: 992px) {
+      .container {
+        max-width: 960px;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        max-width: 720px;
+      }
+
+      .link {
+        width: 100%;
+      }
+    }
+
+    @media (min-width: 576px) {
+      .container {
+        max-width: 540px;
+      }
+    }
+
+    .w3-yellow,
+    .w3-hover-purple:hover,
+    .w3-text-black {
+      color: rgba(255, 204, 217) !important;
+      background-color: rgba(255, 255, 179, 0.3) !important;
+    }
+  </style>
+</head>
+
+<body>
+
+ <div class="w3-content w3-padding-32 w3-center" style="padding-right: 10px; padding-left: 10px; max-width: 600px">
+      <h1 class="w3-text-white">SVG </h1>
+ </div>
+ <div class="w3-content w3-padding-32 w3-center" style="padding-right: 10px; padding-left: 10px; max-width: 600px">
+    <p class="w3-text-white">
+      "SVG" ή αλλιώς Scalable Vector Graphics είναι μια εικόνα δισδιάστατων γραφικών βασισμένη στην XML. 
+      Τα σχέδια SVG μπορούν να είναι δυναμικά και διαδραστικά .<br> 
+      Το SVG επιτρέπει τρεις τύπους αντικειμένων γραφικών: διανυσματικά σχήματα γραφικών (όπως διαδρομές που αποτελούνται
+      από ευθείες γραμμές και καμπύλες), εικόνες bitmap και κείμενο.<br> 
+      Τα σχέδια SVG μπορούν να είναι διαδραστικά και μπορούν να περιλαμβάνουν κινούμενα σχέδια , που ορίζονται στα στοιχεία
+      SVG XML ή μέσω δέσμης ενεργειών που αποκτά πρόσβαση στο μοντέλο αντικειμένου εγγράφου SVG (DOM). Το SVG χρησιμοποιεί 
+      CSSγια στυλ και JavaScript για scripting.<br>
+    
+      Παρακάτω, παρουσιάζεται ένα παράδειγμα SVG γραφικού <br>
+      (click on the red and green shapes)
+    </p> <br> <hr>
+     
+    <svg width="500" hight="400" >
+      <circle id="circle" r="20" cx="100" cy="100" stroke="white" stroke-width="3" fill="blue" />
+      <path id="motionPath" fill="none" stroke="#000000" stroke-miterlimit="5"
+        d="
+        M 200, -35
+        m -40, 0
+        a 40,40 0 1,0 80,0
+        a 40,40 0 1,0 -80,0
+      "/>
+          
+      <animateMotion 
+        xlink:href="#circle"
+        dur="3s"
+        begin="0s"
+        fill="freeze"
+        repeatCount="indefinite"
+        >
+        <mpath xlink:href="#motionPath" />
+      />
+    </svg>
+    <svg width="500" height="350">
+      <circle id="circle2" r="25" cx="250" cy="50"  stroke="white" stroke-width="3" fill="red" />
+      <animate 
+        xlink:href="#circle2"
+        attributeName="cy"
+        from="50"
+        to="250" 
+        dur="2s"
+        begin="click"
+        repeatCount="indefinite"
+        fill="freeze" 
+      />
+        
+      <rect id="rectangle2" width="50" height="50" x="25" y="200" stroke="white" stroke-width="3" fill="green"></rect>   
+      <animate
+        xlink:href="#rectangle2"
+        attributeName="x"
+        from="50"
+        to="500" 
+        dur="2s"
+        begin="click"
+        repeatCount="indefinite"
+        fill="freeze" 
+      />   
+    </svg>
+  </div>
+ 
+  <div class="w3-row">
+    <div class="w3-content w3-padding-32 w3-center" style="padding-right: 10px; padding-left: 10px; max-width: 600px">
+      <p>
+        <button class="w3-button w3-yellow w3-padding-large w3-round-xlarge">
+         <a href="https://sofiaspace.w3spaces.com/arxiki1.html"  target="_self">ΠΙΣΩ</a>
+           
+        </button>
+      /p>
+    </div>
+  </div>
+</body>
+
+  
