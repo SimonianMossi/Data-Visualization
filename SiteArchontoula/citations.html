@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Website about me</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Slabo+27px&display=swap" rel="stylesheet"> 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
+    </head>
+    <body>
+        <section class="sub-header">
+            <nav>
+                <a href="index.html"><img src="pictures/logo.png " width="70" height="70"></a>
+                <div class="nav-links" id="navLinks">
+                    <i class="fa fa-times" onclick="hideMenu()"></i>
+                    <ul>
+                        <li><a href="index.html">ABOUT</a></li>
+                        <li><a href="visualization.html">VISUALIZATION</a></li>
+                        <li><a href="contact.html" >CONTACT</a></li>
+                        <li><a href="citations.html">CITATIONS</a></li>
+                    </ul>
+                </div>
+                <i class="fa fa-bars" onclick="showMenu()"></i>
+            </nav>
+
+
+            <div class="CITATIONS">
+                <h1>CITATIONS</h1>
+                <div class="cite-links" id="citeLinks">
+                <ul>
+                    <li><a href="https://www.youtube.com/watch?v=qz0aGYrrlhU" >HTML Tutorial for Beginners: HTML Crash Course</a><br></li>
+                    <li><a href="https://www.youtube.com/watch?v=kMT54MPz9oE">HTML and CSS Tutorial - Create a Website for Beginners</a><br></li>
+                    <li><a href="https://css-tricks.com/guide-svg-animations-smil/">A Guide to SVG Animations</a><br></li>
+                    <li><a href="https://www.youtube.com/watch?v=BXPqnzWmgUQ">Intro to HTML and CSS, Part 4: Making a Multi Page Website</a><br></li>
+                    <li><a href="https://www.youtube.com/watch?v=6Mgyufh46gM&t=0s">Make Complete College Website Design</a><br></li>
+                    <li><a href="https://www.nationalgeographic.com/">National Geographic</a><br></li>
+                    <li><a href="https://instagram.com/___maggle___?utm_medium=copy_link">Art by __maggle__</a><br></li>
+                    <li><a href="https://code.visualstudio.com/">Visual Studio Code</a>
+                    <li><a href="https://fonts.google.com/">Google Fonts</a></li>
+                    <li><a href="https://fontawesome.com/v4/icons/">Font Awsome</a></li>
+                </ul>   
+                </div>
+
+
+                
+            </div>
+        
+        </section>
+
+
+
+
+
+    <!--------JavaScript for Menu------------>  
+        <script>
+
+            var navLinks = document.getElementById("navLinks");
+            function showMenu(){
+                navLinks.style.right = "0";
+            }
+            function hideMenu(){
+                navLinks.style.right = "-200";
+            }
+
+        </script>
+
+    </body>
+</html>

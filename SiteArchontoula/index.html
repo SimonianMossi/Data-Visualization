@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Website about me</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Slabo+27px&display=swap" rel="stylesheet"> 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
+    </head>
+    <body>
+        <section class="header">
+            <nav>
+                <a href="index.html"><img src="pictures/logo.png " width="70" height="70"></a>
+                <div class="nav-links" id="navLinks">
+                    <i class="fa fa-times" onclick="hideMenu()"></i>
+                    <ul>
+                        <li><a href="index.html">ABOUT</a></li>
+                        <li><a href="visualization.html">VISUALIZATION</a></li>
+                        <li><a href="contact.html" >CONTACT</a></li>
+                        <li><a href="citations.html">CITATIONS</a></li>
+                    </ul>
+                </div>
+                <i class="fa fa-bars" onclick="showMenu()"></i>
+            </nav>
+            
+            <div class="text-box">
+                <div class="image">
+                    <img src="pictures/profile.jpg" width="220" height="220"> 
+                </div>
+                <h1>Archontoula Bada</h1>
+                <p>I am an aspiring data scientist with a a backround in mathematics.<br>
+                    I have studied mathematics in UOA and I'm currently working on my 
+                    master's degree in Computer Science with a specialization in
+                    Data Knowledge and Information Management. <br>Some of my hobbies include
+                    hiking, reading and trying my best at painting. At the moment I'm 
+                    working as a data science intern.</p>
+                
+                <a href="https://www.linkedin.com/in/archontoula-bada-051068150/" class="hero-btn">Contact me for more information</a>
+            </div>
+
+        </section>
+
+
+
+
+
+
+    <!--------JavaScript for Menu------------>  
+        <script>
+
+            var navLinks = document.getElementById("navLinks");
+            function showMenu(){
+                navLinks.style.right = "0";
+            }
+            function hideMenu(){
+                navLinks.style.right = "-200";
+            }
+
+        </script>
+
+    </body>
+</html>

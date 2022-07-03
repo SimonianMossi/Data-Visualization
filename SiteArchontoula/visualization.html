@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Website about me</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Slabo+27px&display=swap" rel="stylesheet"> 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
+    </head>
+    <body>
+        <section class="sub-header">
+            <nav>
+                <a href="index.html"><img src="pictures/logo.png " width="70" height="70"></a>
+                <div class="nav-links" id="navLinks">
+                    <i class="fa fa-times" onclick="hideMenu()"></i>
+                    <ul>
+                        <li><a href="index.html">ABOUT</a></li>
+                        <li><a href="visualization.html">VISUALIZATION</a></li>
+                        <li><a href="contact.html" >CONTACT</a></li>
+                        <li><a href="citations.html">CITATIONS</a></li>
+                    </ul>
+                </div>
+                <i class="fa fa-bars" onclick="showMenu()"></i>
+            </nav>
+
+
+            <div class="visual">
+                <h1>VISUALIZATION</h1>
+                <div class="viz-col">
+                    <p>The vizualization below tackles the issue of covid 19 as many have other studies since the year 2020.<br>
+                    What I found particularly interesting is it's focus on the often overlooked casualties of this <br>
+                    global pandemic that have survived the virus but have been pushed into poverty from the early 2019 to the end of 2020.<br>
+                    I find that the design is simple enough so as to not overwhelm the eye but very clearly conveys the message it is supposed to.<br>
+                    The three different poverty tiers are easily distinguishable with the use of different colors <br>
+                    and the bottom panel presenting the statistics for each country is also easy to interpret. Overall I believe that <br>
+                    it is important to draw focus on the aftermath of the continuous lockdowns in order for each state to take action <br>
+                    for its people. With this in mind, if I were to make any changes in the visulization, I would like to also be able to <br>
+                    view the absolute numbers accompanied by the percentages.</p>
+                    <a href="https://www.nationalgeographic.com/magazine/graphics/covid-19-could-push-100-million-more-people-into-poverty-feature" rel="nofollow"><img src="https://visme.co/blog/wp-content/uploads/2021/08/price-of-a-pandemic-1.png" ></a>
+                </div>
+            </div>
+        
+        </section>
+
+
+
+
+
+    <!--------JavaScript for Menu------------>  
+        <script>
+
+            var navLinks = document.getElementById("navLinks");
+            function showMenu(){
+                navLinks.style.right = "0";
+            }
+            function hideMenu(){
+                navLinks.style.right = "-200";
+            }
+
+        </script>
+
+    </body>
+</html>

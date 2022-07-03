@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Website about me</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Slabo+27px&display=swap" rel="stylesheet"> 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
+    </head>
+    <body>
+        <section class="sub-header">
+            <nav>
+                <a href="index.html"><img src="pictures/logo.png " width="70" height="70"></a>
+                <div class="nav-links" id="navLinks">
+                    <i class="fa fa-times" onclick="hideMenu()"></i>
+                    <ul>
+                        <li><a href="index.html">ABOUT</a></li>
+                        <li><a href="visualization.html">VISUALIZATION</a></li>
+                        <li><a href="contact.html" >CONTACT</a></li>
+                        <li><a href="citations.html">CITATIONS</a></li>
+                    </ul>
+                </div>
+                <i class="fa fa-bars" onclick="showMenu()"></i>
+            </nav>
+ 
+            <div class="contact">
+                <h1>Contact Information</h1>
+                <p>Feel free to contact me for more information!<br> 
+               <br> &#9993; badaarchontoula@gmail.com<br>
+               <br> &#9993; cs2200012@di.uoa.gr <br>
+               <br> &#9742; +30 6983853623
+               </p>
+                
+
+                
+           
+
+<svg width="500" height="350">
+    <circle id="orange-circle" r="30" cx="50" cy="50" fill="orange" onclick="freezing()"></circle>
+    <rect id="blue-rectangle" width="50" height="50" x="25" y="150" fill="#0099cc"></rect>
+    <circle id="pink-circle" r="30" cx="50" cy="310"  fill="#cc00ad"> </circle>
+        >
+    
+    <animate 
+             xlink:href="#orange-circle"
+             attributeName="cx"
+             from="50"
+             to="450" 
+             dur="5s"
+             begin="click"
+             repeatCount="indefinite"
+             fill="freeze" 
+             id="circ-anim"/>
+
+    
+    
+    <animate 
+             xlink:href="#blue-rectangle"
+             attributeName="x" 
+             from="50"
+             to="425" 
+             dur="5s"
+             begin="0s"
+             repeatCount="indefinite"
+             fill="freeze" 
+             id="rect-anim"/>
+
+     <animate 
+             xlink:href="#pink-circle"
+             attributeName="cx" 
+             from="50"
+             to="450" 
+             dur="5s"
+             begin="0s"
+             repeatCount="indefinite"
+             fill="freeze" 
+             id="rect-anim"/>
+    
+  </svg>
+  
+  
+  
+                
+            </div>
+
+                </div>
+            </div>
+        
+        </section>
+
+
+
+
+
+    <!--------JavaScript for Menu------------>  
+        <script>
+
+            var navLinks = document.getElementById("navLinks");
+            function showMenu(){
+                navLinks.style.right = "0";
+            }
+            function hideMenu(){
+                navLinks.style.right = "-200";
+            }
+
+        </script>
+
+    </body>
+</html>
