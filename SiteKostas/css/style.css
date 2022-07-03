@@ -1,0 +1,124 @@
+body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+}
+
+html {
+  height: -webkit-fill-available;
+}
+
+main {
+  flex-wrap: nowrap;
+  height: 100vh;
+  height: -webkit-fill-available;
+  max-height: 100vh;
+  overflow-x: auto;
+}
+
+.bd-cyan-900 {
+  color: #fff;
+  background-color: #051d31;
+}
+
+.bi {
+  vertical-align: -0.125em;
+  pointer-events: none;
+  fill: currentColor;
+}
+
+.nav-flush .nav-link {
+  border-radius: 0;
+}
+
+.scrollarea {
+  overflow-y: auto;
+}
+
+.fw-semibold {
+  font-weight: 600;
+}
+.lh-tight {
+  line-height: 1.25;
+}
+
+#big-face {
+  border-radius: 20px;
+}
+
+#bugs-container {
+  min-height: 300px;
+}
+
+.bug {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  transform-origin: 12px 12px;
+}
+.bug.squished {
+  width: 64px;
+  height: 64px;
+  z-index: -1;
+}
+.bug-blue {
+  fill: #0b0b9c;
+}
+.bug-green {
+  fill: #0b6212;
+}
+.bug-purple {
+  fill: #7d06a5;
+}
+
+/* https://blog.hubspot.com/website/css-fade-in */
+.fade-in-image {
+  animation: fadeIn 1.5s;
+  -webkit-animation: fadeIn 1.5s;
+  -moz-animation: fadeIn 1.5s;
+  -o-animation: fadeIn 1.5s;
+  -ms-animation: fadeIn 1.5s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

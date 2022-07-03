@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Kostas Ventouras">
+
+  <title>Kostas Ventouras</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+  <main class="d-block d-md-flex">
+    <!-- Narrow-screen menu -->
+    <nav class="navbar navbar-dark d-flex d-md-none bd-cyan-900 w-100">
+      <div class="container-fluid">
+        <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div class="collapse w-100 text-white p-4" id="navbarToggleExternalContent">
+        <a href="index.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+          <img width="96" height="96" alt="Me" src="img/face.jpg" class="rounded-circle me-3">
+          <span class="fs-4">Kostas Ventouras</span>
+        </a>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto">
+
+          <li class="nav-item">
+            <a href="index.html" class="nav-link text-white">
+              <i class="bi bi-house-door fs-5 me-2"></i>
+              Home
+            </a>
+          </li>
+
+          <li>
+            <a href="about.html" class="nav-link text-white">
+              <i class="bi bi-person fs-5 me-2"></i>
+              About Me
+            </a>
+          </li>
+
+          <li>
+            <a href="data.html" class="nav-link text-white">
+              <i class="bi bi-graph-up fs-5 me-2"></i>
+              We Like Data
+            </a>
+          </li>
+
+          <li>
+            <a href="play.html" class="nav-link active" aria-current="page">
+              <i class="bi bi-emoji-smile-upside-down fs-5 me-2"></i>
+              Play Time
+            </a>
+          </li>
+
+          <li>
+            <a href="sources.html" class="nav-link text-white">
+              <i class="bi bi-list-stars fs-5 me-2"></i>
+              Sources
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Wide-screen menu -->
+    <div class="d-none d-md-flex flex-column flex-shrink-0 p-3 text-white bd-cyan-900"
+      style="width: 280px; height: 100vh">
+      <a href="index.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+        <img width="96" height="96" alt="Me" src="img/face.jpg" class="rounded-circle me-3">
+        <span class="fs-4">Kostas Ventouras</span>
+      </a>
+      <hr>
+      <ul class="nav nav-pills flex-column mb-auto">
+
+        <li class="nav-item">
+          <a href="index.html" class="nav-link text-white">
+            <i class="bi bi-house-door fs-5 me-2"></i>
+            Home
+          </a>
+        </li>
+
+        <li>
+          <a href="about.html" class="nav-link text-white">
+            <i class="bi bi-person fs-5 me-2"></i>
+            About Me
+          </a>
+        </li>
+
+        <li>
+          <a href="data.html" class="nav-link text-white">
+            <i class="bi bi-graph-up fs-5 me-2"></i>
+            We Like Data
+          </a>
+        </li>
+
+        <li>
+          <a href="play.html" class="nav-link active" aria-current="page">
+            <i class="bi bi-emoji-smile-upside-down fs-5 me-2"></i>
+            Play Time
+          </a>
+        </li>
+
+        <li>
+          <a href="sources.html" class="nav-link text-white">
+            <i class="bi bi-list-stars fs-5 me-2"></i>
+            Sources
+          </a>
+        </li>
+
+      </ul>
+    </div>
+
+    <!-- Play -->
+    <div class="container px-4 py-4 position-relative" id="bugs-container">
+
+      <h3 class="text-center">
+        Pesky bugs.
+      </h3>
+      <p class="lead p-2 text-center">
+        Click on them to squish them.
+      </p>
+
+      <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
+        <!-- https://icons.getbootstrap.com/icons/bug-fill/ -->
+        <symbol id="bugSymbol" viewBox="0 0 32 32">
+          <path d="M4.978.855a.5.5 0 1 0-.956.29l.41 1.352A4.985 4.985 0 0 0 3 6h10a4.985 4.985 0 0 0-1.432-3.503l.41-1.352a.5.5 0 1 0-.956-.29l-.291.956A4.978 4.978 0 0 0 8 1a4.979 4.979 0 0 0-2.731.811l-.29-.956z"/>
+          <path d="M13 6v1H8.5v8.975A5 5 0 0 0 13 11h.5a.5.5 0 0 1 .5.5v.5a.5.5 0 1 0 1 0v-.5a1.5 1.5 0 0 0-1.5-1.5H13V9h1.5a.5.5 0 0 0 0-1H13V7h.5A1.5 1.5 0 0 0 15 5.5V5a.5.5 0 0 0-1 0v.5a.5.5 0 0 1-.5.5H13zm-5.5 9.975V7H3V6h-.5a.5.5 0 0 1-.5-.5V5a.5.5 0 0 0-1 0v.5A1.5 1.5 0 0 0 2.5 7H3v1H1.5a.5.5 0 0 0 0 1H3v1h-.5A1.5 1.5 0 0 0 1 11.5v.5a.5.5 0 1 0 1 0v-.5a.5.5 0 0 1 .5-.5H3a5 5 0 0 0 4.5 4.975z"/>
+        </symbol>
+        <!-- https://svgsilh.com/image/311428.html -->
+        <symbol id="splatSymbol" viewBox="0 0 32 32">
+          <path d="M8.2068 14.478c-.4512-.0852-.894-.4608-1.0356-.8784-.078-.228-.0732-.3696.0204-.7356.0732-.2868.1776-.612.3624-1.134.2328-.6576.288-.8412.3024-1.008.0156-.1872-.0552-.2436-.264-.21-.1548.0252-.2112.0456-.2364.0876-.0816.1332-.09.4992-.0216.9264.0396.252.0192.3492-.0924.4476-.078.0684-.1536.0912-.294.09-.3168-.0024-.7812-.2304-.9708-.4764-.1236-.1608-.1476-.3072-.0744-.4572.0528-.1056.1356-.1872.3432-.336.24-.1704.306-.2364.306-.3024 0-.0396-.0576-.1452-.108-.2004-.0672-.072-.1392-.0984-.3228-.1152-.1584-.0144-.2388-.006-.3324.0348-.0936.042-.2244.1404-.3432.2616-.2016.2028-.3336.378-.7116.9396-.4656.6912-.6144.8556-.9036 1.0008-.378.1896-.9264.2316-1.3116.0984-.1452-.0492-.2352-.102-.3216-.1872-.1296-.1284-.1764-.282-.1416-.4596.1164-.5892.8484-1.2264 1.884-1.6392.138-.0552.3516-.126.7284-.2412.21-.0648.3684-.1404.4452-.2148.0528-.0504.0588-.0624.0588-.108 0-.0276-.006-.0624-.0144-.0768-.0396-.0768-.144-.1848-.3156-.3288-.1524-.1284-.2172-.1728-.312-.2208-.1224-.06-.2328-.0948-.3024-.0948-.0348 0-.0396.0036-.0456.0456-.0168.1032-.0216.1188-.048.1656-.084.1452-.2616.2364-.462.2364-.2256 0-.396-.1008-.4884-.2892-.042-.084-.0456-.0984-.0456-.1956 0-.0972.0024-.108.036-.1572.0504-.0696.1368-.12.3168-.1788.2448-.0804.3144-.1356.3324-.2652.0084-.0576-.0228-.2424-.0444-.2688-.0204-.0252-.1392-.0204-.234.0084-.1728.0528-.4104.1788-.6708.3564-.3036.2064-.5616.4248-.882.7464-.1284.1296-.2664.2568-.3048.282-.0948.0612-.2088.108-.3216.1308-.4992.102-1.0404-.2892-1.2444-.8988-.1068-.3216-.1044-.7068.006-1.0164.2064-.5736.75-.948 1.5588-1.0728.1788-.0276.7128-.0324.858-.006.1368.0228.3084.0684.396.1032.1332.0528.36.1152.4956.1344.1104.0156.144.0168.216.0036.0756-.0132.0924-.0216.1356-.0648.0588-.0576.072-.0996.0888-.2688.0192-.2076 0-.234-.2988-.402-.1728-.0972-1.0956-.5652-1.176-.5964-.1764-.0684-.4668-.1212-.7884-.1428-.1044-.0072-.2748-.0192-.378-.0252-.3348-.0228-.5544-.0732-.7572-.174-.2616-.132-.408-.3132-.4608-.5712-.0744-.366.132-.8736.4944-1.2228.4896-.4704 1.0452-.444 1.7148.0828.108.084.222.1848.432.3804.0924.0864.2388.2208.324.2976.0864.078.2556.2424.378.366.252.2544.2988.2856.4488.3.126.012.3168-.0036.4068-.0336.2592-.0864.462-.318.5196-.5916.0132-.0588.0168-.1272.0144-.2088-.0048-.1056-.0096-.1296-.0384-.1776-.0744-.1284-.2508-.3228-.654-.7272-.45-.4512-.5904-.6036-.7296-.7884-.3996-.5328-.402-1.0032-.0072-1.392.1908-.1884.486-.3636.7416-.4404.0672-.0192.1176-.0252.246-.0252.1452 0 .1704.0036.2484.0312.4884.1788.7452.8076.8076 1.9788.0156.3012.03.4152.0648.5568.0768.3.24.4656.4932.5004.1788.024.3684-.0048.738-.114.102-.03.2976-.0816.4344-.1152.1356-.0324.2556-.0624.2652-.0672.0228-.0084.0564-.096.0564-.1488 0-.072-.042-.2232-.1716-.612-.138-.4128-.1836-.5652-.2304-.756-.0828-.3444-.1044-.7032-.054-.894.1776-.6708.7908-.9336 1.3464-.576.1836.1188.3972.3744.5076.6096.0816.1716.1068.2772.1056.4404-.0012.1956-.03.2832-.2256.684-.0888.1812-.1908.4032-.2268.4932-.036.09-.1092.2556-.1632.3672-.0528.1128-.096.2184-.096.2352 0 .096.1908.198.5412.2892.3192.084.6072.102.7332.0456.0612-.0264.0696-.048.0696-.2004.0012-.186.0672-.3924.1668-.5184.1368-.1716.4476-.3108.816-.3636.3216-.048.5808.0768.7092.3408.066.1356.0852.2172.0924.3996.0132.33-.0444.5232-.2016.678-.0876.0852-.18.1404-.4404.2616-.2988.138-.3912.2076-.4152.3144-.0204.0912.2088.2136.534.2844.2652.0564.6696.0948.7944.0732.1788-.0288.3624-.2304.8124-.888.2832-.414.348-.5016.4296-.5772.3972-.3636 1.3284-.3396 1.9284.0504.1272.0816.324.2808.3756.3792.0636.1212.0792.186.078.3276-.0012.0984-.0084.15-.0336.234-.186.6372-.9756 1.3428-1.7076 1.5276-.1116.0276-.1524.0312-.3084.0312-.1668 0-.1908-.0024-.324-.0396-.126-.036-.1632-.0408-.294-.042-.1704-.0012-.252.0156-.3936.0828-.2376.1116-.432.3012-.6552.636-.072.108-.0792.1248-.0792.18 0 .0804.0432.1692.12.2508.0624.066.1464.1152.1944.1152.0156 0 .0576-.0192.0936-.0432.1836-.1164.5136-.15.744-.0756.2436.0792.4152.2544.474.4848.024.0936.0228.1392-.006.2508-.09.3552-.4296.6072-.816.6072-.2244 0-.3648-.0708-.4812-.2424-.0252-.0372-.0516-.0708-.0588-.0756-.0312-.0192-.1488.0828-.2268.198-.1224.18-.1608.282-.162.42 0 .0768.0048.102.0384.1728.0744.1596.2676.3168.612.498.2328.1224.2628.1332.3612.1332.132 0 .228-.0408.5436-.2304.396-.2376.6036-.3096.8916-.3096.2808 0 .5256.0792.8388.2736.3156.1956.5568.4308.6708.6564.0636.126.0864.2292.0852.378 0 .1152-.006.1536-.0324.234-.1236.3756-.5484.7104-1.0644.84-.3876.0972-.6624.066-1.032-.12-.3624-.1812-.6324-.378-1.356-.99-.4536-.3828-.516-.4332-.648-.5208-.1332-.0888-.18-.1032-.2352-.0732-.0228.012-.0552.0396-.072.0624-.0432.0576-.1188.2232-.1416.3156-.0276.1068-.0372.3012-.0204.3864.0156.072.0516.1296.0804.1296.0204 0 .2532.0984.4884.2052.4452.204.6144.3684.6132.5988 0 .0504-.0096.1224-.0216.162-.0324.1104-.144.3276-.2112.4104-.2556.318-.6672.4224-.96.2424-.1116-.0684-.2052-.1956-.2556-.3492-.0216-.0636-.0444-.2256-.0444-.318 0-.054-.006-.0696-.0384-.1068-.114-.1296-.4044-.24-.7104-.27-.2904-.0276-.456.0324-.6072.222-.174.2196-.2928.5832-.2712.8328.0072.0876.024.1416.1872.6024.192.5448.2568.9132.2112 1.2192-.06.4104-.2736.6936-.5952.7908-.0924.0276-.2964.0336-.4092.012Z"/>
+        </symbol>
+      </svg>
+  
+      <svg class="bug" style="display: none;">
+        <use href="#bugSymbol"></use>
+      </svg>
+
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  <script type="text/javascript">
+    // https://codepen.io/cooljockey/pen/yLjXYz
+    function makeNewPosition() {
+
+      var container = $('#bugs-container');
+      var h = container.height() - 64;
+      var w = container.width() - 64;
+
+      var nh = Math.floor(32 + Math.random() * h);
+      var nw = Math.floor(32 + Math.random() * w);
+
+      return [nh, nw];
+    }
+
+    function animateDiv(item) {
+
+      const speed = 0.1;
+      var oldq = item.data("pos");
+      var newq = makeNewPosition();
+
+      var dist = Math.sqrt(Math.pow(oldq[0] - newq[0], 2) + Math.pow(oldq[1] - newq[1], 2));
+      var dur = dist / speed;
+
+      // https://stackoverflow.com/questions/15653801/rotating-object-to-face-mouse-pointer-on-mousemove
+      var angle = Math.atan2(newq[1] - oldq[1], - (newq[0] - oldq[0])) * (180 / Math.PI);
+      item[0].style.transform = `rotate(${angle}deg)`;
+      item.data("pos", newq);
+
+      item.animate({
+        "top": newq[0],
+        "left": newq[1]
+      }, dur, "linear", function () {
+        animateDiv(item);
+      });
+    };
+
+    $(document).ready(function () {
+
+      var bug = $('.bug');
+      var container = $('#bugs-container');
+
+      for (let i = 0; i < 20; i++) {
+        bug.clone().show().appendTo(container);
+      }
+      bug.remove();
+
+      var counter = 0;
+      $('.bug').each(function () {
+
+        counter++;
+        if (counter < 7) $(this).addClass("bug-blue");
+        else if (counter < 15) $(this).addClass("bug-green");
+        else $(this).addClass("bug-purple");
+
+        var p = makeNewPosition();
+        $(this).data("pos", p);
+        $(this).css({
+          "top": p[0] + "px",
+          "left": p[1] + "px",
+        });
+        animateDiv($(this));
+
+        $(this).mousedown(function () {
+          if ($(this).hasClass("squished")) return;
+          $(this).addClass("squished");
+          $(this).stop();
+          $(this).children("use").attr("href","#splatSymbol");
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
